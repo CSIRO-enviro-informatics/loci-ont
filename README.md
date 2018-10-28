@@ -22,7 +22,7 @@ The content of this API is licensed for use under the [Creative Commons 4.0 Lice
 ## Citation
 If you wish to cite this profile, please do so like this:
 
-Car, N.J. (2018) "LOC-I Ontology". An OWL ontology. http://linked.data.gov.au/def/loci
+Car, N.J. (2018) "LOC-I Ontology". An OWL ontology profile of other ontologies. http://linked.data.gov.au/def/loci
 
 
 ## Contacts
