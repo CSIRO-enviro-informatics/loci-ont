@@ -8,11 +8,10 @@ This ontology contrains both normative instruction on what constitutes LOC-I obj
 
 ## Contents 
 The resources in this profile are:
-* **[model.html](model.html)** - normative definitions of classes and properties defined by this ontology, non-normative alignments to other ontologies, examples and nother notes
-* **[model.ttl](ontology.html)** - formal definitions of classes and properties defined by this ontology in RDF 
-* **[alignments.ttl](alignments.ttl)** - RDF alignments to well-known ontologies are given
-* **[profile.ttl](profiledesc.ttl)** - a formal description of how this ontology relates to other resources using the [Profiles Ontology](https://w3c.github.io/dxwg/profilesont/)
-* **[constraints-shacl.ttl](constraints-shacl.ttl)** - RDF data shape constraints using the [Shapes Constraint Language, SHACL](https://www.w3.org/TR/shacl/) to be used to validate LOC-I class instances
+* **[model.html](model.html)** - normative definitions of classes defined by this ontology that are equivalent to constrained vclasses defined by ontologies this profiles
+* **[model.ttl](model.ttl)** - RDF version of the model
+* **[profile.ttl](profile.ttl)** - a formal description of how this ontology profiles other ontologies, using the [Profiles Ontology](https://w3c.github.io/dxwg/profilesont/)
+* **[constraints-shacl.ttl](constraints-shacl.ttl)** - RDF data shape constraints using the [Shapes Constraint Language, SHACL](https://www.w3.org/TR/shacl/) to be used to validate LOC-I class & property instances
 
 
 ## License
@@ -22,11 +21,11 @@ The content of this API is licensed for use under the [Creative Commons 4.0 Lice
 ## Citation
 If you wish to cite this profile, please do so like this:
 
-Car, N.J. (2018) "LOC-I Ontology". An OWL ontology profile of other ontologies. http://linked.data.gov.au/def/loci
+Car, N.J. (2018) "LOC-I Ontology". An OWL ontology and profile of other ontologies. http://linked.data.gov.au/def/loci
 
 
 ## Contacts
+*author*:  
 **Nicholas Car**  
-CSIRO Land & Water  
-*author*  
+CSIRO Land & Water, Environmental Informatics Group  
 <nicholas.car@csiro.au>
