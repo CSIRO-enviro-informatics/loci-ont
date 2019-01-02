@@ -3,11 +3,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>LOC-I Ontology</title>
-        <link href="http://lode2.linked.data.gov.au/owl.css" rel="stylesheet" type="text/css">
-        <link href="http://lode2.linked.data.gov.au/Primer.css" rel="stylesheet" type="text/css">
-        <link href="http://lode2.linked.data.gov.au/rec.css" rel="stylesheet" type="text/css">
-        <link href="http://lode2.linked.data.gov.au/extra.css" rel="stylesheet" type="text/css">
-        <link rel="shortcut icon" href="http://lode2.linked.data.gov.au/favicon.ico">
+        <link href="http://www.linked.data.gov.au/theme/owl.css" rel="stylesheet" type="text/css">
+        <link href="http://www.linked.data.gov.au/theme/Primer.css" rel="stylesheet" type="text/css">
+        <link href="http://www.linked.data.gov.au/theme/rec.css" rel="stylesheet" type="text/css">
+        <link href="http://www.linked.data.gov.au/theme/extra.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <div class="head">
@@ -81,16 +80,21 @@
             </dl>
             <dl>
                 <dt>
-                    Other visualisation:
+                    Ontology source:
                 </dt>
                 <dd>
-                    <a href="http://lode2.linked.data.gov.au/uploadedFiles/model.ttl">Ontology source</a>
+                    <a href="http://lode2.linked.data.gov.au/uploadedFiles/model.ttl">RDF file (turtle)</a>
+                </dd>
+                <dd>
+                    <a href="https://github.com/CSIRO-enviro-informatics/loci-ont">Git code repository online</a>
                 </dd>
             </dl>
         </div>
         <hr>
         <h2>Abstract</h2>
-        <span class="markdown"><p>A profile of several ontologies implemented to govern Linked Data resources published within the LOC-I project.</p> <p>This is a profile of the <a href="http://www.opengeospatial.org/standards/geosparql">GeoSPARQL</a> and <a href="https://www.w3.org/TR/vocab-dcat-2/">DCAT v2</a> &amp; <a href="http://www.w3.org/TR/void/">VOID</a> that require certain properties defined by those ontologies be present for several classes of resource that are of particular importance to the <a href="https://confluence.csiro.au/display/DIPAAnalyticHubs/Location+Integration+Capability+Loc-I">LOC-I</a> project.</p> <p>This ontology constrains both normative instruction on what constitutes LOC-I objects and supplies executable constraints to validate instances.</p> </span>
+        <p>A profile of several ontologies implemented to govern Linked Data resources published within the LOC-I project.</p>
+        <p>This ontology profiles the <a href="http://www.opengeospatial.org/standards/geosparql">GeoSPARQL</a> and <a href="https://www.w3.org/TR/vocab-dcat-2/">DCAT v2</a> &amp; <a href="http://www.w3.org/TR/void/">VOID</a> ontologies and requires that certain properties defined by them be present for several classes of resource that are of particular importance to the <a href="http://loci.cat">LocI project</a>.</p>
+        <p>This ontology constrains both normative instruction on what constitutes LOC-I objects and supplies executable constraints to validate instances. This ontologie's components and its relations to the onologies it profiles are described using the <a href="https://www.w3.org/TR/dx-prof">Profiles Ontology</a>.</p>
         <div id="toc">
             <h2>Table of Content</h2>
             <ol>
@@ -147,7 +151,7 @@
                 <h3>LOCI Dataset<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
                 <p><strong>IRI:</strong> http://linked.data.gov.au/def/loci#Dataset</p>
                 <div class="comment">
-                    <span class="markdown"><p>A LOCI Dataset is a DCAT and VOID Dataset that has been accepted by the LOCI Registry Manager.</p> </span>
+                    <p>A LOCI Dataset is a DCAT and VOID Dataset that has been accepted by the LOCI Registry Manager.</p>
                 </div>
                 <dl class="description">
                     <dt>
@@ -221,7 +225,7 @@
                 </div>
                 <p><strong>IRI:</strong> http://linked.data.gov.au/def/loci#DatasetLinkingStatement</p>
                 <div class="comment">
-                    <span class="markdown"><p>An RDF Statement (Subject, Predicate, Object + additional metadata) that links class instances in one LOCI Dataset with class instances in another</p> </span>
+                    <p>An RDF Statement (Subject, Predicate, Object + additional metadata) that links class instances in one LOCI Dataset with class instances in another</p>
                 </div>
                 <dl class="description">
                     <dt>
@@ -281,7 +285,7 @@
                 </div>
                 <p><strong>IRI:</strong> http://linked.data.gov.au/def/loci#Linkset</p>
                 <div class="comment">
-                    <span class="markdown"><p>A LOCI Linkset is a specialised form of a VOID Linkset that requires the void:subjectsTarget &amp; void:objectsTarget indicate LOCI Datasets</p> </span>
+                    <p>A LOCI Linkset is a specialised form of a VOID Linkset that requires the void:subjectsTarget &amp; void:objectsTarget indicate LOCI Datasets</p>
                 </div>
                 <dl class="description">
                     <dt>
@@ -331,7 +335,7 @@
                 <h3>had generation method<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
                 <p><strong>IRI:</strong> http://linked.data.gov.au/def/loci#hadGenerationMethod</p>
                 <div class="comment">
-                    <span class="markdown"><p>The LOCI Dataset Linking Statement had a Method that was used to generate it</p> </span>
+                    <p>The LOCI Dataset Linking Statement had a Method that was used to generate it</p>
                 </div>
             </div>
         </div>
