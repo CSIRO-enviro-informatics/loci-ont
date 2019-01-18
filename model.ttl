@@ -209,7 +209,7 @@ rdf:Statement rdf:type owl:Class .
 
 
 ###  http://linked.data.gov.au/linkset/bhafvq
-:AddressesCatchments rdf:type owl:NamedIndividual ,
+<http://linked.data.gov.au/linkset/bhafvq> rdf:type owl:NamedIndividual ,
                               :Linkset ;
                               rdfs:label "Addresses Catchments Linkset" .
 
