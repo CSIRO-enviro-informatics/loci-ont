@@ -214,18 +214,6 @@ rdf:Statement rdf:type owl:Class .
                               rdfs:label "Addresses Catchments Linkset" .
 
 
-### http://linked.data.gov.au/dataset/gnaf-2016-05
-<http://linked.data.gov.au/dataset/gnaf-2016-05> rdf:type owl:NamedIndividual ,
-                              :Dataset ;
-                              rdfs:label "GNAF Dataset 2016 May" .
-
-
-### http://linked.data.gov.au/dataset/asgs2016
-<http://linked.data.gov.au/dataset/asgs2016> rdf:type owl:NamedIndividual ,
-                              :Dataset ;
-                              rdfs:label "ASGS Dataset 2016" .
-
-
 ###  http://linked.data.gov.au/def/loci#DataPublisher
 :DataPublisher rdf:type owl:NamedIndividual .
 
