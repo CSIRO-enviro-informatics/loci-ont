@@ -208,7 +208,7 @@ rdf:Statement rdf:type owl:Class .
                                                   rdfs:label "GNAF Dataset" .
 
 
-###  http://linked.data.gov.au/def/loci#AddressesCatchments
+###  http://linked.data.gov.au/linkset/bhafvq
 :AddressesCatchments rdf:type owl:NamedIndividual ,
                               :Linkset ;
                               rdfs:label "Addresses Catchments Linkset" .
