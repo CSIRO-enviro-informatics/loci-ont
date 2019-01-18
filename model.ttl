@@ -1,20 +1,22 @@
 @prefix : <http://linked.data.gov.au/def/loci#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix void: <http://rdfs.org/ns/void#> .
 @base <http://linked.data.gov.au/def/loci> .
 
 <http://linked.data.gov.au/def/loci> rdf:type owl:Ontology ;
                                       owl:versionIRI <http://linked.data.gov.au/def/loci/1.0> ;
                                       owl:imports <http://purl.org/linked-data/registry> ,
-
-
                                                   rdf: ,
                                                   <http://www.w3.org/2002/07/owl> ,
-                                                  <http://www.w3.org/ns/dcat> ,
-                                                  <http://xmlns.com/foaf/0.1/> ;
+                                                  <http://www.w3.org/ns/dcat> ;
                                       <http://purl.org/dc/elements/1.1/creator> "Nicholas J. Car" ;
                                       <http://purl.org/dc/elements/1.1/publisher> "CSIRO" ;
                                       <http://purl.org/dc/terms/created> "2018-10-29"^^xsd:date ;
@@ -43,7 +45,7 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.w3.org/2004/02/skos/core#member
-<http://www.w3.org/2004/02/skos/core#member> rdf:type owl:AnnotationProperty .
+skos:member rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -52,9 +54,26 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
 
 ###  http://linked.data.gov.au/def/loci#hadGenerationMethod
 :hadGenerationMethod rdf:type owl:ObjectProperty ;
-                     rdfs:comment "The LOCI Dataset Linking Statement had a Method that was used to generate it"@en ;
+                     rdfs:range prov:Plan ;
+                     owl:propertyChainAxiom ( prov:wasGeneratedBy
+                                              prov:qualifiedAssociation
+                                              prov:hadPlan
+                                            ) ;
                      rdfs:label "had generation method" ;
-                     rdfs:range <http://www.w3.org/ns/prov#Plan> .
+                     skos:definition "Something (likely a prov:Entity) had a method (prov:Plan) that was used to generate it"@en ;
+                     skos:editorialNote "This property is a property chain axiome equivalent to a chian of three properties in the PROV ontology: prov:wasGeneratedBy, prov:qualifiedAssociation and prof:hadPlan linking a prov:Entity (the thing generated) to a prov:Plan (the thin instruction generation - the method) via a prov:Activity (the generating event) and a prov:Association that the prov:Activity has linking it to the prov:Plan."@en .
+
+
+###  http://rdfs.org/ns/void#objectsTarget
+void:objectsTarget rdf:type owl:ObjectProperty .
+
+
+###  http://rdfs.org/ns/void#subjectsTarget
+void:subjectsTarget rdf:type owl:ObjectProperty .
+
+
+###  http://www.opengis.net/ont/geosparql#hasGeometry
+geo:hasGeometry rdf:type owl:ObjectProperty .
 
 
 #################################################################
@@ -70,7 +89,7 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
                                                  <http://catalogue.linked.data.gov.au/org/psma>
                                                )
                                    ] ;
-               rdfs:subClassOf <http://xmlns.com/foaf/0.1/Group> .
+               rdfs:subClassOf foaf:Group .
 
 
 ###  http://linked.data.gov.au/def/loci#Dataset
@@ -79,8 +98,8 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
                                owl:onProperty <http://purl.org/dc/terms/publisher> ;
                                owl:allValuesFrom :DataPublisher
                              ] ;
-         rdfs:subClassOf <http://rdfs.org/ns/void#Dataset> ,
-                         <http://www.w3.org/ns/dcat#Dataset> ,
+         rdfs:subClassOf void:Dataset ,
+                         <http://www.w3.org/ns/dcat#DataDistributuionService> ,
                          [ rdf:type owl:Restriction ;
                            owl:onProperty <http://www.w3.org/ns/dcat#contactPoint> ;
                            owl:minCardinality "1"^^xsd:nonNegativeInteger
@@ -88,7 +107,7 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
                          [ rdf:type owl:Restriction ;
                            owl:onProperty <http://purl.org/dc/terms/publisher> ;
                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                           owl:onClass <http://xmlns.com/foaf/0.1/Organization>
+                           owl:onClass foaf:Organization
                          ] ,
                          [ rdf:type owl:Restriction ;
                            owl:onProperty <http://purl.org/dc/terms/issued> ;
@@ -105,8 +124,8 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                            owl:onDataRange xsd:string
                          ] ;
-         rdfs:comment "A LOCI Dataset is a DCAT and VOID Dataset that has been accepted by the LOCI Registry Manager."@en ;
-         rdfs:label "LOCI Dataset" .
+         rdfs:comment "A LocI Dataset is a DCAT and VOID Dataset that has been accepted by the LocI Registry Manager."@en ;
+         rdfs:label "LocI Dataset" .
 
 
 ###  http://linked.data.gov.au/def/loci#DatasetLinkingStatement
@@ -115,51 +134,63 @@ owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
                                          [ rdf:type owl:Restriction ;
                                            owl:onProperty :hadGenerationMethod ;
                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                           owl:onClass <http://www.w3.org/ns/prov#Plan>
+                                           owl:onClass prov:Plan
                                          ] ,
                                          [ rdf:type owl:Restriction ;
                                            owl:onProperty <http://purl.org/linked-data/registry#register> ;
                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                            owl:onClass :Linkset
-                                         ] ,
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty rdf:object ;
-                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                           owl:onClass :Feature
-                                         ] ,
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty rdf:subject ;
-                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                           owl:onClass :Feature
                                          ] ;
-                         rdfs:comment "An RDF Statement (Subject, Predicate, Object + additional metadata) that links class instances in one LOCI Dataset with class instances in another"@en ;
-                         rdfs:label "LOCI Dataset Linking Statement" .
+                         rdfs:comment "An RDF Statement (Subject, Predicate, Object + additional metadata) that links class instances in one LocI Dataset with class instances in another"@en ;
+                         rdfs:label "LocI Dataset Linking Statement" .
 
 
 ###  http://linked.data.gov.au/def/loci#Feature
 :Feature rdf:type owl:Class ;
-         rdfs:subClassOf <http://www.opengis.net/ont/geosparql#Feature> ;
-         rdfs:label "LOCI Feature" .
+         rdfs:subClassOf geo:Feature ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty geo:hasGeometry ;
+                           owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass geo:Geometry
+                         ] ;
+         rdfs:comment "A LocI Feature is just a GeoSPARQL Feature that must have at least one Geometry" ;
+         rdfs:label "LocI Feature" .
 
 
 ###  http://linked.data.gov.au/def/loci#Linkset
 :Linkset rdf:type owl:Class ;
          owl:equivalentClass [ rdf:type owl:Restriction ;
-                               owl:onProperty <http://rdfs.org/ns/void#objectsTarget> ;
+                               owl:onProperty void:objectsTarget ;
                                owl:allValuesFrom :Dataset
                              ] ,
                              [ rdf:type owl:Restriction ;
-                               owl:onProperty <http://rdfs.org/ns/void#subjectsTarget> ;
+                               owl:onProperty void:subjectsTarget ;
                                owl:allValuesFrom :Dataset
                              ] ;
          rdfs:subClassOf :Dataset ,
-                         <http://rdfs.org/ns/void#Linkset> ;
-         rdfs:comment "A LOCI Linkset is a specialised form of a VOID Linkset that requires the void:subjectsTarget & void:objectsTarget indicate LOCI Datasets"@en ;
-         rdfs:label "LOCI Linkset" .
+                         void:Linkset ;
+         rdfs:comment "A LocI Linkset is a specialised form of a VoID Linkset that requires the void:subjectsTarget & void:objectsTarget indicate LocI Datasets"@en ;
+         rdfs:label "LocI Linkset" .
+
+
+###  http://www.opengis.net/ont/geosparql#Feature
+geo:Feature rdf:type owl:Class .
+
+
+###  http://www.opengis.net/ont/geosparql#Geometry
+geo:Geometry rdf:type owl:Class .
 
 
 ###  http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement
 rdf:Statement rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Group
+foaf:Group rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Organization
+foaf:Organization rdf:type owl:Class .
 
 
 #################################################################
@@ -168,61 +199,64 @@ rdf:Statement rdf:type owl:Class .
 
 ###  http://catalogue.linked.data.gov.au/org/O-000886
 <http://catalogue.linked.data.gov.au/org/O-000886> rdf:type owl:NamedIndividual ,
-                                                            <http://xmlns.com/foaf/0.1/Organization> ;
+                                                            foaf:Organization ;
                                                    rdfs:label "CSIRO" .
 
 
 ###  http://catalogue.linked.data.gov.au/org/O-000887
 <http://catalogue.linked.data.gov.au/org/O-000887> rdf:type owl:NamedIndividual ,
-                                                            <http://xmlns.com/foaf/0.1/Organization> ;
+                                                            foaf:Organization ;
                                                    rdfs:label "Geoscience Australia" .
 
 
 ###  http://catalogue.linked.data.gov.au/org/O-000928
 <http://catalogue.linked.data.gov.au/org/O-000928> rdf:type owl:NamedIndividual ,
-                                                            <http://xmlns.com/foaf/0.1/Organization> ;
+                                                            foaf:Organization ;
                                                    rdfs:label "Australian Bureau of Statistics" .
 
 
 ###  http://catalogue.linked.data.gov.au/org/psma
 <http://catalogue.linked.data.gov.au/org/psma> rdf:type owl:NamedIndividual ,
-                                                        <http://xmlns.com/foaf/0.1/Organization> ;
+                                                        foaf:Organization ;
                                                rdfs:label "PSMA Australia" .
 
 
-###  http://linked.data.gov.au/dataset/asgs
-<http://linked.data.gov.au/dataset/asgs> rdf:type owl:NamedIndividual ,
-                                                  :Dataset ;
-                                                  rdfs:label "ASGS Dataset" .
+###  http://linked.data.gov.au/dataset/asgs2016
+<http://linked.data.gov.au/dataset/asgs2016> rdf:type owl:NamedIndividual ,
+                                                      :Dataset ;
+                                             rdfs:label "ASGS 2016 Dataset" .
 
 
 ###  http://linked.data.gov.au/dataset/geofabric
 <http://linked.data.gov.au/dataset/geofabric> rdf:type owl:NamedIndividual ,
                                                        :Dataset ;
-                                                       rdfs:label "Geofabric Dataset" .
+                                              rdfs:label "Geofabric Dataset" .
 
 
 ###  http://linked.data.gov.au/dataset/gnaf
 <http://linked.data.gov.au/dataset/gnaf> rdf:type owl:NamedIndividual ,
                                                   :Dataset ;
-                                                  rdfs:label "GNAF Dataset" .
+                                         rdfs:label "GNAF Dataset" .
 
 
-###  http://linked.data.gov.au/linkset/bhafvq
-<http://linked.data.gov.au/linkset/bhafvq> rdf:type owl:NamedIndividual ,
-                              :Linkset ;
-                              rdfs:label "Addresses Catchments Linkset" .
+###  http://linked.data.gov.au/dataset/gnaf-2016-05
+<http://linked.data.gov.au/dataset/gnaf-2016-05> rdf:type owl:NamedIndividual ,
+                                                          :Dataset ;
+                                                 rdfs:label "GNAF 2016 May Dataset" .
 
 
 ###  http://linked.data.gov.au/def/loci#DataPublisher
 :DataPublisher rdf:type owl:NamedIndividual .
 
 
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
-] .
+###  http://linked.data.gov.au/linkset/bhafvq
+<http://linked.data.gov.au/linkset/bhafvq> rdf:type owl:NamedIndividual ,
+                                                    :Linkset ;
+                                           rdfs:label "Addresses Catchments Linkset" .
+
 
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
+] .
 
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
@@ -236,12 +270,21 @@ rdf:Statement rdf:type owl:Class .
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
 #################################################################
 #    Annotations
 #################################################################
 
-:DataPublisher rdfs:label "LOCI Data Publishers" ;
-                rdfs:comment "The set of all approved publishers of LOCI data, all of whom are known"@en .
+:DataPublisher rdfs:label "LocI Data Publishers" ;
+                rdfs:comment "The set of all approved publishers of LocI data, all of whom are known"@en .
 
 
 ###  Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi

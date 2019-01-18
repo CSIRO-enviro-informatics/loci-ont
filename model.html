@@ -1,596 +1,648 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>LOC-I Ontology</title>
-        <link href="http://www.linked.data.gov.au/theme/owl.css" rel="stylesheet" type="text/css">
-        <link href="http://www.linked.data.gov.au/theme/Primer.css" rel="stylesheet" type="text/css">
-        <link href="http://www.linked.data.gov.au/theme/rec.css" rel="stylesheet" type="text/css">
-        <link href="http://www.linked.data.gov.au/theme/extra.css" rel="stylesheet" type="text/css">
-    </head>
-    <body>
-        <div class="head">
-            <h1>LOC-I Ontology</h1>
-            <dl>
-                <dt>
-                    IRI:
-                </dt>
-                <dd>
-                    http://linked.data.gov.au/def/loci
-                </dd>
-                <dt>
-                    Version IRI:
-                </dt>
-                <dd>
-                    http://linked.data.gov.au/def/loci/1.0
-                </dd>
-            </dl>
-            <dl>
-                <dt>
-                    Current version:
-                </dt>
-                <dd>
-                    Beta version
-                </dd>
-            </dl>
-            <dl>
-                <dt>
-                    Authors:
-                </dt>
-                <dd>
-                    Nicholas J. Car
-                </dd>
-                <dd>
-                    <a href="http://orcid.org/0000-0002-8742-7730">http://orcid.org/0000-0002-8742-7730</a>
-                </dd>
-            </dl>
-            <dl>
-                <dt>
-                    Publisher:
-                </dt>
-                <dd>
-                    CSIRO
-                </dd>
-            </dl>
-            <dl>
-                <dt>
-                    Imported Ontologies:
-                </dt>
-                <dd>
-                    <a href="http://purl.org/linked-data/registry">http://purl.org/linked-data/registry</a>
-                </dd>
-                <dd>
-                    <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a>
-                </dd>
-                <dd>
-                    <a href="http://www.w3.org/2002/07/owl">http://www.w3.org/2002/07/owl</a>
-                </dd>
-                <dd>
-                    <a href="http://www.w3.org/ns/dcat">http://www.w3.org/ns/dcat</a>
-                </dd>
-                <dd>
-                    <a href="http://xmlns.com/foaf/0.1/">http://xmlns.com/foaf/0.1/</a>
-                </dd>
-                <dd>
-                    <a href="http://www.opengis.net/ont/geosparql">http://www.opengis.net/ont/geosparql</a>
-                </dd>
-                <dd>
-                    <a href="http://vocab.deri.ie/void">http://vocab.deri.ie/void</a>
-                </dd>
-            </dl>
-            <dl>
-                <dt>
-                    Ontology source:
-                </dt>
-                <dd>
-                    <a href="http://linked.data.gov.au/def/loci/model.ttl">RDF file (turtle)</a>
-                </dd>
-                <dd>
-                    <a href="https://github.com/CSIRO-enviro-informatics/loci-ont">Git code repository online</a>
-                </dd>
-            </dl>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>LOC-I Ontology</title>
+    <link href="http://www.linked.data.gov.au/theme/owl.css" rel="stylesheet" type="text/css">
+    <link href="http://www.linked.data.gov.au/theme/Primer.css" rel="stylesheet" type="text/css">
+    <link href="http://www.linked.data.gov.au/theme/rec.css" rel="stylesheet" type="text/css">
+    <link href="http://www.linked.data.gov.au/theme/extra.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="head">
+    <h1>LOC-I Ontology</h1>
+    <dl>
+        <dt>
+            IRI:
+        </dt>
+        <dd>
+            http://linked.data.gov.au/def/loci
+        </dd>
+        <dt>
+            Version IRI:
+        </dt>
+        <dd>
+            http://linked.data.gov.au/def/loci/1.0
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            Current version:
+        </dt>
+        <dd>
+            Beta version
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            Authors:
+        </dt>
+        <dd>
+            Nicholas J. Car
+        </dd>
+        <dd>
+            <a href="http://orcid.org/0000-0002-8742-7730">http://orcid.org/0000-0002-8742-7730</a>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            Publisher:
+        </dt>
+        <dd>
+            CSIRO
+        </dd>
+        <dd>
+            <a href="http://catalogue.linked.data.gov.au/org/O-000886">http://catalogue.linked.data.gov.au/org/O-000886</a>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            Imported Ontologies:
+        </dt>
+        <dd>
+            <a href="http://purl.org/linked-data/registry">http://purl.org/linked-data/registry</a>
+        </dd>
+        <dd>
+            <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a>
+        </dd>
+        <dd>
+            <a href="http://www.w3.org/2002/07/owl">http://www.w3.org/2002/07/owl</a>
+        </dd>
+        <dd>
+            <a href="http://www.w3.org/ns/dcat">http://www.w3.org/ns/dcat</a>
+        </dd>
+        <dd>
+            <a href="http://xmlns.com/foaf/0.1/">http://xmlns.com/foaf/0.1/</a>
+        </dd>
+        <dd>
+            <a href="http://www.opengis.net/ont/geosparql">http://www.opengis.net/ont/geosparql</a>
+        </dd>
+        <dd>
+            <a href="http://vocab.deri.ie/void">http://vocab.deri.ie/void</a>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            Ontology source:
+        </dt>
+        <dd>
+            <a href="http://linked.data.gov.au/def/loci/model.ttl">RDF file (turtle)</a>
+        </dd>
+        <dd>
+            <a href="https://github.com/CSIRO-enviro-informatics/loci-ont">Git code repository online</a>
+        </dd>
+    </dl>
+</div>
+<hr>
+<h2>Abstract</h2>
+<span class="markdown"><p>A profile of several ontologies implemented to govern Linked Data resources published within the LOC-I project.</p> <p>This ontology profiles the <a href="http://www.opengeospatial.org/standards/geosparql">GeoSPARQL</a> and <a href="https://www.w3.org/TR/vocab-dcat-2/">DCAT v2</a> &amp; <a href="http://www.w3.org/TR/void/">VOID</a> ontologies and requires that certain properties defined by them be present for several classes of resource that are of particular importance to the <a href="http://loci.cat">LOC-I project</a>.</p> <p>This ontology constrains both normative instruction on what constitutes LOC-I objects and supplies executable constraints to validate instances. This ontologie's components and its relations to the onologies it profiles are described using the <a href="https://www.w3.org/TR/dx-prof">Profiles Ontology</a>.</p> </span>
+<div id="toc">
+    <h2>Table of Content</h2>
+    <ol>
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="#objectproperties">Object Properties</a></li>
+        <li><a href="#namedindividuals">Named Individuals</a></li>
+        <li><a href="#annotationproperties">Annotation Properties</a></li>
+        <li><a href="#namespacedeclarations">Namespace Declarations</a></li>
+    </ol>
+</div>
+<div id="model-image">
+    <a href="images/model.svg"><img src="images/model.svg" width="900px" /></a>
+    <p><strong>Figure 1</strong>: An overview diagram of this ontology showing major classes and properties.</p>
+</div>
+<div id="classes">
+    <h2>Classes</h2>
+    <ul class="hlist">
+        <li><a href="#DataPublisher" title="http://linked.data.gov.au/def/loci#DataPublisher"><span>LocI Data Publishers</span></a></li>
+        <li><a href="#Dataset" title="http://linked.data.gov.au/def/loci#Dataset">LocI Dataset</a></li>
+        <li><a href="#DatasetLinkingStatement" title="http://linked.data.gov.au/def/loci#DatasetLinkingStatement">LocI Dataset Linking Statement</a></li>
+        <li><a href="#Feature" title="http://linked.data.gov.au/def/loci#Feature">LocI Feature</a></li>
+        <li><a href="#Linkset" title="http://linked.data.gov.au/def/loci#Linkset">LocI Linkset</a></li>
+    </ul>
+    <div id="DataPublisher" class="entity">
+        <a name="http://linked.data.gov.au/def/loci#DataPublisher"></a>
+        <h3>LocI Data Publishers<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/loci#DataPublisher</p>
+        <dl class="description">
+            <dt>
+                is equivalent to
+            </dt>
+            <dd>
+                {
+                <a href="#d4e324" title="http://catalogue.linked.data.gov.au/org/O-000886">CSIRO</a> ,
+                <a href="#d4e335" title="http://catalogue.linked.data.gov.au/org/O-000887">Geoscience Australia</a> ,
+                <a href="#d4e345" title="http://catalogue.linked.data.gov.au/org/O-000928">Australian Bureau of Statistics</a> ,
+                <a href="#d4e355" title="http://catalogue.linked.data.gov.au/org/psma">PSMA Australia</a> }
+            </dd>
+            <dt>
+                has super-classes
+            </dt>
+            <dd>
+                <span class="dotted" title="http://xmlns.com/foaf/0.1/Group">group</span>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+            <dt>
+                is also defined as
+            </dt>
+            <dd>
+                named individual
+            </dd>
+        </dl>
+    </div>
+    <div id="Dataset" class="entity">
+        <a name="http://linked.data.gov.au/def/loci#Dataset"></a>
+        <h3>LocI Dataset<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+        <div class="figure" id="dataset-figure">
+            <a href="images/dataset.svg"><img src="images/dataset.svg" width="700px" /></a>
+            <p><strong>Figure 2</strong>: The LocI Dataset class with object properties shown.</p>
         </div>
-        <hr>
-        <h2>Abstract</h2>
-        <p>A profile of several ontologies implemented to govern Linked Data resources published within the LOC-I project.</p>
-        <p>This ontology profiles the <a href="http://www.opengeospatial.org/standards/geosparql">GeoSPARQL</a> and <a href="https://www.w3.org/TR/vocab-dcat-2/">DCAT v2</a> &amp; <a href="http://www.w3.org/TR/void/">VOID</a> ontologies and requires that certain properties defined by them be present for several classes of resource that are of particular importance to the <a href="http://loci.cat">LocI project</a>.</p>
-        <p>This ontology constrains both normative instruction on what constitutes LOC-I objects and supplies executable constraints to validate instances. This ontologie's components and its relations to the onologies it profiles are described using the <a href="https://www.w3.org/TR/dx-prof">Profiles Ontology</a>.</p>
-        <div id="toc">
-            <h2>Table of Content</h2>
-            <ol>
-                <li><a href="#classes">Classes</a></li>
-                <li><a href="#objectproperties">Object Properties</a></li>
-                <li><a href="#namedindividuals">Named Individuals</a></li>
-                <li><a href="#namespacedeclarations">Namespace Declarations</a></li>
-            </ol>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/loci#Dataset</p>
+        <div class="comment">
+            <span class="markdown"><p>A LocI Dataset is a DCAT and VOID Dataset that has been accepted by the LocI Registry Manager.</p> </span>
         </div>
-        <div id="model-image">
-          <a href="model.png"><img src="model.png" width="900px" /></a>
-          <p><strong>Figure 1</strong>: An overview diagram of this ontology showing major classes and properties.</p>
+        <dl class="description">
+            <dt>
+                is equivalent to
+            </dt>
+            <dd>
+                <span class="dotted" title="http://purl.org/dc/terms/publisher">publisher</span>
+                <span class="logic">only</span>
+                <a href="#DataPublisher" title="http://linked.data.gov.au/def/loci#DataPublisher">LocI Data Publishers</a>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+            <dt>
+                has super-classes
+            </dt>
+            <dd>
+                <span class="dotted" title="http://purl.org/dc/terms/title">title</span>
+                <span class="logic">exactly</span> 1
+                <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+                <sup title="annotation property" class="type-ap">ap</sup>
+            </dd>
+            <dd>
+                <span class="dotted" title="http://purl.org/dc/terms/issued">issued</span>
+                <span class="logic">exactly</span> 1
+                <span class="dotted" title="http://www.w3.org/2001/XMLSchema#date">date</span>
+                <sup title="annotation property" class="type-ap">ap</sup>
+            </dd>
+            <dd>
+                <span class="dotted" title="http://purl.org/dc/terms/modified">modified</span>
+                <span class="logic">exactly</span> 1
+                <span class="dotted" title="http://www.w3.org/2001/XMLSchema#date">date</span>
+                <sup title="annotation property" class="type-ap">ap</sup>
+            </dd>
+            <dd>
+                <span class="dotted" title="http://rdfs.org/ns/void#Dataset">dataset</span>
+            </dd>
+            <dd>
+                <span class="dotted" title="http://www.w3.org/ns/dcat#DataDistributionService">data distribution service</span>
+            </dd>
+            <dd>
+                <span class="dotted" title="http://www.w3.org/ns/dcat#contactPoint">contact point</span>
+                <span class="logic">min</span> 1
+            </dd>
+            <dd>
+                <span class="dotted" title="http://purl.org/dc/terms/publisher">publisher</span>
+                <span class="logic">exactly</span> 1
+                <span class="dotted" title="http://xmlns.com/foaf/0.1/Organization">organization</span>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+            <dt>
+                has sub-classes
+            </dt>
+            <dd>
+                <a href="#Linkset" title="http://linked.data.gov.au/def/loci#Linkset">LocI Linkset</a>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+            <dt>
+                has members
+            </dt>
+            <dd>
+                <a href="#d4e366" title="http://linked.data.gov.au/dataset/asgs2016">ASGS 2016 Dataset</a>
+                <sup title="named individual" class="type-ni">ni</sup>,
+                <a href="#d4e397" title="http://linked.data.gov.au/dataset/gnaf-2016-05">GNAF 2016 May Dataset</a>
+                <sup title="named individual" class="type-ni">ni</sup>,
+                <a href="#d4e386" title="http://linked.data.gov.au/dataset/gnaf">GNAF Dataset</a>
+                <sup title="named individual" class="type-ni">ni</sup>,
+                <a href="#d4e376" title="http://linked.data.gov.au/dataset/geofabric">Geofabric Dataset</a>
+                <sup title="named individual" class="type-ni">ni</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="DatasetLinkingStatement" class="entity">
+        <a name="http://linked.data.gov.au/def/loci#DatasetLinkingStatement"></a>
+        <h3>LocI Dataset Linking Statement<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+        <div class="figure" id="statement-figure">
+            <a href="images/statement.svg"><img src="images/statement.svg" width="700px" /></a>
+            <p><strong>Figure 3</strong>: The LocI Dataset Linking Statement class with object properties shown.</p>
         </div>
-        <div id="classes">
-            <h2>Classes</h2>
-            <ul class="hlist">
-                <li><a href="#DataPublisher" title="http://linked.data.gov.au/def/loci#DataPublisher"><span>LOCI Data Publishers</span></a></li>
-                <li><a href="#Dataset" title="http://linked.data.gov.au/def/loci#Dataset">LOCI Dataset</a></li>
-                <li><a href="#DatasetLinkingStatement" title="http://linked.data.gov.au/def/loci#DatasetLinkingStatement">LOCI Dataset Linking Statement</a></li>
-                <li><a href="#Feature" title="http://linked.data.gov.au/def/loci#Feature">LOCI Feature</a></li>
-                <li><a href="#Linkset" title="http://linked.data.gov.au/def/loci#Linkset">LOCI Linkset</a></li>
-            </ul>
-            <div id="DataPublisher" class="entity">
-                <a name="http://linked.data.gov.au/def/loci#DataPublisher"></a>
-                <h3>LOCI Data Publishers<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://linked.data.gov.au/def/loci#DataPublisher</p>
-                <dl class="description">
-                    <dt>
-                        is equivalent to
-                    </dt>
-                    <dd>
-                        {
-                        <a href="#csiro" title="http://catalogue.linked.data.gov.au/org/O-000886">CSIRO</a> ,
-                        <a href="#ga" title="http://catalogue.linked.data.gov.au/org/O-000887">Geoscience Australia</a> ,
-                        <a href="#abs" title="http://catalogue.linked.data.gov.au/org/O-000928">Australian Bureau of Statistics</a> ,
-                        <a href="#psma" title="http://catalogue.linked.data.gov.au/org/psma">PSMA Australia</a> }
-                    </dd>
-                    <dt>
-                        has super-classes
-                    </dt>
-                    <dd>
-                        <span class="dotted" title="http://xmlns.com/foaf/0.1/Group">group</span>
-                    </dd>
-                    <dt>
-                        is also defined as
-                    </dt>
-                    <dd>
-                        named individual
-                    </dd>
-                </dl>
-            </div>
-            <div id="Dataset" class="entity">
-                <a name="http://linked.data.gov.au/def/loci#Dataset"></a>
-                <h3>LOCI Dataset<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://linked.data.gov.au/def/loci#Dataset</p>
-                <div class="comment">
-                    <p>A LOCI Dataset is a DCAT and VOID Dataset that has been accepted by the LOCI Registry Manager.</p>
-                </div>
-                <dl class="description">
-                    <dt>
-                        is equivalent to
-                    </dt>
-                    <dd>
-                        <span class="dotted" title="http://purl.org/dc/terms/publisher">publisher</span>
-                        <span class="logic">only</span>
-                        <a href="#DataPublisher" title="http://linked.data.gov.au/def/loci#DataPublisher">LOCI Data Publishers</a>
-                        <sup title="class" class="type-c">c</sup>
-                    </dd>
-                    <dt>
-                        has super-classes
-                    </dt>
-                    <dd>
-                      <span class="dotted" title="http://purl.org/dc/terms/issued">issued</span>
-                      <span class="logic">exactly</span> 1
-                      <span class="dotted" title="http://www.w3.org/2001/XMLSchema#date">date</span>
-                    </dd>
-                    <dd>
-                      <span class="dotted" title="http://purl.org/dc/terms/modified">modified</span>
-                      <span class="logic">exactly</span> 1
-                      <span class="dotted" title="http://www.w3.org/2001/XMLSchema#date">date</span>
-                    </dd>
-                    <dd>
-                      <span class="dotted" title="http://purl.org/dc/terms/title">title</span>
-                      <span class="logic">exactly</span> 1
-                      <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
-                    </dd>
-                    <dd>
-                        <span class="dotted" title="http://rdfs.org/ns/void#Dataset">dataset</span>
-                    </dd>
-                    <dd>
-                        <span class="dotted" title="http://www.w3.org/ns/dcat#Dataset">dataset</span>
-                    </dd>
-                    <dd>
-                        <span class="dotted" title="http://www.w3.org/ns/dcat#contactPoint">contact point</span>
-                        <span class="logic">min</span> 1
-                    </dd>
-                    <dd>
-                        <span class="dotted" title="http://purl.org/dc/terms/publisher">publisher</span>
-                        <span class="logic">exactly</span> 1
-                        <span class="dotted" title="http://xmlns.com/foaf/0.1/Organization">organization</span>
-                    </dd>
-                    <dt>
-                        has sub-classes
-                    </dt>
-                    <dd>
-                        <a href="#Linkset" title="http://linked.data.gov.au/def/loci#Linkset">LOCI Linkset</a>
-                        <sup title="class" class="type-c">c</sup>
-                    </dd>
-                    <dt>
-                        has members
-                    </dt>
-                    <dd>
-                        <a href="#asgs-dataset" title="http://linked.data.gov.au/dataset/asgs">ASGS Dataset</a>
-                        <sup title="named individual" class="type-ni">ni</sup>,
-                        <a href="#gnaf-dataset" title="http://linked.data.gov.au/dataset/geofabric">Geofabric Dataset</a>
-                        <sup title="named individual" class="type-ni">ni</sup>,
-                        <a href="#gnaf-dataset" title="http://linked.data.gov.au/dataset/gnaf">GNAF Dataset</a>
-                        <sup title="named individual" class="type-ni">ni</sup>
-                    </dd>
-                </dl>
-            </div>
-            <div id="DatasetLinkingStatement" class="entity">
-                <a name="http://linked.data.gov.au/def/loci#DatasetLinkingStatement"></a>
-                <h3>LOCI Dataset Linking Statement<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-                <div id="model-statement">
-                  <a href="statement.png"><img src="statement.png" width="700px" /></a>
-                  <p><strong>Figure 3</strong>: The statement class with object properties shown.</p>
-                </div>
-                <p><strong>IRI:</strong> http://linked.data.gov.au/def/loci#DatasetLinkingStatement</p>
-                <div class="comment">
-                    <p>An RDF Statement (Subject, Predicate, Object + additional metadata) that links class instances in one LOCI Dataset with class instances in another</p>
-                </div>
-                <dl class="description">
-                    <dt>
-                        has super-classes
-                    </dt>
-                    <dd>
-                        <span class="dotted" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement">statement</span>
-                        <sup title="class" class="type-c">c</sup>
-                    </dd>
-                    <dd>
-                        <a href="#hadGenerationMethod" title="http://linked.data.gov.au/def/loci#hadGenerationMethod">had generation method</a>
-                        <sup title="object property" class="type-op">op</sup>
-                        <span class="logic">exactly</span> 1
-                        <span class="dotted" title="http://www.w3.org/ns/prov#Plan">plan</span>
-                        <sup title="class" class="type-c">c</sup>
-                    </dd>
-                    <dd>
-                        <span class="dotted" title="http://purl.org/linked-data/registry#register">register</span>
-                        <span class="logic">exactly</span> 1
-                        <a href="#Linkset" title="http://linked.data.gov.au/def/loci#Linkset">LOCI Linkset</a>
-                        <sup title="class" class="type-c">c</sup>
-                    </dd>
-                    <dd>
-                        <span class="dotted" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#object">object</span>
-                        <span class="logic">exactly</span> 1
-                        <a href="#Feature" title="http://linked.data.gov.au/def/loci#Feature">LOCI Feature</a>
-                        <sup title="class" class="type-c">c</sup>
-                    </dd>
-                    <dd>
-                        <span class="dotted" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#subject">subject</span>
-                        <span class="logic">exactly</span> 1
-                        <a href="#Feature" title="http://linked.data.gov.au/def/loci#Feature">LOCI Feature</a>
-                        <sup title="class" class="type-c">c</sup>
-                    </dd>
-                </dl>
-            </div>
-            <div id="Feature" class="entity">
-                <a name="http://linked.data.gov.au/def/loci#Feature"></a>
-                <h3>LOCI Feature<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://linked.data.gov.au/def/loci#Feature</p>
-                <dl class="description">
-                    <dt>
-                        has super-classes
-                    </dt>
-                    <dd>
-                        <span class="dotted" title="http://www.opengis.net/ont/geosparql#Feature">feature</span>
-                        <sup title="class" class="type-c">c</sup>
-                    </dd>
-                </dl>
-            </div>
-            <div id="Linkset" class="entity">
-                <a name="http://linked.data.gov.au/def/loci#Linkset"></a>
-                <h3>LOCI Linkset<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
-                <div id="image-linkset">
-                  <a href="linkset.png"><img src="linkset.png" width="700px" /></a>
-                  <p><strong>Figure 2</strong>: The Linkset class with object properties shown.</p>
-                </div>
-                <p><strong>IRI:</strong> http://linked.data.gov.au/def/loci#Linkset</p>
-                <div class="comment">
-                    <p>A LOCI Linkset is a specialised form of a VOID Linkset that requires the void:subjectsTarget &amp; void:objectsTarget indicate LOCI Datasets</p>
-                </div>
-                <dl class="description">
-                    <dt>
-                        is equivalent to
-                    </dt>
-                    <dd>
-                        <span class="dotted" title="http://rdfs.org/ns/void#objectsTarget">objects target</span>
-                        <sup title="object property" class="type-op">op</sup>
-                        <span class="logic">only</span>
-                        <a href="#Dataset" title="http://linked.data.gov.au/def/loci#Dataset">LOCI Dataset</a>
-                        <sup title="class" class="type-c">c</sup>
-                    </dd>
-                    <dd>
-                        <span class="dotted" title="http://rdfs.org/ns/void#subjectsTarget">subjects target</span>
-                        <sup title="object property" class="type-op">op</sup>
-                        <span class="logic">only</span>
-                        <a href="#Dataset" title="http://linked.data.gov.au/def/loci#Dataset">LOCI Dataset</a>
-                        <sup title="class" class="type-c">c</sup>
-                    </dd>
-                    <dt>
-                        has super-classes
-                    </dt>
-                    <dd>
-                        <a href="#Dataset" title="http://linked.data.gov.au/def/loci#Dataset">LOCI Dataset</a>
-                        <sup title="class" class="type-c">c</sup>
-                    </dd>
-                    <dd>
-                        <span class="dotted" title="http://rdfs.org/ns/void#Linkset">linkset</span>
-                    </dd>
-                    <dt>
-                        has members
-                    </dt>
-                    <dd>
-                        <a href="#addresses-catchments-linkset" title="http://linked.data.gov.au/linkset/bhafvq">Addresses Catchments Linkset</a>
-                        <sup title="named individual" class="type-ni">ni</sup>
-                    </dd>
-                </dl>
-            </div>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/loci#DatasetLinkingStatement</p>
+        <div class="comment">
+            <span class="markdown"><p>An RDF Statement (Subject, Predicate, Object + additional metadata) that links class instances in one LocI Dataset with class instances in another</p> </span>
         </div>
-        <div id="objectproperties">
-            <h2>Object Properties</h2>
-            <ul class="hlist">
-                <li><a href="#hadGenerationMethod" title="http://linked.data.gov.au/def/loci#hadGenerationMethod">had generation method</a></li>
-            </ul>
-            <div id="hadGenerationMethod" class="entity">
-                <a name="http://linked.data.gov.au/def/loci#hadGenerationMethod"></a>
-                <h3>had generation method<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://linked.data.gov.au/def/loci#hadGenerationMethod</p>
-                <div class="comment">
-                    <p>The LOCI Dataset Linking Statement had a Method that was used to generate it</p>
-                </div>
-            </div>
+        <dl class="description">
+            <dt>
+                has super-classes
+            </dt>
+            <dd>
+                <span class="dotted" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement">statement</span>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+            <dd>
+                <a href="#hadGenerationMethod" title="http://linked.data.gov.au/def/loci#hadGenerationMethod">had generation method</a>
+                <sup title="object property" class="type-op">op</sup>
+                <span class="logic">exactly</span> 1
+                <span class="dotted" title="http://www.w3.org/ns/prov#Plan">plan</span>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+            <dd>
+                <span class="dotted" title="http://purl.org/linked-data/registry#register">register</span>
+                <span class="logic">exactly</span> 1
+                <a href="#Linkset" title="http://linked.data.gov.au/def/loci#Linkset">LocI Linkset</a>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="Feature" class="entity">
+        <a name="http://linked.data.gov.au/def/loci#Feature"></a>
+        <h3>LocI Feature<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+        <div class="figure" id="feature-figure">
+            <a href="images/feature.svg"><img src="images/feature.svg" width="700px" /></a>
+            <p><strong>Figure 4</strong>: The LocI fFature class with object properties shown.</p>
         </div>
-        <div id="namedindividuals">
-            <h2>Named Individuals</h2>
-            <ul class="hlist">
-                <li><a href="#addresses-catchments-linkset" title="http://linked.data.gov.au/linkset/bhafvq"><span>Addresses Catchments Linkset</span></a></li>
-                <li><a href="#asgs-dataset" title="http://linked.data.gov.au/dataset/asgs"><span>ASGS Dataset</span></a></li>
-                <li><a href="#abs" title="http://catalogue.linked.data.gov.au/org/O-000928">Australian Bureau of Statistics</a></li>
-                <li><a href="#csiro" title="http://catalogue.linked.data.gov.au/org/O-000886">CSIRO</a></li>
-                <li><a href="#gnaf-dataset" title="http://linked.data.gov.au/dataset/geofabric"><span>Geofabric Dataset</span></a></li>
-                <li><a href="#ga" title="http://catalogue.linked.data.gov.au/org/O-000887">Geoscience Australia</a></li>
-                <li><a href="#gnaf-dataset" title="http://linked.data.gov.au/dataset/gnaf"><span>GNAF Dataset</span></a></li>
-                <li><a href="#loci" title="http://linked.data.gov.au/def/loci"><span>LOC-I Ontology</span></a></li>
-                <li><a href="#psma" title="http://catalogue.linked.data.gov.au/org/psma">PSMA Australia</a></li>
-            </ul>
-            <div id="addresses-catchments-linkset" class="entity">
-                <a name="http://linked.data.gov.au/linkset/bhafvq"></a>
-                <h3>Addresses Catchments Linkset<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://linked.data.gov.au/linkset/bhafvq</p>
-                <dl class="description">
-                    <dt>
-                        belongs to
-                    </dt>
-                    <dd>
-                        <a href="#Linkset" title="http://linked.data.gov.au/def/loci#Linkset">LOCI Linkset</a>
-                        <sup title="class" class="type-c">c</sup>
-                    </dd>
-                </dl>
-            </div>
-            <div id="asgs-dataset" class="entity">
-                <a name="http://linked.data.gov.au/dataset/asgs"></a>
-                <h3>ASGS Dataset<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://linked.data.gov.au/dataset/asgs</p>
-                <dl class="description">
-                    <dt>
-                        belongs to
-                    </dt>
-                    <dd>
-                        <a href="#Dataset" title="http://linked.data.gov.au/def/loci#Dataset">LOCI Dataset</a>
-                        <sup title="class" class="type-c">c</sup>
-                    </dd>
-                </dl>
-            </div>
-            <div id="abs" class="entity">
-                <a name="http://catalogue.linked.data.gov.au/org/O-000928"></a>
-                <h3>Australian Bureau of Statistics<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://catalogue.linked.data.gov.au/org/O-000928</p>
-                <dl class="description">
-                    <dt>
-                        belongs to
-                    </dt>
-                    <dd>
-                        <span class="dotted" title="http://xmlns.com/foaf/0.1/Organization">organization</span>
-                    </dd>
-                </dl>
-            </div>
-            <div id="csiro" class="entity">
-                <a name="http://catalogue.linked.data.gov.au/org/O-000886"></a>
-                <h3>CSIRO<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://catalogue.linked.data.gov.au/org/O-000886</p>
-                <dl class="description">
-                    <dt>
-                        belongs to
-                    </dt>
-                    <dd>
-                        <span class="dotted" title="http://xmlns.com/foaf/0.1/Organization">organization</span>
-                    </dd>
-                </dl>
-            </div>
-            <div id="gnaf-dataset" class="entity">
-                <a name="http://linked.data.gov.au/dataset/geofabric"></a>
-                <h3>Geofabric Dataset<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://linked.data.gov.au/dataset/geofabric</p>
-                <dl class="description">
-                    <dt>
-                        belongs to
-                    </dt>
-                    <dd>
-                        <a href="#Dataset" title="http://linked.data.gov.au/def/loci#Dataset">LOCI Dataset</a>
-                        <sup title="class" class="type-c">c</sup>
-                    </dd>
-                </dl>
-            </div>
-            <div id="ga" class="entity">
-                <a name="http://catalogue.linked.data.gov.au/org/O-000887"></a>
-                <h3>Geoscience Australia<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://catalogue.linked.data.gov.au/org/O-000887</p>
-                <dl class="description">
-                    <dt>
-                        belongs to
-                    </dt>
-                    <dd>
-                        <span class="dotted" title="http://xmlns.com/foaf/0.1/Organization">organization</span>
-                    </dd>
-                </dl>
-            </div>
-            <div id="gnaf-dataset" class="entity">
-                <a name="http://linked.data.gov.au/dataset/gnaf"></a>
-                <h3>GNAF Dataset<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://linked.data.gov.au/dataset/gnaf</p>
-                <dl class="description">
-                    <dt>
-                        belongs to
-                    </dt>
-                    <dd>
-                        <a href="#Dataset" title="http://linked.data.gov.au/def/loci#Dataset">LOCI Dataset</a>
-                        <sup title="class" class="type-c">c</sup>
-                    </dd>
-                </dl>
-            </div>
-            <div id="loci" class="entity">
-                <a name="http://linked.data.gov.au/def/loci"></a>
-                <h3>LOC-I Ontology<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://linked.data.gov.au/def/loci</p>
-            </div>
-            <div id="psma" class="entity">
-                <a name="http://catalogue.linked.data.gov.au/org/psma"></a>
-                <h3>PSMA Australia<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
-                <p><strong>IRI:</strong> http://catalogue.linked.data.gov.au/org/psma</p>
-                <dl class="description">
-                    <dt>
-                        belongs to
-                    </dt>
-                    <dd>
-                        <span class="dotted" title="http://xmlns.com/foaf/0.1/Organization">organization</span>
-                    </dd>
-                </dl>
-            </div>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/loci#Feature</p>
+        <div class="comment">
+            <span class="markdown"><p>A LocI Feature is just a GeoSPARQL Feature that must have at least one Geometry</p> </span>
         </div>
-        <div id="namespacedeclarations">
-            <h2>Namespace Declarations <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+        <dl class="description">
+            <dt>
+                has super-classes
+            </dt>
+            <dd>
+                <span class="dotted" title="http://www.opengis.net/ont/geosparql#Feature">feature</span>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+            <dd>
+                <span class="dotted" title="http://www.opengis.net/ont/geosparql#hasGeometry">has geometry</span>
+                <sup title="object property" class="type-op">op</sup>
+                <span class="logic">min</span> 1
+                <span class="dotted" title="http://www.opengis.net/ont/geosparql#Geometry">geometry</span>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="Linkset" class="entity">
+        <a name="http://linked.data.gov.au/def/loci#Linkset"></a>
+        <h3>LocI Linkset<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+        <div class="figure" id="linkset-figure">
+            <a href="images/linkset.svg"><img src="images/linkset.svg" width="700px" /></a>
+            <p><strong>Figure 5</strong>: The LocI Linkset class with object properties shown.</p>
+        </div>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/loci#Linkset</p>
+        <div class="comment">
+            <span class="markdown"><p>A LocI Linkset is a specialised form of a VoID Linkset that requires the void:subjectsTarget &amp; void:objectsTarget indicate LocI Datasets</p> </span>
+        </div>
+        <dl class="description">
+            <dt>
+                is equivalent to
+            </dt>
+            <dd>
+                <span class="dotted" title="http://rdfs.org/ns/void#objectsTarget">objects target</span>
+                <sup title="object property" class="type-op">op</sup>
+                <span class="logic">only</span>
+                <a href="#Dataset" title="http://linked.data.gov.au/def/loci#Dataset">LocI Dataset</a>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+            <dd>
+                <span class="dotted" title="http://rdfs.org/ns/void#subjectsTarget">subjects target</span>
+                <sup title="object property" class="type-op">op</sup>
+                <span class="logic">only</span>
+                <a href="#Dataset" title="http://linked.data.gov.au/def/loci#Dataset">LocI Dataset</a>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+            <dt>
+                has super-classes
+            </dt>
+            <dd>
+                <a href="#Dataset" title="http://linked.data.gov.au/def/loci#Dataset">LocI Dataset</a>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+            <dd>
+                <span class="dotted" title="http://rdfs.org/ns/void#Linkset">linkset</span>
+            </dd>
+            <dt>
+                has members
+            </dt>
+            <dd>
+                <a href="#d4e419" title="http://linked.data.gov.au/linkset/bhafvq">Addresses Catchments Linkset</a>
+                <sup title="named individual" class="type-ni">ni</sup>
+            </dd>
+        </dl>
+    </div>
+</div>
+<div id="objectproperties">
+    <h2>Object Properties</h2>
+    <ul class="hlist">
+        <li><a href="#hadGenerationMethod" title="http://linked.data.gov.au/def/loci#hadGenerationMethod">had generation method</a></li>
+    </ul>
+    <div id="hadGenerationMethod" class="entity">
+        <a name="http://linked.data.gov.au/def/loci#hadGenerationMethod"></a>
+        <h3>had generation method<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/loci#hadGenerationMethod</p>
+        <div class="description">
             <dl>
                 <dt>
-                    <em>default namespace</em>
+                    has range
                 </dt>
                 <dd>
-                    http://linked.data.gov.au/def/loci#
+                    <span class="dotted" title="http://www.w3.org/ns/prov#Plan">plan</span>
+                    <sup title="class" class="type-c">c</sup>
                 </dd>
                 <dt>
-                    dc
+                    has sub-property chains
                 </dt>
                 <dd>
-                    http://purl.org/dc/elements/1.1/
-                </dd>
-                <dt>
-                    dcat
-                </dt>
-                <dd>
-                    http://www.w3.org/ns/dcat#
-                </dd>
-                <dt>
-                    def
-                </dt>
-                <dd>
-                    http://linked.data.gov.au/def/
-                </dd>
-                <dt>
-                    foaf
-                </dt>
-                <dd>
-                    http://xmlns.com/foaf/0.1/
-                </dd>
-                <dt>
-                    geosparql
-                </dt>
-                <dd>
-                    http://www.opengis.net/ont/geosparql#
-                </dd>
-                <dt>
-                    loci
-                </dt>
-                <dd>
-                    http://linked.data.gov.au/def/loci/
-                </dd>
-                <dt>
-                    ns
-                </dt>
-                <dd>
-                    http://www.w3.org/2003/06/sw-vocab-status/ns#
-                </dd>
-                <dt>
-                    owl
-                </dt>
-                <dd>
-                    http://www.w3.org/2002/07/owl#
-                </dd>
-                <dt>
-                    prov
-                </dt>
-                <dd>
-                    http://www.w3.org/ns/prov#
-                </dd>
-                <dt>
-                    rdf
-                </dt>
-                <dd>
-                    http://www.w3.org/1999/02/22-rdf-syntax-ns#
-                </dd>
-                <dt>
-                    rdfs
-                </dt>
-                <dd>
-                    http://www.w3.org/2000/01/rdf-schema#
-                </dd>
-                <dt>
-                    registry
-                </dt>
-                <dd>
-                    http://purl.org/linked-data/registry#
-                </dd>
-                <dt>
-                    schema
-                </dt>
-                <dd>
-                    http://schema.org/
-                </dd>
-                <dt>
-                    skos
-                </dt>
-                <dd>
-                    http://www.w3.org/2004/02/skos/core#
-                </dd>
-                <dt>
-                    terms
-                </dt>
-                <dd>
-                    http://purl.org/dc/terms/
-                </dd>
-                <dt>
-                    vann
-                </dt>
-                <dd>
-                    http://purl.org/vocab/vann/
-                </dd>
-                <dt>
-                    version
-                </dt>
-                <dd>
-                    http://purl.org/linked-data/version#
-                </dd>
-                <dt>
-                    void
-                </dt>
-                <dd>
-                    http://rdfs.org/ns/void#
-                </dd>
-                <dt>
-                    xsd
-                </dt>
-                <dd>
-                    http://www.w3.org/2001/XMLSchema#
+                    <span class="dotted" title="http://www.w3.org/ns/prov#wasGeneratedBy">was generated by</span>
+                    <sup title="object property" class="type-op">op</sup>
+                    <span class="logic">o</span>
+                    <span class="dotted" title="http://www.w3.org/ns/prov#qualifiedAssociation">qualified association</span>
+                    <sup title="object property" class="type-op">op</sup>
+                    <span class="logic">o</span>
+                    <span class="dotted" title="http://www.w3.org/ns/prov#hadPlan">had plan</span>
+                    <sup title="object property" class="type-op">op</sup>
                 </dd>
             </dl>
         </div>
-        <p class="endnote">This HTML document was obtained by processing the OWL ontology source code through <a href="http://lode2.promsns.org">LODE 2</a>, <em>Live OWL Documentation Environment, v2</em>, originally developed by <a href="http://www.essepuntato.it">Silvio Peroni</a> and updated by <a href="http://www.edmondchuc.com">Edmond Chuc</a> at the <a href="http://www.csiro.au">CSIRO</a>.</p>
-    </body>
+    </div>
+</div>
+<div id="namedindividuals">
+    <h2>Named Individuals</h2>
+    <div id="namedindividuals-image">
+        <a href="images/namedindividuals.svg"><img src="images/namedindividuals.svg" width="1100px" /></a>
+        <p><strong>Figure 6</strong>: The Named Individuals given in this ontology.</p>
+    </div>
+    <ul class="hlist">
+        <li><a href="#d4e419" title="http://linked.data.gov.au/linkset/bhafvq">Addresses Catchments Linkset</a></li>
+        <li><a href="#d4e366" title="http://linked.data.gov.au/dataset/asgs2016">ASGS 2016 Dataset</a></li>
+        <li><a href="#d4e345" title="http://catalogue.linked.data.gov.au/org/O-000928">Australian Bureau of Statistics</a></li>
+        <li><a href="#d4e324" title="http://catalogue.linked.data.gov.au/org/O-000886">CSIRO</a></li>
+        <li><a href="#d4e376" title="http://linked.data.gov.au/dataset/geofabric">Geofabric Dataset</a></li>
+        <li><a href="#d4e335" title="http://catalogue.linked.data.gov.au/org/O-000887">Geoscience Australia</a></li>
+        <li><a href="#d4e397" title="http://linked.data.gov.au/dataset/gnaf-2016-05">GNAF 2016 May Dataset</a></li>
+        <li><a href="#d4e386" title="http://linked.data.gov.au/dataset/gnaf">GNAF Dataset</a></li>
+        <li><a href="#loci" title="http://linked.data.gov.au/def/loci"><span>LOC-I Ontology</span></a></li>
+        <li><a href="#d4e355" title="http://catalogue.linked.data.gov.au/org/psma">PSMA Australia</a></li>
+    </ul>
+    <div id="d4e419" class="entity">
+        <a name="http://linked.data.gov.au/linkset/bhafvq"></a>
+        <h3>Addresses Catchments Linkset<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/linkset/bhafvq</p>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <a href="#Linkset" title="http://linked.data.gov.au/def/loci#Linkset">LocI Linkset</a>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="d4e366" class="entity">
+        <a name="http://linked.data.gov.au/dataset/asgs2016"></a>
+        <h3>ASGS 2016 Dataset<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/dataset/asgs2016</p>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <a href="#Dataset" title="http://linked.data.gov.au/def/loci#Dataset">LocI Dataset</a>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="d4e345" class="entity">
+        <a name="http://catalogue.linked.data.gov.au/org/O-000928"></a>
+        <h3>Australian Bureau of Statistics<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://catalogue.linked.data.gov.au/org/O-000928</p>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <span class="dotted" title="http://xmlns.com/foaf/0.1/Organization">organization</span>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="d4e324" class="entity">
+        <a name="http://catalogue.linked.data.gov.au/org/O-000886"></a>
+        <h3>CSIRO<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://catalogue.linked.data.gov.au/org/O-000886</p>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <span class="dotted" title="http://xmlns.com/foaf/0.1/Organization">organization</span>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="d4e376" class="entity">
+        <a name="http://linked.data.gov.au/dataset/geofabric"></a>
+        <h3>Geofabric Dataset<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/dataset/geofabric</p>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <a href="#Dataset" title="http://linked.data.gov.au/def/loci#Dataset">LocI Dataset</a>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="d4e335" class="entity">
+        <a name="http://catalogue.linked.data.gov.au/org/O-000887"></a>
+        <h3>Geoscience Australia<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://catalogue.linked.data.gov.au/org/O-000887</p>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <span class="dotted" title="http://xmlns.com/foaf/0.1/Organization">organization</span>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="d4e397" class="entity">
+        <a name="http://linked.data.gov.au/dataset/gnaf-2016-05"></a>
+        <h3>GNAF 2016 May Dataset<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/dataset/gnaf-2016-05</p>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <a href="#Dataset" title="http://linked.data.gov.au/def/loci#Dataset">LocI Dataset</a>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="d4e386" class="entity">
+        <a name="http://linked.data.gov.au/dataset/gnaf"></a>
+        <h3>GNAF Dataset<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/dataset/gnaf</p>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <a href="#Dataset" title="http://linked.data.gov.au/def/loci#Dataset">LocI Dataset</a>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="loci" class="entity">
+        <a name="http://linked.data.gov.au/def/loci"></a>
+        <h3>LOC-I Ontology<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/def/loci</p>
+    </div>
+    <div id="d4e355" class="entity">
+        <a name="http://catalogue.linked.data.gov.au/org/psma"></a>
+        <h3>PSMA Australia<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://catalogue.linked.data.gov.au/org/psma</p>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <span class="dotted" title="http://xmlns.com/foaf/0.1/Organization">organization</span>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+        </dl>
+    </div>
+</div>
+<div id="annotationproperties">
+    <h2>Annotation Properties</h2>
+    <ul class="hlist">
+        <li><a href="#d4e57" title="http://www.w3.org/2004/02/skos/core#definition"><span>definition</span></a></li>
+        <li><a href="#d4e61" title="http://www.w3.org/2004/02/skos/core#editorialNote"><span>editorial note</span></a></li>
+        <li><a href="#d4e66" title="http://www.w3.org/2004/02/skos/core#member"><span>member</span></a></li>
+        <li><a href="#d4e48" title="http://www.w3.org/2002/07/owl#minQualifiedCardinality"><span>min qualified cardinality</span></a></li>
+        <li><a href="#d4e53" title="http://www.w3.org/2002/07/owl#qualifiedCardinality"><span>qualified cardinality</span></a></li>
+    </ul>
+    <div id="d4e57" class="entity">
+        <a name="http://www.w3.org/2004/02/skos/core#definition"></a>
+        <h3>definition<sup title="annotation property" class="type-ap">ap</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://www.w3.org/2004/02/skos/core#definition</p>
+    </div>
+    <div id="d4e61" class="entity">
+        <a name="http://www.w3.org/2004/02/skos/core#editorialNote"></a>
+        <h3>editorial note<sup title="annotation property" class="type-ap">ap</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://www.w3.org/2004/02/skos/core#editorialNote</p>
+    </div>
+    <div id="d4e66" class="entity">
+        <a name="http://www.w3.org/2004/02/skos/core#member"></a>
+        <h3>member<sup title="annotation property" class="type-ap">ap</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://www.w3.org/2004/02/skos/core#member</p>
+    </div>
+    <div id="d4e48" class="entity">
+        <a name="http://www.w3.org/2002/07/owl#minQualifiedCardinality"></a>
+        <h3>min qualified cardinality<sup title="annotation property" class="type-ap">ap</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://www.w3.org/2002/07/owl#minQualifiedCardinality</p>
+    </div>
+    <div id="d4e53" class="entity">
+        <a name="http://www.w3.org/2002/07/owl#qualifiedCardinality"></a>
+        <h3>qualified cardinality<sup title="annotation property" class="type-ap">ap</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a></span></h3>
+        <p><strong>IRI:</strong> http://www.w3.org/2002/07/owl#qualifiedCardinality</p>
+    </div>
+</div>
+<div id="namespacedeclarations">
+    <h2>Namespace Declarations <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+    <dl>
+        <dt>
+            <em>default namespace</em>
+        </dt>
+        <dd>
+            http://linked.data.gov.au/def/loci#
+        </dd>
+        <dt>
+            dc
+        </dt>
+        <dd>
+            http://purl.org/dc/elements/1.1/
+        </dd>
+        <dt>
+            dcat
+        </dt>
+        <dd>
+            http://www.w3.org/ns/dcat#
+        </dd>
+        <dt>
+            foaf
+        </dt>
+        <dd>
+            http://xmlns.com/foaf/0.1/
+        </dd>
+        <dt>
+            geosparql
+        </dt>
+        <dd>
+            http://www.opengis.net/ont/geosparql#
+        </dd>
+        <dt>
+            loci
+        </dt>
+        <dd>
+            http://linked.data.gov.au/def/loci/
+        </dd>
+        <dt>
+            owl
+        </dt>
+        <dd>
+            http://www.w3.org/2002/07/owl#
+        </dd>
+        <dt>
+            prov
+        </dt>
+        <dd>
+            http://www.w3.org/ns/prov#
+        </dd>
+        <dt>
+            rdf
+        </dt>
+        <dd>
+            http://www.w3.org/1999/02/22-rdf-syntax-ns#
+        </dd>
+        <dt>
+            rdfs
+        </dt>
+        <dd>
+            http://www.w3.org/2000/01/rdf-schema#
+        </dd>
+        <dt>
+            skos
+        </dt>
+        <dd>
+            http://www.w3.org/2004/02/skos/core#
+        </dd>
+        <dt>
+            void
+        </dt>
+        <dd>
+            http://rdfs.org/ns/void#
+        </dd>
+        <dt>
+            xsd
+        </dt>
+        <dd>
+            http://www.w3.org/2001/XMLSchema#
+        </dd>
+    </dl>
+</div>
+<p class="endnote">This HTML document was obtained by processing the OWL ontology source code through <a href="http://lode2.promsns.org">LODE 2</a>, <em>Live OWL Documentation Environment, v2</em>, originally developed by <a href="http://www.essepuntato.it">Silvio Peroni</a> and updated by <a href="http://www.edmondchuc.com">Edmond Chuc</a> at the <a href="http://www.csiro.au">CSIRO</a>.</p>
+</body>
 </html>

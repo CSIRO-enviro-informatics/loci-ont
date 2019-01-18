@@ -5,14 +5,14 @@ This is a profile of the [GeoSPARQL](http://www.opengeospatial.org/standards/geo
 
 This ontology constrains both normative instruction on what constitutes LOC-I objects and supplies executable constraints to validate instances.
 
-![](model.png)
+![](images/model.png)
 **Figure 1**: a diagrammatic version of this ontology's model
 
 ## Contents
 The resources in this profile are:
 * **[model.html](model.html)** - normative definitions of classes defined by this ontology that are equivalent to constrained vclasses defined by ontologies this profiles
 * **[model.ttl](model.ttl)** - RDF version of the model
-* **[model.png](model.png)** - a diagram version of the model (also Figure 1 above)
+* **[model.png](images/model.png)** - a diagram version of the model (also Figure 1 above)
 * **[profile.ttl](profile.ttl)** - a formal description of how this ontology profiles other ontologies, using the [Profiles Ontology](https://w3c.github.io/dxwg/profilesont/)
 * **[constraints-shacl.ttl](constraints-shacl.ttl)** - RDF data shape constraints using the [Shapes Constraint Language, SHACL](https://www.w3.org/TR/shacl/) to be used to validate LOC-I class & property instances
 
