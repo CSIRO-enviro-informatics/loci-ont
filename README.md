@@ -5,7 +5,7 @@ This is a profile of the [GeoSPARQL](http://www.opengeospatial.org/standards/geo
 
 This ontology constrains both normative instruction on what constitutes LOC-I objects and supplies executable constraints to validate instances.
 
-![](images/model.png)
+![](images/model.svg)
 **Figure 1**: a diagrammatic version of this ontology's model
 
 ## Contents
