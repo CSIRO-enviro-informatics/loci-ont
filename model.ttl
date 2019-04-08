@@ -9,28 +9,75 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix void: <http://rdfs.org/ns/void#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix reg: <http://purl.org/linked-data/registry> .
+@prefix prof: <http://www.w3.org/ns/dx/prof/> .
+@prefix role: <http://www.w3.org/ns/dx/prof/role/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix org: <http://www.w3.org/ns/org#> .
 @base <http://linked.data.gov.au/def/loci> .
 
-<http://linked.data.gov.au/def/loci> rdf:type owl:Ontology ;
-                                      owl:versionIRI <http://linked.data.gov.au/def/loci/1.0> ;
-                                      owl:imports <http://purl.org/linked-data/registry> ,
-                                                  rdf: ,
-                                                  <http://www.w3.org/2002/07/owl> ,
-                                                  <http://www.w3.org/ns/dcat> ;
-                                      <http://purl.org/dc/elements/1.1/creator> "Nicholas J. Car" ;
-                                      <http://purl.org/dc/elements/1.1/publisher> "CSIRO" ;
-                                      <http://purl.org/dc/terms/created> "2018-10-29"^^xsd:date ;
-                                      <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-8742-7730> ;
-                                      <http://purl.org/dc/terms/modified> "2018-11-09"^^xsd:date ;
-                                      <http://purl.org/dc/terms/publisher> <http://catalogue.linked.data.gov.au/org/O-000886> ;
-                                      rdfs:comment """A profile of several ontologies implemented to govern Linked Data resources published within the LOC-I project.
 
-This ontology profiles the [GeoSPARQL](http://www.opengeospatial.org/standards/geosparql) and [DCAT v2](https://www.w3.org/TR/vocab-dcat-2/) & [VOID](http://www.w3.org/TR/void/) ontologies and requires that certain properties defined by them be present for several classes of resource that are of particular importance to the [LOC-I project](http://loci.cat).
+#
+#   Description of this as a prof:Profile
+#
+<http://linked.data.gov.au/def/loci>
+    a                 prof:Profile ;
+    rdfs:label        "LocI Ontology" ;
+    prof:isProfileOf  dcat: , void: , reg: , geo: , org: ;
+    prof:token        "loci"^^xsd:Token ;
+    prof:hasResource _:1 , _:2 , _:3 , _:4 .
 
-This ontology constrains both normative instruction on what constitutes LOC-I objects and supplies executable constraints to validate instances. This ontologie's components and its relations to the onologies it profiles are described using the [Profiles Ontology](https://www.w3.org/TR/dx-prof).""" ;
-                                      rdfs:label "LOC-I Ontology"@en ;
-                                      rdfs:seeAlso "http://github.com/CSIRO-enviro-informatics/loci-ont/"@en ;
-                                      owl:versionInfo "Beta version"@en .
+_:1
+    a                 prof:ResourceDescriptor ;
+    dct:title         "Profile Specification"@en ;
+    dct:format        <https://w3id.org/mediatype/text/turtle> ;
+    prof:hasRole      role:specification ;
+    prof:hasArtifact  <http://linked.data.gov.au/def/loci/model.ttl> .
+
+_:2
+    a                 prof:ResourceDescriptor ;
+    dct:title         "Guidance document"@en ;
+    dct:format        <https://w3id.org/mediatype/text/html> ;
+    prof:hasRole      role:guidance ;
+    prof:hasArtifact  <http://linked.data.gov.au/def/loci/model.html> .
+
+_:3
+    a                 prof:ResourceDescriptor ;
+    dct:title         "Ontology overview image"@en ;
+    dct:format        <https://w3id.org/mediatype/image/svg> ;
+    prof:hasRole      role:guidance ;
+    prof:hasArtifact  <http://linked.data.gov.au/def/loci/images/model.svg> .
+
+_:4
+    a                 prof:ResourceDescriptor ;
+    dct:title         "Validator Shapes graph"@en ;
+    dct:format        <https://w3id.org/mediatype/text/turtle> ;
+    prof:hasRole      role:constraints ;
+    prof:hasArtifact  <http://linked.data.gov.au/def/loci/constraints.ttl> .
+
+
+#
+#   Description of this as an OWL Ontology
+#
+<http://linked.data.gov.au/def/loci>
+    a owl:Ontology ;
+    owl:versionIRI <http://linked.data.gov.au/def/loci/1.0> ;
+    owl:imports reg: , rdf: ,  owl: , dcat: ;
+    <http://purl.org/dc/elements/1.1/creator> "Nicholas J. Car" ;
+    <http://purl.org/dc/elements/1.1/publisher> "CSIRO" ;
+    <http://purl.org/dc/terms/created> "2018-10-29"^^xsd:date ;
+    <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-8742-7730> ;
+    <http://purl.org/dc/terms/modified> "2018-11-09"^^xsd:date ;
+    <http://purl.org/dc/terms/publisher> <http://catalogue.linked.data.gov.au/org/O-000886> ;
+    rdfs:comment """This ontology is a profile of several ontologies implemented to govern Linked Data resources published within the LOC-I project.
+
+    This ontology profiles the [GeoSPARQL](http://www.opengeospatial.org/standards/geosparql) and [DCAT v2](https://www.w3.org/TR/vocab-dcat-2/) & [VOID](http://www.w3.org/TR/void/) ontologies and requires that certain properties defined by them be present for several classes of resource that are of particular importance to the [LOC-I project](http://loci.cat).
+
+    This ontology constrains both normative instruction on what constitutes LOC-I objects and supplies executable constraints to validate instances. This ontologie's components and its relations to the onologies it profiles are described using the [Profiles Ontology](https://www.w3.org/TR/dx-prof).""" ;
+    rdfs:label "LOC-I Ontology"@en ;
+    rdfs:seeAlso "http://github.com/CSIRO-enviro-informatics/loci-ont/"@en ;
+    owl:versionInfo "Beta version"@en .
 
 #################################################################
 #    Annotation properties
@@ -99,9 +146,9 @@ geo:hasGeometry rdf:type owl:ObjectProperty .
                                owl:allValuesFrom :DataPublisher
                              ] ;
          rdfs:subClassOf void:Dataset ,
-                         <http://www.w3.org/ns/dcat#DataDistributuionService> ,
+                         dcat:DataService ,
                          [ rdf:type owl:Restriction ;
-                           owl:onProperty <http://www.w3.org/ns/dcat#contactPoint> ;
+                           owl:onProperty dcat:contactPoint ;
                            owl:minCardinality "1"^^xsd:nonNegativeInteger
                          ] ,
                          [ rdf:type owl:Restriction ;
@@ -137,7 +184,7 @@ geo:hasGeometry rdf:type owl:ObjectProperty .
                                            owl:onClass prov:Plan
                                          ] ,
                                          [ rdf:type owl:Restriction ;
-                                           owl:onProperty <http://purl.org/linked-data/registry#register> ;
+                                           owl:onProperty reg:register ;
                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                            owl:onClass :Linkset
                                          ] ;

@@ -95,9 +95,81 @@
 </div>
 <hr>
 <h2>Abstract</h2>
-<span class="markdown"><p>A profile of several ontologies implemented to govern Linked Data resources published within the LOC-I project.</p> <p>This ontology profiles the <a href="http://www.opengeospatial.org/standards/geosparql">GeoSPARQL</a> and <a href="https://www.w3.org/TR/vocab-dcat-2/">DCAT v2</a> &amp; <a href="http://www.w3.org/TR/void/">VOID</a> ontologies and requires that certain properties defined by them be present for several classes of resource that are of particular importance to the <a href="http://loci.cat">LOC-I project</a>.</p> <p>This ontology constrains both normative instruction on what constitutes LOC-I objects and supplies executable constraints to validate instances. This ontologie's components and its relations to the onologies it profiles are described using the <a href="https://www.w3.org/TR/dx-prof">Profiles Ontology</a>.</p> </span>
+<p>This ontology is a profile of several ontologies implemented to govern Linked Data resources published within the LOC-I project. It profiles the <a href="http://www.opengeospatial.org/standards/geosparql">GeoSPARQL</a> and <a href="https://www.w3.org/TR/vocab-dcat-2/">DCAT v2</a> &amp; <a href="http://www.w3.org/TR/void/">VOID</a> ontologies and requires that certain properties defined by them be present for several classes of resource that are of particular importance to the <a href="http://loci.cat">LOC-I project</a>.</p>
+<p>This ontology contains normative constrains on what constitutes LOC-I objects and supplies executable constraints to validate instances. This ontology's components and its relations to the ontologies it profiles are described using the <a href="https://www.w3.org/TR/dx-prof/">Profiles Vocabulary (PROF)</a>.</p>
+<div id="prof">
+    <h2>Profile Content</h2>
+    <p>This profile's descrition, as defined by PROF, is:</p>
+    <div class="entity">
+        <h3>Profile <em>LocI Ontology</em></h3>
+        <dl class="description">
+            <dt>Profile of</dt>
+            <dd>
+                <a href="https://www.w3.org/TR/vocab-dcat/">Data Catalog Vocabulary (DCAT)</a><br />
+                <a href="http://rdfs.org/ns/void">Vocabulary of Interlinked Datasets (VoID)</a><br />
+                <a href="http://epimorphics.com/public/vocabulary/Registry.html">Registry ontology</a><br />
+                <a href="https://www.opengeospatial.org/standards/geosparql">GeoSPARQL - A Geographic Query Language for RDF Data</a><br />
+                <a href="https://www.w3.org/TR/vocab-org/">The Organization Ontology</a>
+            </dd>
+            <dt>Token</dt>
+            <dd>loci</dd>
+            <dt>Has resource</dt>
+            <dd>
+                <a href="#resourcedescriptor-1">Profile Specification</a><br />
+                <a href="#resourcedescriptor-2">Guidance document</a><br />
+                <a href="#resourcedescriptor-3">Ontology overview image</a><br />
+                <a href="#resourcedescriptor-4">Validator Shapes graph</a>
+            </dd>
+        </dl>
+    </div>
+    <p>This profile's components, as defined by PROF, are:</p>
+    <div id="resourcedescriptor-1" class="entity">
+        <h3>Resource Descriptor <em>Profile Specification</em></h3>
+        <dl class="description">
+            <dt>Role</dt>
+            <dd><a href="https://www.w3.org/TR/dx-prof/#Role:specification">Specification</a></dd>
+            <dt>Format</dt>
+            <dd><a href="https://w3id.org/mediatype/text/turtle">RDF Turtle</a></dd>
+            <dt>Artifact</dt>
+            <dd><a href="http://linked.data.gov.au/def/loci/model.ttl">model.ttl</a></dd>
+        </dl>
+    </div>
+    <div id="resourcedescriptor-2" class="entity">
+        <h3>Resource Descriptor <em>Guidance document</em></h3>
+        <dl class="description">
+            <dt>Role</dt>
+            <dd><a href="https://www.w3.org/TR/dx-prof/#Role:guidance">Guidance</a></dd>
+            <dt>Format</dt>
+            <dd><a href="https://w3id.org/mediatype/text/html">HTML</a></dd>
+            <dt>Artifact</dt>
+            <dd><a href="http://linked.data.gov.au/def/loci/model.html">model.html</a></dd>
+        </dl>
+    </div>
+    <div id="resourcedescriptor-3" class="entity">
+        <h3>Resource Descriptor <em>Ontology overview image</em></h3>
+        <dl class="description">
+            <dt>Role</dt>
+            <dd><a href="https://www.w3.org/TR/dx-prof/#Role:guidance">Guidance</a></dd>
+            <dt>Format</dt>
+            <dd><a href="https://w3id.org/mediatype/image/svg">SVG image</a></dd>
+            <dt>Artifact</dt>
+            <dd><a href="http://linked.data.gov.au/def/loci/model.svg">model.svg</a></dd>
+        </dl>
+    </div>
+    <div id="resourcedescriptor-4" class="entity">
+        <h3>Resource Descriptor <em>Validator Shapes graph</em></h3>
+        <dl class="description">
+            <dt>Role</dt>
+            <dd><a href="https://www.w3.org/TR/dx-prof/#Role:constraints">Constraints</a></dd>
+            <dt>Format</dt>
+            <dd><a href="https://w3id.org/mediatype/text/turtle">RDF Turtle</a></dd>
+            <dt>Artifact</dt>
+            <dd><a href="http://linked.data.gov.au/def/loci/constraints.ttl">constraints.ttl</a></dd>
+        </dl>
+    </div>
+</div>
 <div id="toc">
-    <h2>Table of Content</h2>
+    <h2>Ontology Table of Content</h2>
     <ol>
         <li><a href="#classes">Classes</a></li>
         <li><a href="#objectproperties">Object Properties</a></li>
