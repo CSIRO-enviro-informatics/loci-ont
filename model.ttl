@@ -244,20 +244,20 @@ foaf:Organization rdf:type owl:Class .
 #    Individuals
 #################################################################
 
-###  http://catalogue.linked.data.gov.au/org/O-000886
-<http://catalogue.linked.data.gov.au/org/O-000886> rdf:type owl:NamedIndividual ,
+###  http://catalogue.linked.data.gov.au/org/csiro
+<http://catalogue.linked.data.gov.au/org/csiro> rdf:type owl:NamedIndividual ,
                                                             foaf:Organization ;
                                                    rdfs:label "CSIRO" .
 
 
-###  http://catalogue.linked.data.gov.au/org/O-000887
-<http://catalogue.linked.data.gov.au/org/O-000887> rdf:type owl:NamedIndividual ,
+###  http://catalogue.linked.data.gov.au/org/ga
+<http://catalogue.linked.data.gov.au/org/ga> rdf:type owl:NamedIndividual ,
                                                             foaf:Organization ;
                                                    rdfs:label "Geoscience Australia" .
 
 
-###  http://catalogue.linked.data.gov.au/org/O-000928
-<http://catalogue.linked.data.gov.au/org/O-000928> rdf:type owl:NamedIndividual ,
+###  http://catalogue.linked.data.gov.au/org/abs
+<http://catalogue.linked.data.gov.au/org/abs> rdf:type owl:NamedIndividual ,
                                                             foaf:Organization ;
                                                    rdfs:label "Australian Bureau of Statistics" .
 
@@ -296,8 +296,8 @@ foaf:Organization rdf:type owl:Class .
 :DataPublisher rdf:type owl:NamedIndividual .
 
 
-###  http://linked.data.gov.au/linkset/bhafvq
-<http://linked.data.gov.au/linkset/bhafvq> rdf:type owl:NamedIndividual ,
+###  http://linked.data.gov.au/dataset/addrcatch
+<http://linked.data.gov.au/dataset/addrcatch> rdf:type owl:NamedIndividual ,
                                                     :Linkset ;
                                            rdfs:label "Addresses Catchments Linkset" .
 
