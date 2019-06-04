@@ -1,0 +1,35 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+
+
+:DatasetShape
+    a sh:NodeShape ;
+    sh:targetClass dcat:Dataset ;
+.
+
+:LinksetShape
+    a sh:NodeShape ;
+    sh:targetClass void:Linkset ;
+.
+
+:StatementShape
+    a sh:NodeShape ;
+    sh:targetClass rdf:Statement ;
+.
+
+:FeatureShape
+    a sh:NodeShape ;
+    sh:targetClass geo:Feature ;
+.
+
+:PublisherShape
+    a sh:NodeShape ;
+    sh:targetClass org:Organization ;
+.
