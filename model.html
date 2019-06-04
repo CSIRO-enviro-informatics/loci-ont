@@ -3,7 +3,7 @@
 <head>
     <title>LOC-I Ontology</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel="stylesheet" type="text/css" href="../output_files/style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <div id="pylode">made by <a href="http://github.com/rdflib/pyLODE">pyLODE</a></div>
@@ -52,14 +52,15 @@
         <li><a href="#classes">Classes</a></li>
         <li><a href="#objectproperties">Object Properties</a></li>
         <li><a href="#annotationproperties">Annotation Properties</a></li>
+        <li><a href="#namedindividuals">Named Individuals</a></li>
         <li><a href="#namespaces">Namespaces</a></li>
     </ol>
 </section>
 <section id="overview">
     <h2>Overview</h2>
     <div class="figure">
-        <div style="width:500px; height:500px; background-color: black;">&nbsp;</div>
-        <div class="caption"><strong>Figure 1:</strong> Ontology overview</div>
+        <a href="images/model.svg"><img src="images/model.svg" width="900px" /></a>
+        <p><strong>Figure 1</strong>: An overview diagram of this ontology showing major classes and properties.</p>
     </div>
 </section>
 <section id="classes">
@@ -95,6 +96,10 @@
     </div>
     <div class="entity class" id="locidataset">
         <h3>LOCI Dataset<sup title="class" class="type-c">c</sup></h3>
+        <div class="figure">
+            <a href="images/dataset.svg"><img src="images/dataset.svg" width="700px" /></a>
+            <p><strong>Figure 2</strong>: The LocI Dataset class with object properties shown.</p>
+        </div>
         <table>
             <tr>
                 <th>IRI</th>
@@ -133,6 +138,10 @@
     </div>
     <div class="entity class" id="locidatasetlinkingstatement">
         <h3>LOCI Dataset Linking Statement<sup title="class" class="type-c">c</sup></h3>
+        <div class="figure" id="statement-figure">
+            <a href="images/statement.svg"><img src="images/statement.svg" width="700px" /></a>
+            <p><strong>Figure 3</strong>: The LocI Dataset Linking Statement class with object properties shown.</p>
+        </div>
         <table>
             <tr>
                 <th>IRI</th>
@@ -163,6 +172,10 @@
     </div>
     <div class="entity class" id="locifeature">
         <h3>LOCI Feature<sup title="class" class="type-c">c</sup></h3>
+        <div class="figure" id="feature-figure">
+            <a href="images/feature.svg"><img src="images/feature.svg" width="700px" /></a>
+            <p><strong>Figure 4</strong>: The LocI fFature class with object properties shown.</p>
+        </div>
         <table>
             <tr>
                 <th>IRI</th>
@@ -178,6 +191,10 @@
     </div>
     <div class="entity class" id="locilinkset">
         <h3>LOCI Linkset<sup title="class" class="type-c">c</sup></h3>
+        <div class="figure" id="linkset-figure">
+            <a href="images/linkset.svg"><img src="images/linkset.svg" width="700px" /></a>
+            <p><strong>Figure 5</strong>: The LocI Linkset class with object properties shown.</p>
+        </div>
         <table>
             <tr>
                 <th>IRI</th>
@@ -277,17 +294,155 @@
         </table>
     </div>
 </section>
+<div id="namedindividuals">
+    <h2>Named Individuals</h2>
+    <div id="namedindividuals-image">
+        <a href="images/namedindividuals.svg"><img src="images/namedindividuals.svg" width="1100px" /></a>
+        <p><strong>Figure 6</strong>: The Named Individuals given in this ontology.</p>
+    </div>
+    <ul class="hlist">
+        <li><a href="#d4e419" title="http://linked.data.gov.au/linkset/bhafvq">Addresses Catchments Linkset</a></li>
+        <li><a href="#d4e366" title="http://linked.data.gov.au/dataset/asgs2016">ASGS 2016 Dataset</a></li>
+        <li><a href="#d4e345" title="http://catalogue.linked.data.gov.au/org/O-000928">Australian Bureau of Statistics</a></li>
+        <li><a href="#d4e324" title="http://catalogue.linked.data.gov.au/org/O-000886">CSIRO</a></li>
+        <li><a href="#d4e376" title="http://linked.data.gov.au/dataset/geofabric">Geofabric Dataset</a></li>
+        <li><a href="#d4e335" title="http://catalogue.linked.data.gov.au/org/O-000887">Geoscience Australia</a></li>
+        <li><a href="#d4e397" title="http://linked.data.gov.au/dataset/gnaf-2016-05">GNAF 2016 May Dataset</a></li>
+        <li><a href="#d4e386" title="http://linked.data.gov.au/dataset/gnaf">GNAF Dataset</a></li>
+        <li><a href="#d4e355" title="http://catalogue.linked.data.gov.au/org/psma">PSMA Australia</a></li>
+    </ul>
+    <div id="d4e419" class="entity">
+        <a name="http://linked.data.gov.au/linkset/bhafvq"></a>
+        <h3>Addresses Catchments Linkset<sup title="named individual" class="type-ni">ni</sup></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/linkset/bhafvq</p>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <a href="#Linkset" title="http://linked.data.gov.au/def/loci#Linkset">LocI Linkset</a>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="d4e366" class="entity">
+        <a name="http://linked.data.gov.au/dataset/asgs2016"></a>
+        <h3>ASGS 2016 Dataset<sup title="named individual" class="type-ni">ni</sup></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/dataset/asgs2016</p>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <a href="#Dataset" title="http://linked.data.gov.au/def/loci#Dataset">LocI Dataset</a>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="d4e345" class="entity">
+        <a name="http://catalogue.linked.data.gov.au/org/O-000928"></a>
+        <h3>Australian Bureau of Statistics<sup title="named individual" class="type-ni">ni</sup></h3>
+        <p><strong>IRI:</strong> http://catalogue.linked.data.gov.au/org/O-000928</p>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <span class="dotted" title="http://xmlns.com/foaf/0.1/Organization">organization</span>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="d4e324" class="entity">
+        <a name="http://catalogue.linked.data.gov.au/org/O-000886"></a>
+        <h3>CSIRO<sup title="named individual" class="type-ni">ni</sup></h3>
+        <p><strong>IRI:</strong> http://catalogue.linked.data.gov.au/org/O-000886</p>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <span class="dotted" title="http://xmlns.com/foaf/0.1/Organization">organization</span>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="d4e376" class="entity">
+        <a name="http://linked.data.gov.au/dataset/geofabric"></a>
+        <h3>Geofabric Dataset<sup title="named individual" class="type-ni">ni</sup></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/dataset/geofabric</p>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <a href="#Dataset" title="http://linked.data.gov.au/def/loci#Dataset">LocI Dataset</a>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="d4e335" class="entity">
+        <a name="http://catalogue.linked.data.gov.au/org/O-000887"></a>
+        <h3>Geoscience Australia<sup title="named individual" class="type-ni">ni</sup></h3>
+        <p><strong>IRI:</strong> http://catalogue.linked.data.gov.au/org/O-000887</p>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <span class="dotted" title="http://xmlns.com/foaf/0.1/Organization">organization</span>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="d4e397" class="entity">
+        <a name="http://linked.data.gov.au/dataset/gnaf-2016-05"></a>
+        <h3>GNAF 2016 May Dataset<sup title="named individual" class="type-ni">ni</sup></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/dataset/gnaf-2016-05</p>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <a href="#Dataset" title="http://linked.data.gov.au/def/loci#Dataset">LocI Dataset</a>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="d4e386" class="entity">
+        <a name="http://linked.data.gov.au/dataset/gnaf"></a>
+        <h3>GNAF Dataset<sup title="named individual" class="type-ni">ni</sup></h3>
+        <p><strong>IRI:</strong> http://linked.data.gov.au/dataset/gnaf</p>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <a href="#Dataset" title="http://linked.data.gov.au/def/loci#Dataset">LocI Dataset</a>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+        </dl>
+    </div>
+    <div id="d4e355" class="entity">
+        <a name="http://catalogue.linked.data.gov.au/org/psma"></a>
+        <h3>PSMA Australia<sup title="named individual" class="type-ni">ni</sup></h3>
+        <p><strong>IRI:</strong> http://catalogue.linked.data.gov.au/org/psma</p>
+        <dl class="description">
+            <dt>
+                belongs to
+            </dt>
+            <dd>
+                <span class="dotted" title="http://xmlns.com/foaf/0.1/Organization">organization</span>
+                <sup title="class" class="type-c">c</sup>
+            </dd>
+        </dl>
+    </div>
+</div>
 <section id="namespaces">
     <h2>Namespaces</h2>
     <dl>
         <dt><em>default (:)</em></dt>
-        <dd><code></code></dd>
-        <dt></dt>
         <dd><code>http://linked.data.gov.au/def/loci#</code></dd>
-        <dt>07</dt>
-        <dd><code>http://www.w3.org/2002/07/</code></dd>
-        <dt>dataset</dt>
-        <dd><code>http://linked.data.gov.au/dataset/</code></dd>
         <dt>dcat</dt>
         <dd><code>http://www.w3.org/ns/dcat#</code></dd>
         <dt>dct</dt>
@@ -298,14 +453,10 @@
         <dd><code>http://xmlns.com/foaf/0.1/</code></dd>
         <dt>geosparql</dt>
         <dd><code>http://www.opengis.net/ont/geosparql#</code></dd>
-        <dt>linked-data</dt>
-        <dd><code>http://purl.org/linked-data/</code></dd>
         <dt>loci</dt>
         <dd><code>http://linked.data.gov.au/def/loci/</code></dd>
         <dt>ns</dt>
         <dd><code>http://www.w3.org/ns/</code></dd>
-        <dt>orcid</dt>
-        <dd><code>http://orcid.org/</code></dd>
         <dt>org</dt>
         <dd><code>http://catalogue.linked.data.gov.au/org/</code></dd>
         <dt>owl</dt>
@@ -316,7 +467,7 @@
         <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
         <dt>rdfs</dt>
         <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
-        <dt>registry</dt>
+        <dt>reg</dt>
         <dd><code>http://purl.org/linked-data/registry#</code></dd>
         <dt>sdo</dt>
         <dd><code>https://schema.org/</code></dd>
@@ -324,8 +475,6 @@
         <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
         <dt>void</dt>
         <dd><code>http://rdfs.org/ns/void#</code></dd>
-        <dt>xml</dt>
-        <dd><code>http://www.w3.org/XML/1998/namespace</code></dd>
         <dt>xsd</dt>
         <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
     </dl>
