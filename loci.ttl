@@ -125,7 +125,7 @@ This ontology constrains both normative instruction on what constitutes LOC-I ob
   prof:isProfileOf geo: ;
   prof:isProfileOf dcat: ;
   prof:isProfileOf org: ;
-  prof:token "loci"^^xsd:Token ;
+  prof:token "loci"^^xsd:token ;
   prov:wasGeneratedBy [
       a doap:Project ;
       a prov:Activity ;
