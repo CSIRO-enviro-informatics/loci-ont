@@ -1,6 +1,4 @@
 # baseURI: http://linked.data.gov.au/def/loci
-# imports: http://purl.org/linked-data/registry#
-# imports: http://www.w3.org/ns/dcat#
 
 @prefix : <http://linked.data.gov.au/def/loci#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
@@ -21,51 +19,7 @@
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://catalogue.linked.data.gov.au/org/abs>
-  a owl:NamedIndividual ;
-  a org:Organization ;
-  rdfs:label "Australian Bureau of Statistics" ;
-.
-<http://catalogue.linked.data.gov.au/org/csiro>
-  a owl:NamedIndividual ;
-  a org:Organization ;
-  rdfs:label "CSIRO" ;
-.
-<http://catalogue.linked.data.gov.au/org/ga>
-  a owl:NamedIndividual ;
-  a org:Organization ;
-  rdfs:label "Geoscience Australia" ;
-.
-<http://catalogue.linked.data.gov.au/org/psma>
-  a owl:NamedIndividual ;
-  a org:Organization ;
-  rdfs:label "PSMA Australia" ;
-.
-<http://linked.data.gov.au/dataset/addrcatch>
-  a :Linkset ;
-  a owl:NamedIndividual ;
-  rdfs:label "Addresses Catchments Linkset" ;
-.
-<http://linked.data.gov.au/dataset/asgs2016>
-  a :Dataset ;
-  a owl:NamedIndividual ;
-  rdfs:label "ASGS 2016 Dataset" ;
-.
-<http://linked.data.gov.au/dataset/geofabric>
-  a :Dataset ;
-  a owl:NamedIndividual ;
-  rdfs:label "Geofabric Dataset" ;
-.
-<http://linked.data.gov.au/dataset/gnaf>
-  a :Dataset ;
-  a owl:NamedIndividual ;
-  rdfs:label "GNAF Dataset" ;
-.
-<http://linked.data.gov.au/dataset/gnaf-2016-05>
-  a :Dataset ;
-  a owl:NamedIndividual ;
-  rdfs:label "GNAF 2016 May Dataset" ;
-.
+
 <http://linked.data.gov.au/def/loci>
   a owl:Ontology ;
   a prof:Profile ;
@@ -79,12 +33,11 @@
       sdo:identifier <http://catalogue.linked.data.gov.au/org/csiro> ;
       sdo:name "CSIRO" ;
     ] ;
-  rdfs:comment """A profile of several ontologies implemented to govern Linked Data resources published within the LOC-I project.
+  rdfs:comment """A profile of several ontologies implemented to govern Linked Data resources published within the LocI project.
 
-This is a profile of the [GeoSPARQL](http://www.opengeospatial.org/standards/geosparql) and [DCAT v2](https://www.w3.org/TR/vocab-dcat-2/) & [VOID](http://www.w3.org/TR/void/) that require certain properties defined by those ontologies be present for several classes of resource that are of particular importance to the [LOC-I](https://confluence.csiro.au/display/DIPAAnalyticHubs/Location+Integration+Capability+Loc-I) project.
+This is a profile of the [DCAT v2](https://www.w3.org/TR/vocab-dcat-2/) & [VOID](http://www.w3.org/TR/void/) ontologies that require certain properties defined by those ontologies be present for several classes of resource that are of particular importance to the [LocI](https://confluence.csiro.au/display/DIPAAnalyticHubs/Location+Integration+Capability+Loc-I) project.
 
-This ontology constrains both normative instruction on what constitutes LOC-I objects and supplies executable constraints to validate instances.""" ;
-  rdfs:label "LOC-I Ontology"@en ;
+This ontology constrains both normative instruction on what constitutes LocI objects and supplies executable constraints to validate instances.""" ;
   rdfs:label "LocI Ontology" ;
   rdfs:seeAlso "http://github.com/CSIRO-enviro-informatics/loci-ont/"@en ;
   owl:imports reg: ;
@@ -94,7 +47,7 @@ This ontology constrains both normative instruction on what constitutes LOC-I ob
   prof:hasResource [
       a prof:ResourceDescriptor ;
       dct:format <https://w3id.org/mediatype/image/svg> ;
-      dct:title "Ontology overview image"@en ;
+      dct:title "Ontology overview diagram"@en ;
       prof:hasArtifact <http://linked.data.gov.au/def/loci/images/model.svg> ;
       prof:hasRole role:guidance ;
     ] ;
@@ -102,14 +55,14 @@ This ontology constrains both normative instruction on what constitutes LOC-I ob
       a prof:ResourceDescriptor ;
       dct:format <https://w3id.org/mediatype/text/html> ;
       dct:title "Guidance document"@en ;
-      prof:hasArtifact <http://linked.data.gov.au/def/loci/model.html> ;
+      prof:hasArtifact <http://linked.data.gov.au/def/loci/loci.html> ;
       prof:hasRole role:guidance ;
     ] ;
   prof:hasResource [
       a prof:ResourceDescriptor ;
       dct:format <https://w3id.org/mediatype/text/turtle> ;
       dct:title "Profile Specification"@en ;
-      prof:hasArtifact <http://linked.data.gov.au/def/loci/model.ttl> ;
+      prof:hasArtifact <http://linked.data.gov.au/def/loci/loci.ttl> ;
       prof:hasRole role:specification ;
     ] ;
   prof:hasResource [
@@ -119,17 +72,14 @@ This ontology constrains both normative instruction on what constitutes LOC-I ob
       prof:hasArtifact <http://linked.data.gov.au/def/loci/constraints.ttl> ;
       prof:hasRole role:constraints ;
     ] ;
-  prof:isProfileOf reg: ;
-  prof:isProfileOf void: ;
-  prof:isProfileOf geo: ;
-  prof:isProfileOf dcat: ;
-  prof:isProfileOf org: ;
+  prof:isProfileOf <http://rdfs.org/ns/void> ;
+  prof:isProfileOf <https://www.w3.org/TR/vocab-dcat-2/> ;
   prof:token "loci"^^xsd:token ;
   prov:wasGeneratedBy [
       a doap:Project ;
       a prov:Activity ;
       doap:repository <https://github.com/CSIRO-enviro-informatics/loci-ont> ;
-      rdfs:label "Loc-I project" ;
+      rdfs:label "LocI project" ;
     ] ;
 .
 :DataPublisher
@@ -247,4 +197,51 @@ This ontology constrains both normative instruction on what constitutes LOC-I ob
     ) ;
   skos:definition "Something (likely a prov:Entity) had a method (prov:Plan) that was used to generate it"@en ;
   skos:editorialNote "This property is a property chain axiome equivalent to a chian of three properties in the PROV ontology: prov:wasGeneratedBy, prov:qualifiedAssociation and prof:hadPlan linking a prov:Entity (the thing generated) to a prov:Plan (the thin instruction generation - the method) via a prov:Activity (the generating event) and a prov:Association that the prov:Activity has linking it to the prov:Plan."@en ;
+.
+
+
+<http://catalogue.linked.data.gov.au/org/abs>
+  a owl:NamedIndividual ;
+  a org:Organization ;
+  rdfs:label "Australian Bureau of Statistics" ;
+.
+<http://catalogue.linked.data.gov.au/org/csiro>
+  a owl:NamedIndividual ;
+  a org:Organization ;
+  rdfs:label "CSIRO" ;
+.
+<http://catalogue.linked.data.gov.au/org/ga>
+  a owl:NamedIndividual ;
+  a org:Organization ;
+  rdfs:label "Geoscience Australia" ;
+.
+<http://catalogue.linked.data.gov.au/org/psma>
+  a owl:NamedIndividual ;
+  a org:Organization ;
+  rdfs:label "PSMA Australia" ;
+.
+<http://linked.data.gov.au/dataset/addrcatch>
+  a :Linkset ;
+  a owl:NamedIndividual ;
+  rdfs:label "Addresses Catchments Linkset" ;
+.
+<http://linked.data.gov.au/dataset/asgs2016>
+  a :Dataset ;
+  a owl:NamedIndividual ;
+  rdfs:label "ASGS 2016 Dataset" ;
+.
+<http://linked.data.gov.au/dataset/geofabric>
+  a :Dataset ;
+  a owl:NamedIndividual ;
+  rdfs:label "Geofabric Dataset" ;
+.
+<http://linked.data.gov.au/dataset/gnaf>
+  a :Dataset ;
+  a owl:NamedIndividual ;
+  rdfs:label "GNAF Dataset" ;
+.
+<http://linked.data.gov.au/dataset/gnaf-2016-05>
+  a :Dataset ;
+  a owl:NamedIndividual ;
+  rdfs:label "GNAF 2016 May Dataset" ;
 .
