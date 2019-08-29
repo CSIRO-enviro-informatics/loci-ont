@@ -19,27 +19,26 @@
 @prefix sdo: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix void: <http://rdfs.org/ns/void#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://catalogue.linked.data.gov.au/org/abs>
   a owl:NamedIndividual ;
-  a foaf:Organization ;
+  a org:Organization ;
   rdfs:label "Australian Bureau of Statistics" ;
 .
 <http://catalogue.linked.data.gov.au/org/csiro>
   a owl:NamedIndividual ;
-  a foaf:Organization ;
+  a org:Organization ;
   rdfs:label "CSIRO" ;
 .
 <http://catalogue.linked.data.gov.au/org/ga>
   a owl:NamedIndividual ;
-  a foaf:Organization ;
+  a org:Organization ;
   rdfs:label "Geoscience Australia" ;
 .
 <http://catalogue.linked.data.gov.au/org/psma>
   a owl:NamedIndividual ;
-  a foaf:Organization ;
+  a org:Organization ;
   rdfs:label "PSMA Australia" ;
 .
 <http://linked.data.gov.au/dataset/addrcatch>
@@ -142,9 +141,9 @@ This ontology constrains both normative instruction on what constitutes LOC-I ob
   owl:equivalentClass [
       a owl:Class ;
       owl:oneOf (
-          <http://catalogue.linked.data.gov.au/org/O-000886>
-          <http://catalogue.linked.data.gov.au/org/O-000887>
-          <http://catalogue.linked.data.gov.au/org/O-000928>
+          <http://catalogue.linked.data.gov.au/org/abs>
+          <http://catalogue.linked.data.gov.au/org/csiro>
+          <http://catalogue.linked.data.gov.au/org/ga>
           <http://catalogue.linked.data.gov.au/org/psma>
         ) ;
     ] ;
@@ -162,7 +161,7 @@ This ontology constrains both normative instruction on what constitutes LOC-I ob
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:onClass foaf:Organization ;
+      owl:onClass org:Organization ;
       owl:onProperty dct:publisher ;
       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
     ] ;
@@ -249,60 +248,3 @@ This ontology constrains both normative instruction on what constitutes LOC-I ob
   skos:definition "Something (likely a prov:Entity) had a method (prov:Plan) that was used to generate it"@en ;
   skos:editorialNote "This property is a property chain axiome equivalent to a chian of three properties in the PROV ontology: prov:wasGeneratedBy, prov:qualifiedAssociation and prof:hadPlan linking a prov:Entity (the thing generated) to a prov:Plan (the thin instruction generation - the method) via a prov:Activity (the generating event) and a prov:Association that the prov:Activity has linking it to the prov:Plan."@en ;
 .
-void:objectsTarget
-  a owl:ObjectProperty ;
-.
-void:subjectsTarget
-  a owl:ObjectProperty ;
-.
-geo:Feature
-  a owl:Class ;
-.
-geo:Geometry
-  a owl:Class ;
-.
-geo:hasGeometry
-  a owl:ObjectProperty ;
-.
-rdf:Statement
-  a owl:Class ;
-.
-owl:minQualifiedCardinality
-  a owl:AnnotationProperty ;
-.
-owl:qualifiedCardinality
-  a owl:AnnotationProperty ;
-.
-skos:member
-  a owl:AnnotationProperty ;
-.
-foaf:Group
-  a owl:Class ;
-.
-foaf:Organization
-  a owl:Class ;
-.
-[
-  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-].
-[
-  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-].
-[
-  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-].
-[
-  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-].
-[
-  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-].
-[
-  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-].
-[
-  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-].
-[
-  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-].
