@@ -25,7 +25,7 @@
         <dt>Created</dt>
         <dd>2018-10-29</dd>
         <dt>Modified</dt>
-        <dd>2018-11-09</dd>
+        <dd>2019-08-30</dd>
         <dt>Version Information</dt>
         <dd>Beta version</dd>
         <dt>Version IRI</dt>
@@ -38,7 +38,7 @@
             <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#">rdf:</a><br/>
         </dd>
         <dt>Ontology Source</dt>
-        <dd><a href="loci.ttl">RDF (turtle)</a></dd>
+        <dd><a href="http://linked.data.gov.au/def/loci.ttl">RDF (turtle)</a></dd>
         <dt>Code Repository</dt>
         <dd>See the Git code repository <a href="https://github.com/CSIRO-enviro-informatics/loci-ont">loci-ont</a> for this ontology.</dd>
     </dl>
@@ -52,6 +52,8 @@
 <section id="toc">
     <h2>Table of Contents</h2>
     <ol>
+        <li><a href="#profile">Profile Information</a></li>
+        <li><a href="#overview">Ontology Overview</a></li>
         <li><a href="#classes">Classes</a></li>
         <li><a href="#objectproperties">Object Properties</a></li>
         <li><a href="#annotationproperties">Annotation Properties</a></li>
@@ -60,8 +62,31 @@
         <li><a href="#legend">Legend</a></li>
     </ol>
 </section>
+<section id="profile">
+    <h2>Profile Information</h2>
+    <p>
+        The <a href="https://www.w3.org/TR/dx-prof/">Profiles Vocabulary</a> (PROF) properties of
+        <code>http://linked.data.gov.au/def/loci</code> are:
+    </p>
+    <dl>
+        <dt><a href="https://www.w3.org/TR/dx-prof/#Property:isProfileOf">Is profile of</a>:</dt>
+        <dd>
+            <a href="https://www.w3.org/TR/vocab-dcat-2/">DCAT v2</a>,<br />
+            <a href="http://rdfs.org/ns/void">VoID</a>
+        </dd>
+        <dt><a href="https://www.w3.org/TR/dx-prof/#Property:hasResource">Has resource</a>:</dt>
+        <dd>
+            <a href="http://linked.data.gov.au/def/loci/loci.html">Guidance document</a> (with <a href="https://www.w3.org/TR/dx-prof/#Property:hasRole">role</a> <a href="https://www.w3.org/TR/dx-prof/#Role:guidance">Guidance</a>),<br />
+            <a href="http://linked.data.gov.au/def/loci/images/model.svg">Ontology overview diagram</a> (with <a href="https://www.w3.org/TR/dx-prof/#Property:hasRole">role</a> <a href="https://www.w3.org/TR/dx-prof/#Role:guidance">Guidance</a>),<br />
+            <a href="http://linked.data.gov.au/def/loci/loci.ttl">Profile Specification</a> (with <a href="https://www.w3.org/TR/dx-prof/#Property:hasRole">role</a> <a href="https://www.w3.org/TR/dx-prof/#Role:specification">Specification</a>),<br />
+            <a href="http://linked.data.gov.au/def/loci/constraints.ttl">Validator Shapes graph</a> (with <a href="https://www.w3.org/TR/dx-prof/#Property:hasRole">role</a> <a href="https://www.w3.org/TR/dx-prof/#Role:constraints">Constraints</a>)
+        </dd>
+        <dt><a href="https://www.w3.org/TR/dx-prof/#Property:hasToken">Has token</a>:</dt>
+        <dd>"prof"</dd>
+    </dl>
+</section>
 <section id="overview">
-    <h2>Overview</h2>
+    <h2>Ontology Overview</h2>
     <div class="figure">
         <a href="images/model.svg"><img src="images/model.svg" width="900px" /></a>
         <p><strong>Figure 1</strong>: An overview diagram of this ontology showing major classes and properties.</p>

@@ -28,7 +28,7 @@
       sdo:identifier <http://orcid.org/0000-0002-8742-7730> ;
       sdo:name "Nicholas J. Car" ;
     ] ;
-  dct:modified "2019-06-04"^^xsd:date ;
+  dct:modified "2019-08-30"^^xsd:date ;
   dct:publisher [
       sdo:identifier <http://catalogue.linked.data.gov.au/org/csiro> ;
       sdo:name "CSIRO" ;
@@ -72,9 +72,9 @@ This ontology constrains both normative instruction on what constitutes LocI obj
       prof:hasArtifact <http://linked.data.gov.au/def/loci/constraints.ttl> ;
       prof:hasRole role:constraints ;
     ] ;
-  prof:isProfileOf <http://rdfs.org/ns/void> ;
   prof:isProfileOf <https://www.w3.org/TR/vocab-dcat-2/> ;
-  prof:token "loci"^^xsd:token ;
+  prof:isProfileOf <http://rdfs.org/ns/void> ;
+  prof:hasToken "loci"^^xsd:token ;
   prov:wasGeneratedBy [
       a doap:Project ;
       a prov:Activity ;
