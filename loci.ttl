@@ -1,4 +1,8 @@
 # baseURI: http://linked.data.gov.au/def/loci
+# imports: http://linked.data.gov.au/def/geox
+# imports: http://vocab.deri.ie/void
+# imports: http://www.w3.org/ns/dcat
+# imports: http://www.w3.org/ns/dcat#
 
 @prefix : <http://linked.data.gov.au/def/loci#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
@@ -6,6 +10,7 @@
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix geox: <http://linked.data.gov.au/def/geox#> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prof: <http://www.w3.org/ns/dx/prof/> .
@@ -19,7 +24,6 @@
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-
 <http://linked.data.gov.au/def/loci>
   a owl:Ontology ;
   a prof:Profile ;
@@ -29,10 +33,6 @@
       sdo:name "Nicholas J. Car" ;
     ] ;
   dct:modified "2019-08-30"^^xsd:date ;
-  dct:publisher [
-      sdo:identifier <http://catalogue.linked.data.gov.au/org/csiro> ;
-      sdo:name "CSIRO" ;
-    ] ;
   rdfs:comment """A profile of several ontologies implemented to govern Linked Data resources published within the LocI project.
 
 This is a profile of the [DCAT v2](https://www.w3.org/TR/vocab-dcat-2/) & [VOID](http://www.w3.org/TR/void/) ontologies that require certain properties defined by those ontologies be present for several classes of resource that are of particular importance to the [LocI](https://confluence.csiro.au/display/DIPAAnalyticHubs/Location+Integration+Capability+Loc-I) project.
@@ -40,7 +40,9 @@ This is a profile of the [DCAT v2](https://www.w3.org/TR/vocab-dcat-2/) & [VOID]
 This ontology constrains both normative instruction on what constitutes LocI objects and supplies executable constraints to validate instances.""" ;
   rdfs:label "LocI Ontology" ;
   rdfs:seeAlso "http://github.com/CSIRO-enviro-informatics/loci-ont/"@en ;
-  owl:imports reg: ;
+  owl:imports <http://linked.data.gov.au/def/geox> ;
+  owl:imports <http://vocab.deri.ie/void> ;
+  owl:imports <http://www.w3.org/ns/dcat> ;
   owl:imports dcat: ;
   owl:versionIRI <http://linked.data.gov.au/def/loci/1.0> ;
   owl:versionInfo "Beta version"@en ;
@@ -72,9 +74,9 @@ This ontology constrains both normative instruction on what constitutes LocI obj
       prof:hasArtifact <http://linked.data.gov.au/def/loci/constraints.ttl> ;
       prof:hasRole role:constraints ;
     ] ;
-  prof:isProfileOf <https://www.w3.org/TR/vocab-dcat-2/> ;
-  prof:isProfileOf <http://rdfs.org/ns/void> ;
   prof:hasToken "loci"^^xsd:token ;
+  prof:isProfileOf <http://rdfs.org/ns/void> ;
+  prof:isProfileOf <https://www.w3.org/TR/vocab-dcat-2/> ;
   prov:wasGeneratedBy [
       a doap:Project ;
       a prov:Activity ;
@@ -88,22 +90,14 @@ This ontology constrains both normative instruction on what constitutes LocI obj
   rdfs:comment "The set of all approved publishers of LocI data, all of whom are known"@en ;
   rdfs:label "LocI Data Publishers" ;
   rdfs:subClassOf foaf:Group ;
-  owl:equivalentClass [
-      a owl:Class ;
-      owl:oneOf (
-          <http://catalogue.linked.data.gov.au/org/abs>
-          <http://catalogue.linked.data.gov.au/org/csiro>
-          <http://catalogue.linked.data.gov.au/org/ga>
-          <http://catalogue.linked.data.gov.au/org/psma>
-        ) ;
-    ] ;
 .
 :Dataset
   a owl:Class ;
   rdfs:comment "A LocI Dataset is a DCAT and VOID Dataset that has been accepted by the LocI Registry Manager."@en ;
   rdfs:label "LocI Dataset" ;
   rdfs:subClassOf void:Dataset ;
-  rdfs:subClassOf dcat:DataService ;
+  rdfs:subClassOf rdf:Bag ;
+  rdfs:subClassOf dcat:Dataset ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
@@ -147,7 +141,7 @@ This ontology constrains both normative instruction on what constitutes LocI obj
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:onClass :Linkset ;
-      owl:onProperty reg:register ;
+      owl:onProperty :isMemberOf ;
       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
     ] ;
   rdfs:subClassOf [
@@ -159,7 +153,7 @@ This ontology constrains both normative instruction on what constitutes LocI obj
 .
 :Feature
   a owl:Class ;
-  rdfs:comment "A LocI Feature is just a GeoSPARQL Feature that must have at least one Geometry" ;
+  rdfs:comment "A LocI Feature is a GeoSPARQL Feature that has at least one Geometry" ;
   rdfs:label "LocI Feature" ;
   rdfs:subClassOf geo:Feature ;
   rdfs:subClassOf [
@@ -175,6 +169,11 @@ This ontology constrains both normative instruction on what constitutes LocI obj
   rdfs:label "LocI Linkset" ;
   rdfs:subClassOf :Dataset ;
   rdfs:subClassOf void:Linkset ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom :DatasetLinkingStatement ;
+      owl:onProperty rdfs:member ;
+    ] ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:allValuesFrom :Dataset ;
@@ -196,52 +195,14 @@ This ontology constrains both normative instruction on what constitutes LocI obj
       prov:hadPlan
     ) ;
   skos:definition "Something (likely a prov:Entity) had a method (prov:Plan) that was used to generate it"@en ;
-  skos:editorialNote "This property is a property chain axiome equivalent to a chian of three properties in the PROV ontology: prov:wasGeneratedBy, prov:qualifiedAssociation and prof:hadPlan linking a prov:Entity (the thing generated) to a prov:Plan (the thin instruction generation - the method) via a prov:Activity (the generating event) and a prov:Association that the prov:Activity has linking it to the prov:Plan."@en ;
+  skos:editorialNote "This property is a property chain axiom equivalent to a chain of three properties in the PROV ontology: prov:wasGeneratedBy, prov:qualifiedAssociation and prof:hadPlan linking a prov:Entity (the thing generated) to a prov:Plan (the thin instruction generation - the method) via a prov:Activity (the generating event) and a prov:Association that the prov:Activity has linking it to the prov:Plan."@en ;
 .
-
-
-<http://catalogue.linked.data.gov.au/org/abs>
-  a owl:NamedIndividual ;
-  a org:Organization ;
-  rdfs:label "Australian Bureau of Statistics" ;
-.
-<http://catalogue.linked.data.gov.au/org/csiro>
-  a owl:NamedIndividual ;
-  a org:Organization ;
-  rdfs:label "CSIRO" ;
-.
-<http://catalogue.linked.data.gov.au/org/ga>
-  a owl:NamedIndividual ;
-  a org:Organization ;
-  rdfs:label "Geoscience Australia" ;
-.
-<http://catalogue.linked.data.gov.au/org/psma>
-  a owl:NamedIndividual ;
-  a org:Organization ;
-  rdfs:label "PSMA Australia" ;
-.
-<http://linked.data.gov.au/dataset/addrcatch>
-  a :Linkset ;
-  a owl:NamedIndividual ;
-  rdfs:label "Addresses Catchments Linkset" ;
-.
-<http://linked.data.gov.au/dataset/asgs2016>
-  a :Dataset ;
-  a owl:NamedIndividual ;
-  rdfs:label "ASGS 2016 Dataset" ;
-.
-<http://linked.data.gov.au/dataset/geofabric>
-  a :Dataset ;
-  a owl:NamedIndividual ;
-  rdfs:label "Geofabric Dataset" ;
-.
-<http://linked.data.gov.au/dataset/gnaf>
-  a :Dataset ;
-  a owl:NamedIndividual ;
-  rdfs:label "GNAF Dataset" ;
-.
-<http://linked.data.gov.au/dataset/gnaf-2016-05>
-  a :Dataset ;
-  a owl:NamedIndividual ;
-  rdfs:label "GNAF 2016 May Dataset" ;
+:isMemberOf
+  a owl:ObjectProperty ;
+  rdfs:comment "In principle this is just inverse of rdfs:member, but because it is defined in a local namespace, make it a sub-property of the inverse" ;
+  rdfs:label "is member of" ;
+  rdfs:subPropertyOf [
+      a owl:ObjectProperty ;
+      owl:inverseOf rdfs:member ;
+    ] ;
 .
