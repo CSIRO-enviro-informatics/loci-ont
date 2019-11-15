@@ -1,0 +1,41 @@
+# baseURI: http://linked.data.gov.au/dataset/loci-data
+# imports: http://linked.data.gov.au/def/loci
+# prefix: loci-data
+
+@prefix loci: <http://linked.data.gov.au/def/loci#> .
+@prefix loci-data: <http://linked.data.gov.au/dataset/loci-data#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://linked.data.gov.au/dataset/loci-data>
+  a owl:Ontology ;
+  owl:imports <http://linked.data.gov.au/def/loci> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+loci-data:addrcatch
+  a loci:Linkset ;
+  a owl:NamedIndividual ;
+  rdfs:label "Addresses Catchments Linkset" ;
+.
+loci-data:asgs2016
+  a loci:Dataset ;
+  a owl:NamedIndividual ;
+  rdfs:label "ASGS 2016 Dataset" ;
+.
+loci-data:geofabric
+  a loci:Dataset ;
+  a owl:NamedIndividual ;
+  rdfs:label "Geofabric Dataset" ;
+.
+loci-data:gnaf
+  a loci:Dataset ;
+  a owl:NamedIndividual ;
+  rdfs:label "GNAF Dataset" ;
+.
+loci-data:gnaf-2016-05
+  a loci:Dataset ;
+  a owl:NamedIndividual ;
+  rdfs:label "GNAF 2016 May Dataset" ;
+.
