@@ -3,22 +3,21 @@
 # imports: http://vocab.deri.ie/void
 # imports: http://www.w3.org/ns/dcat
 # imports: http://www.w3.org/ns/dcat#
+# prefix: loci
 
-@prefix : <http://linked.data.gov.au/def/loci#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
-@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix geox: <http://linked.data.gov.au/def/geox#> .
+@prefix loci: <http://linked.data.gov.au/def/loci#> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prof: <http://www.w3.org/ns/dx/prof/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix reg: <http://purl.org/linked-data/registry#> .
-@prefix role: <http://www.w3.org/ns/dx/prof/role/> .
 @prefix sdo: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix void: <http://rdfs.org/ns/void#> .
@@ -27,12 +26,13 @@
 <http://linked.data.gov.au/def/loci>
   a owl:Ontology ;
   a prof:Profile ;
-  dct:created "2018-10-29"^^xsd:date ;
-  dct:creator [
+  dcterms:created "2018-10-29"^^xsd:date ;
+  dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
+  dcterms:creator [
       sdo:identifier <http://orcid.org/0000-0002-8742-7730> ;
       sdo:name "Nicholas J. Car" ;
     ] ;
-  dct:modified "2019-08-30"^^xsd:date ;
+  dcterms:modified "2019-12-20"^^xsd:date ;
   rdfs:comment """A profile of several ontologies implemented to govern Linked Data resources published within the LocI project.
 
 This is a profile of the [DCAT v2](https://www.w3.org/TR/vocab-dcat-2/) & [VOID](http://www.w3.org/TR/void/) ontologies that require certain properties defined by those ontologies be present for several classes of resource that are of particular importance to the [LocI](https://confluence.csiro.au/display/DIPAAnalyticHubs/Location+Integration+Capability+Loc-I) project.
@@ -48,31 +48,31 @@ This ontology constrains both normative instruction on what constitutes LocI obj
   owl:versionInfo "Beta version"@en ;
   prof:hasResource [
       a prof:ResourceDescriptor ;
-      dct:format <https://w3id.org/mediatype/image/svg> ;
-      dct:title "Ontology overview diagram"@en ;
+      dcterms:format <https://w3id.org/mediatype/image/svg> ;
+      dcterms:title "Ontology overview diagram"@en ;
       prof:hasArtifact <http://linked.data.gov.au/def/loci/images/model.svg> ;
-      prof:hasRole role:guidance ;
+      prof:hasRole <http://www.w3.org/ns/dx/prof/role/guidance> ;
     ] ;
   prof:hasResource [
       a prof:ResourceDescriptor ;
-      dct:format <https://w3id.org/mediatype/text/html> ;
-      dct:title "Guidance document"@en ;
+      dcterms:format <https://w3id.org/mediatype/text/html> ;
+      dcterms:title "Guidance document"@en ;
       prof:hasArtifact <http://linked.data.gov.au/def/loci/loci.html> ;
-      prof:hasRole role:guidance ;
+      prof:hasRole <http://www.w3.org/ns/dx/prof/role/guidance> ;
     ] ;
   prof:hasResource [
       a prof:ResourceDescriptor ;
-      dct:format <https://w3id.org/mediatype/text/turtle> ;
-      dct:title "Profile Specification"@en ;
+      dcterms:format <https://w3id.org/mediatype/text/turtle> ;
+      dcterms:title "Profile Specification"@en ;
       prof:hasArtifact <http://linked.data.gov.au/def/loci/loci.ttl> ;
-      prof:hasRole role:specification ;
+      prof:hasRole <http://www.w3.org/ns/dx/prof/role/specification> ;
     ] ;
   prof:hasResource [
       a prof:ResourceDescriptor ;
-      dct:format <https://w3id.org/mediatype/text/turtle> ;
-      dct:title "Validator Shapes graph"@en ;
+      dcterms:format <https://w3id.org/mediatype/text/turtle> ;
+      dcterms:title "Validator Shapes graph"@en ;
       prof:hasArtifact <http://linked.data.gov.au/def/loci/constraints.ttl> ;
-      prof:hasRole role:constraints ;
+      prof:hasRole <http://www.w3.org/ns/dx/prof/role/constraints> ;
     ] ;
   prof:hasToken "loci"^^xsd:token ;
   prof:isProfileOf <http://rdfs.org/ns/void> ;
@@ -84,14 +84,13 @@ This ontology constrains both normative instruction on what constitutes LocI obj
       rdfs:label "LocI project" ;
     ] ;
 .
-:DataPublisher
+loci:DataPublisher
   a owl:Class ;
-  a owl:NamedIndividual ;
   rdfs:comment "The set of all approved publishers of LocI data, all of whom are known"@en ;
   rdfs:label "LocI Data Publishers" ;
   rdfs:subClassOf foaf:Group ;
 .
-:Dataset
+loci:Dataset
   a owl:Class ;
   rdfs:comment "A LocI Dataset is a DCAT and VOID Dataset that has been accepted by the LocI Registry Manager."@en ;
   rdfs:label "LocI Dataset" ;
@@ -106,54 +105,37 @@ This ontology constrains both normative instruction on what constitutes LocI obj
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:onClass org:Organization ;
-      owl:onProperty dct:publisher ;
+      owl:onProperty dcterms:publisher ;
       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:onDataRange xsd:date ;
-      owl:onProperty dct:issued ;
+      owl:onProperty dcterms:issued ;
       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:onDataRange xsd:date ;
-      owl:onProperty dct:modified ;
+      owl:onProperty dcterms:modified ;
       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:onDataRange xsd:string ;
-      owl:onProperty dct:title ;
+      owl:onProperty dcterms:title ;
       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
-      owl:allValuesFrom :DataPublisher ;
-      owl:onProperty dct:publisher ;
+      owl:allValuesFrom loci:DataPublisher ;
+      owl:onProperty dcterms:publisher ;
     ] ;
 .
-:DatasetLinkingStatement
-  a owl:Class ;
-  rdfs:comment "An RDF Statement (Subject, Predicate, Object + additional metadata) that links class instances in one LocI Dataset with class instances in another"@en ;
-  rdfs:label "LocI Dataset Linking Statement" ;
-  rdfs:subClassOf rdf:Statement ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:onClass :Linkset ;
-      owl:onProperty :isMemberOf ;
-      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:onClass prov:Plan ;
-      owl:onProperty :hadGenerationMethod ;
-      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-    ] ;
-.
-:Feature
+loci:Feature
   a owl:Class ;
   rdfs:comment "A LocI Feature is a GeoSPARQL Feature that has at least one Geometry" ;
+  rdfs:comment "Might be better implemented as a SHACL shape" ;
   rdfs:label "LocI Feature" ;
   rdfs:subClassOf geo:Feature ;
   rdfs:subClassOf [
@@ -163,29 +145,47 @@ This ontology constrains both normative instruction on what constitutes LocI obj
       owl:onProperty geo:hasGeometry ;
     ] ;
 .
-:Linkset
+loci:LinkingStatement
+  a owl:Class ;
+  rdfs:comment "An RDF Statement (Subject, Predicate, Object + additional metadata) that links class instances in one LocI Dataset with class instances in another"@en ;
+  rdfs:label "LocI Dataset Linking Statement" ;
+  rdfs:subClassOf rdf:Statement ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onClass loci:Linkset ;
+      owl:onProperty loci:isMemberOf ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onClass prov:Plan ;
+      owl:onProperty loci:hadGenerationMethod ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+loci:Linkset
   a owl:Class ;
   rdfs:comment "A LocI Linkset is a specialised form of a VoID Linkset that requires the void:subjectsTarget & void:objectsTarget indicate LocI Datasets"@en ;
   rdfs:label "LocI Linkset" ;
-  rdfs:subClassOf :Dataset ;
+  rdfs:subClassOf loci:Dataset ;
   rdfs:subClassOf void:Linkset ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:allValuesFrom :DatasetLinkingStatement ;
+      owl:allValuesFrom loci:LinkingStatement ;
       owl:onProperty rdfs:member ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
-      owl:allValuesFrom :Dataset ;
+      owl:allValuesFrom loci:Dataset ;
       owl:onProperty void:objectsTarget ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
-      owl:allValuesFrom :Dataset ;
+      owl:allValuesFrom loci:Dataset ;
       owl:onProperty void:subjectsTarget ;
     ] ;
 .
-:hadGenerationMethod
+loci:hadGenerationMethod
   a owl:ObjectProperty ;
   rdfs:label "had generation method" ;
   rdfs:range prov:Plan ;
@@ -197,7 +197,7 @@ This ontology constrains both normative instruction on what constitutes LocI obj
   skos:definition "Something (likely a prov:Entity) had a method (prov:Plan) that was used to generate it"@en ;
   skos:editorialNote "This property is a property chain axiom equivalent to a chain of three properties in the PROV ontology: prov:wasGeneratedBy, prov:qualifiedAssociation and prof:hadPlan linking a prov:Entity (the thing generated) to a prov:Plan (the thin instruction generation - the method) via a prov:Activity (the generating event) and a prov:Association that the prov:Activity has linking it to the prov:Plan."@en ;
 .
-:isMemberOf
+loci:isMemberOf
   a owl:ObjectProperty ;
   rdfs:comment "In principle this is just inverse of rdfs:member, but because it is defined in a local namespace, make it a sub-property of the inverse" ;
   rdfs:label "is member of" ;
