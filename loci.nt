@@ -1,0 +1,162 @@
+# baseURI: http://linked.data.gov.au/def/loci
+# imports: http://linked.data.gov.au/def/geox
+# imports: http://vocab.deri.ie/void
+# imports: http://www.w3.org/ns/dcat
+# imports: http://www.w3.org/ns/dcat#
+# imports: http://xmlns.com/foaf/0.1/
+# prefix: loci
+
+_:B608098b9cb3ba666f7c9f4d7402f8316 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B608098b9cb3ba666f7c9f4d7402f8316 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/dc/terms/issued> .
+_:B608098b9cb3ba666f7c9f4d7402f8316 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#date> .
+_:B608098b9cb3ba666f7c9f4d7402f8316 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bd05ea97199b843d18a97b9c4cdbf0d8f <http://www.w3.org/ns/dx/prof/hasRole> <http://www.w3.org/ns/dx/prof/role/guidance> .
+_:Bd05ea97199b843d18a97b9c4cdbf0d8f <http://www.w3.org/ns/dx/prof/hasArtifact> <http://linked.data.gov.au/def/loci/loci.html> .
+_:Bd05ea97199b843d18a97b9c4cdbf0d8f <http://purl.org/dc/terms/title> "Guidance document"@en .
+_:Bd05ea97199b843d18a97b9c4cdbf0d8f <http://purl.org/dc/terms/format> <https://w3id.org/mediatype/text/html> .
+_:Bd05ea97199b843d18a97b9c4cdbf0d8f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dx/prof/ResourceDescriptor> .
+<http://linked.data.gov.au/def/loci#LinkingStatement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B34572df008c24f2866d952c9e1f35315 .
+<http://linked.data.gov.au/def/loci#LinkingStatement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B2d71fd099dd6ea4ee0177ec1f2401b4f .
+<http://linked.data.gov.au/def/loci#LinkingStatement> <http://www.w3.org/2000/01/rdf-schema#label> "Loc-I Dataset Linking Statement" .
+<http://linked.data.gov.au/def/loci#LinkingStatement> <http://www.w3.org/2000/01/rdf-schema#comment> "An RDF Statement (Subject, Predicate, Object + additional metadata) that links class instances in one Loc-I Dataset with class instances in another"@en .
+<http://linked.data.gov.au/def/loci#LinkingStatement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement> .
+<http://linked.data.gov.au/def/loci#LinkingStatement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B34572df008c24f2866d952c9e1f35315 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B34572df008c24f2866d952c9e1f35315 <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/loci#hadGenerationMethod> .
+_:B34572df008c24f2866d952c9e1f35315 <http://www.w3.org/2002/07/owl#onClass> <http://www.w3.org/ns/prov#Plan> .
+_:B34572df008c24f2866d952c9e1f35315 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B729b29e7X2D23d3X2D45c0X2D99e0X2Daecc222497b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B336bdc03X2D6f52X2D4c6bX2Db83bX2D8af6f980ec05 .
+_:B729b29e7X2D23d3X2D45c0X2D99e0X2Daecc222497b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/prov#wasGeneratedBy> .
+_:B8560e40be08ea430c1115a58f87491e4 <http://www.w3.org/2002/07/owl#onProperty> <http://rdfs.org/ns/void#objectsTarget> .
+_:B8560e40be08ea430c1115a58f87491e4 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://linked.data.gov.au/def/loci#Dataset> .
+_:B8560e40be08ea430c1115a58f87491e4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B94d441aab018bddd33833ac343b1ce26 <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/2000/01/rdf-schema#member> .
+_:B94d441aab018bddd33833ac343b1ce26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B984c43ccX2D28c4X2D4f43X2D9ee4X2D5c6ed28f5dc7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B984c43ccX2D28c4X2D4f43X2D9ee4X2D5c6ed28f5dc7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/prov#hadPlan> .
+<http://linked.data.gov.au/def/loci#hadGenerationMethod> <http://www.w3.org/2004/02/skos/core#definition> "The method that was used to generate this object"@en .
+<http://linked.data.gov.au/def/loci#hadGenerationMethod> <http://www.w3.org/2002/07/owl#propertyChainAxiom> _:B729b29e7X2D23d3X2D45c0X2D99e0X2Daecc222497b3 .
+<http://linked.data.gov.au/def/loci#hadGenerationMethod> <http://www.w3.org/2004/02/skos/core#editorialNote> "This property is a property chain axiom equivalent to a chain of three properties in the PROV ontology: prov:wasGeneratedBy, prov:qualifiedAssociation and prof:hadPlan linking a prov:Entity (the thing generated) to a prov:Plan (the thin instruction generation - the method) via a prov:Activity (the generating event) and a prov:Association that the prov:Activity has linking it to the prov:Plan."@en .
+<http://linked.data.gov.au/def/loci#hadGenerationMethod> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement> .
+<http://linked.data.gov.au/def/loci#hadGenerationMethod> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Plan> .
+<http://linked.data.gov.au/def/loci#hadGenerationMethod> <http://www.w3.org/2000/01/rdf-schema#label> "had generation method" .
+<http://linked.data.gov.au/def/loci#hadGenerationMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B1a2ee5b9X2D4cddX2D468cX2D96dfX2D8ceffae393d3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B1a2ee5b9X2D4cddX2D468cX2D96dfX2D8ceffae393d3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://linked.data.gov.au/def/loci#LinkingStatement> .
+_:Be1af0554e7931567ccc6df97e541cece <http://www.w3.org/ns/dx/prof/hasRole> <http://www.w3.org/ns/dx/prof/role/specification> .
+_:Be1af0554e7931567ccc6df97e541cece <http://www.w3.org/ns/dx/prof/hasArtifact> <http://linked.data.gov.au/def/loci/loci.ttl> .
+_:Be1af0554e7931567ccc6df97e541cece <http://purl.org/dc/terms/title> "Profile Specification"@en .
+_:Be1af0554e7931567ccc6df97e541cece <http://purl.org/dc/terms/format> <https://w3id.org/mediatype/text/turtle> .
+_:Be1af0554e7931567ccc6df97e541cece <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dx/prof/ResourceDescriptor> .
+<http://linked.data.gov.au/def/loci#Feature> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B07bf4f22ce4e390d768d269ff1cd7d10 .
+<http://linked.data.gov.au/def/loci#Feature> <http://www.w3.org/2000/01/rdf-schema#label> "Loc-I Feature" .
+<http://linked.data.gov.au/def/loci#Feature> <http://www.w3.org/2000/01/rdf-schema#comment> "A Loc-I Feature is a GeoSPARQL Feature that has at least one Geometry" .
+<http://linked.data.gov.au/def/loci#Feature> <http://www.w3.org/2000/01/rdf-schema#comment> "Might be better implemented as a SHACL shape" .
+<http://linked.data.gov.au/def/loci#Feature> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.opengis.net/ont/geosparql#Feature> .
+<http://linked.data.gov.au/def/loci#Feature> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Ba71c06fe7ac86dcfff8bdc3f7f21d6b9 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Ba71c06fe7ac86dcfff8bdc3f7f21d6b9 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/dc/terms/title> .
+_:Ba71c06fe7ac86dcfff8bdc3f7f21d6b9 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+_:Ba71c06fe7ac86dcfff8bdc3f7f21d6b9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B8ac06038066703729cec80217f255f03 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B8ac06038066703729cec80217f255f03 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/dc/terms/publisher> .
+_:B8ac06038066703729cec80217f255f03 <http://www.w3.org/2002/07/owl#onClass> <http://www.w3.org/ns/org#Organization> .
+_:B8ac06038066703729cec80217f255f03 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/loci> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dx/prof/Profile> .
+<http://linked.data.gov.au/def/loci> <http://purl.org/dc/terms/creator> "<a href='https://orcid.org/0000-0002-3884-3420'>Simon J D Cox, CSIRO</a>"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML> .
+<http://linked.data.gov.au/def/loci> <http://www.w3.org/2002/07/owl#imports> <http://xmlns.com/foaf/0.1/> .
+<http://linked.data.gov.au/def/loci> <http://www.w3.org/ns/dx/prof/hasToken> "loci"^^<http://www.w3.org/2001/XMLSchema#token> .
+<http://linked.data.gov.au/def/loci> <http://www.w3.org/2000/01/rdf-schema#comment> "An ontology to govern Linked Data resources published within the [Loc-I](https://confluence.csiro.au/display/DIPAAnalyticHubs/Location+Integration+Capability+Loc-I) project.\r\n\r\nThe primary focus is on (a) datasets composed of multiple geospatial features (objects); (b) recording relationships between features, with metadata attached to reified rdf:Statements. " .
+<http://linked.data.gov.au/def/loci> <http://purl.org/dc/terms/creator> "<a href='http://orcid.org/0000-0002-8742-7730'>Nicholas J Car, Surround Australia</a>"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML> .
+<http://linked.data.gov.au/def/loci> <http://purl.org/dc/terms/created> "2018-10-29"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://linked.data.gov.au/def/loci> <http://www.w3.org/2002/07/owl#imports> <http://vocab.deri.ie/void> .
+<http://linked.data.gov.au/def/loci> <http://www.w3.org/ns/dx/prof/isProfileOf> <http://rdfs.org/ns/void> .
+<http://linked.data.gov.au/def/loci> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/ns/dcat#> .
+<http://linked.data.gov.au/def/loci> <http://www.w3.org/ns/dx/prof/hasResource> _:Be1af0554e7931567ccc6df97e541cece .
+<http://linked.data.gov.au/def/loci> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://linked.data.gov.au/def/loci> <http://www.w3.org/ns/prov#wasGeneratedBy> _:B07432e3333ca21ba12e5506efe3b39cf .
+<http://linked.data.gov.au/def/loci> <http://www.w3.org/2002/07/owl#versionIRI> <http://linked.data.gov.au/def/loci/1.1> .
+<http://linked.data.gov.au/def/loci> <http://www.w3.org/2002/07/owl#versionInfo> "Beta version"@en .
+<http://linked.data.gov.au/def/loci> <http://www.w3.org/ns/dx/prof/hasResource> _:B365ca1b71990c3b6ccaa57d97b40d205 .
+<http://linked.data.gov.au/def/loci> <http://www.w3.org/2002/07/owl#imports> <http://linked.data.gov.au/def/geox> .
+<http://linked.data.gov.au/def/loci> <http://www.w3.org/ns/dx/prof/hasResource> _:Bd05ea97199b843d18a97b9c4cdbf0d8f .
+<http://linked.data.gov.au/def/loci> <http://www.w3.org/ns/dx/prof/hasResource> _:B3c2e4c9bf8d0e30013d46098c99770f1 .
+<http://linked.data.gov.au/def/loci> <http://www.w3.org/2000/01/rdf-schema#label> "Loc-I Ontology" .
+<http://linked.data.gov.au/def/loci> <http://purl.org/dc/terms/modified> "2020-02-04"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://linked.data.gov.au/def/loci> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/ns/dcat> .
+_:B07bf4f22ce4e390d768d269ff1cd7d10 <http://www.w3.org/2002/07/owl#onProperty> <http://www.opengis.net/ont/geosparql#hasGeometry> .
+_:B07bf4f22ce4e390d768d269ff1cd7d10 <http://www.w3.org/2002/07/owl#onClass> <http://www.opengis.net/ont/geosparql#Geometry> .
+_:B07bf4f22ce4e390d768d269ff1cd7d10 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B07bf4f22ce4e390d768d269ff1cd7d10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B7b6e3bba6176b49d11aa7b692c13de2f <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2000/01/rdf-schema#member> .
+_:B7b6e3bba6176b49d11aa7b692c13de2f <http://www.w3.org/2002/07/owl#allValuesFrom> <http://linked.data.gov.au/def/loci#LinkingStatement> .
+_:B7b6e3bba6176b49d11aa7b692c13de2f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B5f65cf00dea3cef46a55050425cec1fc <http://www.w3.org/2002/07/owl#onProperty> <http://rdfs.org/ns/void#subjectsTarget> .
+_:B5f65cf00dea3cef46a55050425cec1fc <http://www.w3.org/2002/07/owl#allValuesFrom> <http://linked.data.gov.au/def/loci#Dataset> .
+_:B5f65cf00dea3cef46a55050425cec1fc <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/loci#Linkset> <http://www.w3.org/2002/07/owl#equivalentClass> _:B5f65cf00dea3cef46a55050425cec1fc .
+<http://linked.data.gov.au/def/loci#Linkset> <http://www.w3.org/2002/07/owl#equivalentClass> _:B8560e40be08ea430c1115a58f87491e4 .
+<http://linked.data.gov.au/def/loci#Linkset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B7b6e3bba6176b49d11aa7b692c13de2f .
+<http://linked.data.gov.au/def/loci#Linkset> <http://www.w3.org/2000/01/rdf-schema#label> "Loc-I Linkset" .
+<http://linked.data.gov.au/def/loci#Linkset> <http://www.w3.org/2000/01/rdf-schema#comment> "A Loc-I Linkset is a specialised form of a VoID Linkset that requires the void:subjectsTarget & void:objectsTarget indicate Loc-I Datasets"@en .
+<http://linked.data.gov.au/def/loci#Linkset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdfs.org/ns/void#Linkset> .
+<http://linked.data.gov.au/def/loci#Linkset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://linked.data.gov.au/def/loci#Dataset> .
+<http://linked.data.gov.au/def/loci#Linkset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B2fc9659de5e40bdf0f01b43fae8c8b8d <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/dcat#contactPoint> .
+_:B2fc9659de5e40bdf0f01b43fae8c8b8d <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B2fc9659de5e40bdf0f01b43fae8c8b8d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B5c28bd71X2D1a3cX2D4506X2Da884X2Db72419bb9170 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B1a2ee5b9X2D4cddX2D468cX2D96dfX2D8ceffae393d3 .
+_:B5c28bd71X2D1a3cX2D4506X2Da884X2Db72419bb9170 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://linked.data.gov.au/def/loci#Feature> .
+_:B336bdc03X2D6f52X2D4c6bX2Db83bX2D8af6f980ec05 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B984c43ccX2D28c4X2D4f43X2D9ee4X2D5c6ed28f5dc7 .
+_:B336bdc03X2D6f52X2D4c6bX2Db83bX2D8af6f980ec05 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/prov#qualifiedAssociation> .
+_:B07432e3333ca21ba12e5506efe3b39cf <http://www.w3.org/2000/01/rdf-schema#label> "Loc-I project" .
+_:B07432e3333ca21ba12e5506efe3b39cf <http://usefulinc.com/ns/doap#repository> <https://github.com/CSIRO-enviro-informatics/loci-ont> .
+_:B07432e3333ca21ba12e5506efe3b39cf <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Activity> .
+_:B07432e3333ca21ba12e5506efe3b39cf <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://usefulinc.com/ns/doap#Project> .
+_:Bc67da8b74f6bfbfe591cba4041672786 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/dc/terms/publisher> .
+_:Bc67da8b74f6bfbfe591cba4041672786 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://linked.data.gov.au/def/loci#DataPublisher> .
+_:Bc67da8b74f6bfbfe591cba4041672786 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/loci#DataPublisher> <http://www.w3.org/2000/01/rdf-schema#label> "Loc-I Data Publishers" .
+<http://linked.data.gov.au/def/loci#DataPublisher> <http://www.w3.org/2000/01/rdf-schema#comment> "The set of all approved publishers of Loc-I data, all of whom are known"@en .
+<http://linked.data.gov.au/def/loci#DataPublisher> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://xmlns.com/foaf/0.1/Group> .
+<http://linked.data.gov.au/def/loci#DataPublisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B3c2e4c9bf8d0e30013d46098c99770f1 <http://www.w3.org/ns/dx/prof/hasRole> <http://www.w3.org/ns/dx/prof/role/guidance> .
+_:B3c2e4c9bf8d0e30013d46098c99770f1 <http://www.w3.org/ns/dx/prof/hasArtifact> <http://linked.data.gov.au/def/loci/images/loci.png> .
+_:B3c2e4c9bf8d0e30013d46098c99770f1 <http://purl.org/dc/terms/title> "Ontology overview diagram"@en .
+_:B3c2e4c9bf8d0e30013d46098c99770f1 <http://purl.org/dc/terms/format> <https://w3id.org/mediatype/image/svg> .
+_:B3c2e4c9bf8d0e30013d46098c99770f1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dx/prof/ResourceDescriptor> .
+_:B54edeffdX2D0618X2D4c2cX2D9c47X2D81bab2b39cf7 <http://www.w3.org/2002/07/owl#allValuesFrom> _:Bf8e03de4X2D716bX2D4c91X2Da0d7X2Da1347ec5ab46 .
+_:B54edeffdX2D0618X2D4c2cX2D9c47X2D81bab2b39cf7 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2000/01/rdf-schema#member> .
+_:B54edeffdX2D0618X2D4c2cX2D9c47X2D81bab2b39cf7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bf8e03de4X2D716bX2D4c91X2Da0d7X2Da1347ec5ab46 <http://www.w3.org/2002/07/owl#unionOf> _:B5c28bd71X2D1a3cX2D4506X2Da884X2Db72419bb9170 .
+_:Bf8e03de4X2D716bX2D4c91X2Da0d7X2Da1347ec5ab46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B365ca1b71990c3b6ccaa57d97b40d205 <http://www.w3.org/ns/dx/prof/hasRole> <http://www.w3.org/ns/dx/prof/role/constraints> .
+_:B365ca1b71990c3b6ccaa57d97b40d205 <http://www.w3.org/ns/dx/prof/hasArtifact> <http://linked.data.gov.au/def/loci/constraints.ttl> .
+_:B365ca1b71990c3b6ccaa57d97b40d205 <http://purl.org/dc/terms/title> "Validator Shapes graph"@en .
+_:B365ca1b71990c3b6ccaa57d97b40d205 <http://purl.org/dc/terms/format> <https://w3id.org/mediatype/text/turtle> .
+_:B365ca1b71990c3b6ccaa57d97b40d205 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dx/prof/ResourceDescriptor> .
+_:B2d71fd099dd6ea4ee0177ec1f2401b4f <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B2d71fd099dd6ea4ee0177ec1f2401b4f <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/loci#isMemberOf> .
+_:B2d71fd099dd6ea4ee0177ec1f2401b4f <http://www.w3.org/2002/07/owl#onClass> <http://linked.data.gov.au/def/loci#Linkset> .
+_:B2d71fd099dd6ea4ee0177ec1f2401b4f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/loci#isMemberOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> _:B94d441aab018bddd33833ac343b1ce26 .
+<http://linked.data.gov.au/def/loci#isMemberOf> <http://www.w3.org/2000/01/rdf-schema#label> "is member of" .
+<http://linked.data.gov.au/def/loci#isMemberOf> <http://www.w3.org/2000/01/rdf-schema#comment> "In principle this is just inverse of rdfs:member, but because it is defined in a local namespace, make it a sub-property of the inverse" .
+<http://linked.data.gov.au/def/loci#isMemberOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:Bf5e4a7b1a9d14428ed67666fbfb67ddc <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Bf5e4a7b1a9d14428ed67666fbfb67ddc <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/dc/terms/modified> .
+_:Bf5e4a7b1a9d14428ed67666fbfb67ddc <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#date> .
+_:Bf5e4a7b1a9d14428ed67666fbfb67ddc <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/loci#Dataset> <http://www.w3.org/2000/01/rdf-schema#label> "Loc-I Dataset" .
+<http://linked.data.gov.au/def/loci#Dataset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/dcat#Dataset> .
+<http://linked.data.gov.au/def/loci#Dataset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Ba71c06fe7ac86dcfff8bdc3f7f21d6b9 .
+<http://linked.data.gov.au/def/loci#Dataset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bf5e4a7b1a9d14428ed67666fbfb67ddc .
+<http://linked.data.gov.au/def/loci#Dataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://linked.data.gov.au/def/loci#Dataset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B608098b9cb3ba666f7c9f4d7402f8316 .
+<http://linked.data.gov.au/def/loci#Dataset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B8ac06038066703729cec80217f255f03 .
+<http://linked.data.gov.au/def/loci#Dataset> <http://www.w3.org/2000/01/rdf-schema#comment> "A Loc-I Dataset is a DCAT and VOID Dataset that has been accepted by the Loc-I Registry Manager."@en .
+<http://linked.data.gov.au/def/loci#Dataset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B2fc9659de5e40bdf0f01b43fae8c8b8d .
+<http://linked.data.gov.au/def/loci#Dataset> <http://www.w3.org/2002/07/owl#equivalentClass> _:Bc67da8b74f6bfbfe591cba4041672786 .
+<http://linked.data.gov.au/def/loci#Dataset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdfs.org/ns/void#Dataset> .
+<http://linked.data.gov.au/def/loci#Dataset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://linked.data.gov.au/def/loci#Dataset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B54edeffdX2D0618X2D4c2cX2D9c47X2D81bab2b39cf7 .

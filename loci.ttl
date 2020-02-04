@@ -3,6 +3,7 @@
 # imports: http://vocab.deri.ie/void
 # imports: http://www.w3.org/ns/dcat
 # imports: http://www.w3.org/ns/dcat#
+# imports: http://xmlns.com/foaf/0.1/
 # prefix: loci
 
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
@@ -27,30 +28,25 @@
   a owl:Ontology ;
   a prof:Profile ;
   dcterms:created "2018-10-29"^^xsd:date ;
-  dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
-  dcterms:creator [
-      sdo:identifier <http://orcid.org/0000-0002-8742-7730> ;
-      sdo:name "Nicholas J. Car" ;
-    ] ;
-  dcterms:modified "2019-12-20"^^xsd:date ;
-  rdfs:comment """A profile of several ontologies implemented to govern Linked Data resources published within the LocI project.
+  dcterms:creator "<a href='http://orcid.org/0000-0002-8742-7730'>Nicholas J Car, Surround Australia</a>"^^rdf:HTML ;
+  dcterms:creator "<a href='https://orcid.org/0000-0002-3884-3420'>Simon J D Cox, CSIRO</a>"^^rdf:HTML ;
+  dcterms:modified "2020-02-04"^^xsd:date ;
+  rdfs:comment """An ontology to govern Linked Data resources published within the [Loc-I](https://confluence.csiro.au/display/DIPAAnalyticHubs/Location+Integration+Capability+Loc-I) project.
 
-This is a profile of the [DCAT v2](https://www.w3.org/TR/vocab-dcat-2/) & [VOID](http://www.w3.org/TR/void/) ontologies that require certain properties defined by those ontologies be present for several classes of resource that are of particular importance to the [LocI](https://confluence.csiro.au/display/DIPAAnalyticHubs/Location+Integration+Capability+Loc-I) project.
-
-This ontology constrains both normative instruction on what constitutes LocI objects and supplies executable constraints to validate instances.""" ;
-  rdfs:label "LocI Ontology" ;
-  rdfs:seeAlso "http://github.com/CSIRO-enviro-informatics/loci-ont/"@en ;
+The primary focus is on (a) datasets composed of multiple geospatial features (objects); (b) recording relationships between features, with metadata attached to reified rdf:Statements. """ ;
+  rdfs:label "Loc-I Ontology" ;
   owl:imports <http://linked.data.gov.au/def/geox> ;
   owl:imports <http://vocab.deri.ie/void> ;
   owl:imports <http://www.w3.org/ns/dcat> ;
   owl:imports dcat: ;
-  owl:versionIRI <http://linked.data.gov.au/def/loci/1.0> ;
+  owl:imports foaf: ;
+  owl:versionIRI <http://linked.data.gov.au/def/loci/1.1> ;
   owl:versionInfo "Beta version"@en ;
   prof:hasResource [
       a prof:ResourceDescriptor ;
       dcterms:format <https://w3id.org/mediatype/image/svg> ;
       dcterms:title "Ontology overview diagram"@en ;
-      prof:hasArtifact <http://linked.data.gov.au/def/loci/images/model.svg> ;
+      prof:hasArtifact <http://linked.data.gov.au/def/loci/images/loci.png> ;
       prof:hasRole <http://www.w3.org/ns/dx/prof/role/guidance> ;
     ] ;
   prof:hasResource [
@@ -76,27 +72,37 @@ This ontology constrains both normative instruction on what constitutes LocI obj
     ] ;
   prof:hasToken "loci"^^xsd:token ;
   prof:isProfileOf <http://rdfs.org/ns/void> ;
-  prof:isProfileOf <https://www.w3.org/TR/vocab-dcat-2/> ;
   prov:wasGeneratedBy [
       a doap:Project ;
       a prov:Activity ;
       doap:repository <https://github.com/CSIRO-enviro-informatics/loci-ont> ;
-      rdfs:label "LocI project" ;
+      rdfs:label "Loc-I project" ;
     ] ;
 .
 loci:DataPublisher
   a owl:Class ;
-  rdfs:comment "The set of all approved publishers of LocI data, all of whom are known"@en ;
-  rdfs:label "LocI Data Publishers" ;
+  rdfs:comment "The set of all approved publishers of Loc-I data, all of whom are known"@en ;
+  rdfs:label "Loc-I Data Publishers" ;
   rdfs:subClassOf foaf:Group ;
 .
 loci:Dataset
   a owl:Class ;
-  rdfs:comment "A LocI Dataset is a DCAT and VOID Dataset that has been accepted by the LocI Registry Manager."@en ;
-  rdfs:label "LocI Dataset" ;
+  rdfs:comment "A Loc-I Dataset is a DCAT and VOID Dataset that has been accepted by the Loc-I Registry Manager."@en ;
+  rdfs:label "Loc-I Dataset" ;
   rdfs:subClassOf void:Dataset ;
   rdfs:subClassOf rdf:Bag ;
   rdfs:subClassOf dcat:Dataset ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom [
+          a owl:Class ;
+          owl:unionOf (
+              loci:Feature
+              loci:LinkingStatement
+            ) ;
+        ] ;
+      owl:onProperty rdfs:member ;
+    ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
@@ -134,9 +140,9 @@ loci:Dataset
 .
 loci:Feature
   a owl:Class ;
-  rdfs:comment "A LocI Feature is a GeoSPARQL Feature that has at least one Geometry" ;
+  rdfs:comment "A Loc-I Feature is a GeoSPARQL Feature that has at least one Geometry" ;
   rdfs:comment "Might be better implemented as a SHACL shape" ;
-  rdfs:label "LocI Feature" ;
+  rdfs:label "Loc-I Feature" ;
   rdfs:subClassOf geo:Feature ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -147,8 +153,8 @@ loci:Feature
 .
 loci:LinkingStatement
   a owl:Class ;
-  rdfs:comment "An RDF Statement (Subject, Predicate, Object + additional metadata) that links class instances in one LocI Dataset with class instances in another"@en ;
-  rdfs:label "LocI Dataset Linking Statement" ;
+  rdfs:comment "An RDF Statement (Subject, Predicate, Object + additional metadata) that links class instances in one Loc-I Dataset with class instances in another"@en ;
+  rdfs:label "Loc-I Dataset Linking Statement" ;
   rdfs:subClassOf rdf:Statement ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -165,8 +171,8 @@ loci:LinkingStatement
 .
 loci:Linkset
   a owl:Class ;
-  rdfs:comment "A LocI Linkset is a specialised form of a VoID Linkset that requires the void:subjectsTarget & void:objectsTarget indicate LocI Datasets"@en ;
-  rdfs:label "LocI Linkset" ;
+  rdfs:comment "A Loc-I Linkset is a specialised form of a VoID Linkset that requires the void:subjectsTarget & void:objectsTarget indicate Loc-I Datasets"@en ;
+  rdfs:label "Loc-I Linkset" ;
   rdfs:subClassOf loci:Dataset ;
   rdfs:subClassOf void:Linkset ;
   rdfs:subClassOf [
@@ -187,6 +193,7 @@ loci:Linkset
 .
 loci:hadGenerationMethod
   a owl:ObjectProperty ;
+  rdfs:domain rdf:Statement ;
   rdfs:label "had generation method" ;
   rdfs:range prov:Plan ;
   owl:propertyChainAxiom (
@@ -194,7 +201,7 @@ loci:hadGenerationMethod
       prov:qualifiedAssociation
       prov:hadPlan
     ) ;
-  skos:definition "Something (likely a prov:Entity) had a method (prov:Plan) that was used to generate it"@en ;
+  skos:definition "The method that was used to generate this object"@en ;
   skos:editorialNote "This property is a property chain axiom equivalent to a chain of three properties in the PROV ontology: prov:wasGeneratedBy, prov:qualifiedAssociation and prof:hadPlan linking a prov:Entity (the thing generated) to a prov:Plan (the thin instruction generation - the method) via a prov:Activity (the generating event) and a prov:Association that the prov:Activity has linking it to the prov:Plan."@en ;
 .
 loci:isMemberOf
