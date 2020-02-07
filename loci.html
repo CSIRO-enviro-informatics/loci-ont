@@ -433,6 +433,18 @@ code {
                     <a href="http://www.w3.org/ns/prov#Plan">prov:Plan</a><sup class="sup-c" title="class">c</sup>
                 </td>
             </tr>
+            <tr>
+                <th>Editorial Note</th>
+                <td>
+                    This property is a property chain axiom equivalent to a chain of three properties in the PROV ontology: prov:wasGeneratedBy, prov:qualifiedAssociation and prof:hadPlan linking a prov:Entity (the thing generated) to a prov:Plan (the thin instruction generation - the method) via a prov:Activity (the generating event) and a prov:Association that the prov:Activity has linking it to the prov:Plan.
+                </td>
+            </tr>
+            <tr>
+                <th>Property Chain Axiom</th>
+                <td>
+                    <code>owl:propertyChainAxiom (prov:wasGeneratedBy prov:qualifiedAssociation prov:hadPlan)</code>
+                </td>
+            </tr>            
         </table>
     </div>
     <div class="entity property" id="ismemberof">
