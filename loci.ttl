@@ -1,9 +1,6 @@
 # baseURI: http://linked.data.gov.au/def/loci
 # imports: http://linked.data.gov.au/def/geox
 # imports: http://vocab.deri.ie/void
-# imports: http://www.w3.org/ns/dcat
-# imports: http://www.w3.org/ns/dcat#
-# imports: http://xmlns.com/foaf/0.1/
 # prefix: loci
 
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
@@ -37,9 +34,6 @@ The primary focus is on (a) datasets composed of multiple geospatial features (o
   rdfs:label "Loc-I Ontology" ;
   owl:imports <http://linked.data.gov.au/def/geox> ;
   owl:imports <http://vocab.deri.ie/void> ;
-  owl:imports <http://www.w3.org/ns/dcat> ;
-  owl:imports dcat: ;
-  owl:imports foaf: ;
   owl:versionIRI <http://linked.data.gov.au/def/loci/1.1> ;
   owl:versionInfo "Beta version"@en ;
   prof:hasResource [
@@ -206,7 +200,7 @@ loci:hadGenerationMethod
 .
 loci:isMemberOf
   a owl:ObjectProperty ;
-  rdfs:comment "In principle this is just inverse of rdfs:member, but because it is defined in a local namespace, make it a sub-property of the inverse" ;
+  rdfs:comment "In principle this is just inverse of rdfs:member, but because it is defined in a local namespace it is made a sub-property of the inverse" ;
   rdfs:label "is member of" ;
   rdfs:subPropertyOf [
       a owl:ObjectProperty ;
