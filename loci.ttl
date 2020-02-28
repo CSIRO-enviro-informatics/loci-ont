@@ -134,16 +134,9 @@ loci:Dataset
 .
 loci:Feature
   a owl:Class ;
-  rdfs:comment "A Loc-I Feature is a GeoSPARQL Feature that has at least one Geometry" ;
-  rdfs:comment "Might be better implemented as a SHACL shape" ;
+  rdfs:comment "A Loc-I Feature is a GeoSPARQL Feature that has at least one Geometry, one persistent identifier, and is a member of a loci:Dataset" ;
+  rdfs:comment "Implemented as a SHACL shape" ;
   rdfs:label "Loc-I Feature" ;
-  rdfs:subClassOf geo:Feature ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onClass geo:Geometry ;
-      owl:onProperty geo:hasGeometry ;
-    ] ;
 .
 loci:LinkingStatement
   a owl:Class ;
@@ -202,6 +195,7 @@ loci:isMemberOf
   a owl:ObjectProperty ;
   rdfs:comment "In principle this is just inverse of rdfs:member, but because it is defined in a local namespace it is made a sub-property of the inverse" ;
   rdfs:label "is member of" ;
+  rdfs:range loci:Dataset ;
   rdfs:subPropertyOf [
       a owl:ObjectProperty ;
       owl:inverseOf rdfs:member ;

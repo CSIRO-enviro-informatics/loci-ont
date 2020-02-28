@@ -9,19 +9,6 @@
     <cd:nodes>
       <cd:URINode>
         <cd:height rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >52</cd:height>
-        <cd:width rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >284</cd:width>
-        <cd:y rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >495</cd:y>
-        <cd:x rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >61</cd:x>
-        <cd:class rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
-      </cd:URINode>
-    </cd:nodes>
-    <cd:nodes>
-      <cd:URINode>
-        <cd:height rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >72</cd:height>
         <cd:width rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >297</cd:width>
@@ -30,6 +17,19 @@
         <cd:x rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >128</cd:x>
         <cd:class rdf:resource="http://linked.data.gov.au/def/loci#Linkset"/>
+      </cd:URINode>
+    </cd:nodes>
+    <cd:nodes>
+      <cd:URINode>
+        <cd:height rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >52</cd:height>
+        <cd:width rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >284</cd:width>
+        <cd:y rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >495</cd:y>
+        <cd:x rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >61</cd:x>
+        <cd:class rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
       </cd:URINode>
     </cd:nodes>
     <cd:nodes>
