@@ -28,6 +28,7 @@ loci:Feature
       sh:minCount 1 ;
       sh:name "is member of" ;
       sh:nodeKind sh:IRI ;
+      sh:severity sh:Info ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
@@ -45,6 +46,7 @@ Usually maintained by the dataset custodian. """ ;
       sh:description "Feature classification, taken from a controlled-vocabulary" ;
       sh:name "type" ;
       sh:nodeKind sh:IRI ;
+      sh:severity sh:Info ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
@@ -53,6 +55,7 @@ Usually maintained by the dataset custodian. """ ;
       sh:description "Link to a description of a georeferenced geometry associated with this feature " ;
       sh:minCount 1 ;
       sh:name "has geometry" ;
+      sh:severity sh:Info ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
@@ -61,6 +64,7 @@ Usually maintained by the dataset custodian. """ ;
       sh:description "topological relationships from Loc-I features are only to other *features*" ;
       sh:name "contains" ;
       sh:nodeKind sh:IRI ;
+      sh:severity sh:Info ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
@@ -69,6 +73,7 @@ Usually maintained by the dataset custodian. """ ;
       sh:description "topological relationships from Loc-I features are only to other *features*" ;
       sh:name "overlaps" ;
       sh:nodeKind sh:IRI ;
+      sh:severity sh:Info ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
@@ -77,6 +82,7 @@ Usually maintained by the dataset custodian. """ ;
       sh:description "topological relationships from Loc-I features are only to other *features*" ;
       sh:name "within" ;
       sh:nodeKind sh:IRI ;
+      sh:severity sh:Info ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
