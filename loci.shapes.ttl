@@ -55,6 +55,7 @@ Usually maintained by the dataset custodian. """ ;
       sh:description "Link to a description of a georeferenced geometry associated with this feature " ;
       sh:minCount 1 ;
       sh:name "has geometry" ;
+      sh:nodeKind sh:IRI ;
       sh:severity sh:Info ;
     ] ;
   sh:property [
