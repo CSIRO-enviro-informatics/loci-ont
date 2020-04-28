@@ -152,6 +152,21 @@ loci:LinkingStatement
   rdfs:subClassOf rdf:Statement ;
   rdfs:subClassOf [
       a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty rdf:object ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty rdf:subject ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty rdf:predicate ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
       owl:onClass loci:Linkset ;
       owl:onProperty loci:isMemberOf ;
       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -185,6 +200,13 @@ loci:Linkset
       owl:onProperty void:subjectsTarget ;
     ] ;
 .
+loci:contains
+  a owl:ObjectProperty ;
+  dcterms:description "Logical relationship that asserts a location (spatial feature) contains another but without implying that the containment is also strictly geometric" ;
+  rdfs:domain geo:Feature ;
+  rdfs:label "contains" ;
+  rdfs:range geo:Feature ;
+.
 loci:hadGenerationMethod
   a owl:ObjectProperty ;
   rdfs:domain rdf:Statement ;
@@ -206,4 +228,18 @@ loci:isMemberOf
       a owl:ObjectProperty ;
       owl:inverseOf rdfs:member ;
     ] ;
+.
+loci:within
+  a owl:ObjectProperty ;
+  dcterms:description "Logical relationship that asserts a location (spatial feature) is inside another but without implying that the containment is also strictly geometric" ;
+  rdfs:domain geo:Feature ;
+  rdfs:label "within" ;
+  rdfs:range geo:Feature ;
+  owl:inverseOf loci:contains ;
+.
+dcterms:type
+  a owl:ObjectProperty ;
+  dcterms:description """In the context of Loc-I datasets, `dcterms:type` is used for an additional classifier, such as a place-type or meshblock-category. 
+
+The value should be taken from a controlled-vocabulary, and may be expressed as a `skos:Concept` or an `rdfs:Class` or some other kind of resource providing it is from a well-governed source. """ ;
 .
