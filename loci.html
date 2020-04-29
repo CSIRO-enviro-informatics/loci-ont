@@ -201,13 +201,13 @@ code {
         <dd><code>http://linked.data.gov.au/def/loci</code></dd>
         <dt>Creator(s)</dt>
         <dd>
-            <a href='http://orcid.org/0000-0002-8742-7730'>Nicholas J Car, Surround Australia</a><br/>
-            <a href='https://orcid.org/0000-0002-3884-3420'>Simon J D Cox, CSIRO</a><br/>
+            <a href="https://orcid.org/0000-0002-8742-7730">Nicholas J Car</a> of Surround Australia<br/>
+            <a href="https://orcid.org/0000-0002-3884-3420">Simon J D Cox</a> of CSIRO Australia<br/>
         </dd>
         <dt>Created</dt>
         <dd>2018-10-29</dd>
         <dt>Modified</dt>
-        <dd>2020-02-04</dd>
+        <dd>2020-04-29</dd>
         <dt>Version Information</dt>
         <dd>Beta version</dd>
         <dt>Version IRI</dt>
@@ -215,12 +215,10 @@ code {
         <dt>Imports</dt>
         <dd>
             <a href="http://vocab.deri.ie/void">http://vocab.deri.ie/void</a><br/>
+            <a href="http://schema.org/">schema:</a><br/>
             <a href="http://linked.data.gov.au/def/geox">http://linked.data.gov.au/def/geox</a><br/>
-            <a href="http://xmlns.com/foaf/0.1/">foaf:</a><br/>
-            <a href="http://www.w3.org/ns/dcat#">dcat:</a><br/>
-            <a href="http://www.w3.org/ns/dcat">http://www.w3.org/ns/dcat</a><br/>
         </dd>
-        <dt>Ontology Source</dt>
+        <dt>Ontology RDF</dt>
         <dd><a href="loci.ttl">RDF (turtle)</a></dd>
         <dt>Code Repository</dt>
         <dd><a href="https://github.com/CSIRO-enviro-informatics/loci-ont">https://github.com/CSIRO-enviro-informatics/loci-ont</a></dd>
@@ -294,20 +292,20 @@ code {
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="http://rdfs.org/ns/void#Dataset">void:Dataset</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag">rdf:Bag</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/dcat#Dataset">dcat:Dataset</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag">rdf:Bag</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://rdfs.org/ns/void#Dataset">void:Dataset</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="http://www.w3.org/2000/01/rdf-schema#member">rdfs:member</a> <span class="cardinality">only</span> (<a href="#Loc-IFeature">loci:Feature</a><sup class="sup-c" title="class">c</sup> or <a href="#Loc-IDatasetLinkingStatement">loci:LinkingStatement</a><sup class="sup-c" title="class">c</sup>)<br/>
                     <a href="http://purl.org/dc/terms/issued">dcterms:issued</a> <span class="cardinality">exactly</span> 1<br/>
-                    <a href="http://www.w3.org/ns/dcat#contactPoint">dcat:contactPoint</a> <span class="cardinality">min</span> 1<br/>
                     <a href="http://purl.org/dc/terms/publisher">dcterms:publisher</a> <span class="cardinality">exactly</span> 1 <a href="http://www.w3.org/ns/org#Organization">org:Organization</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://purl.org/dc/terms/title">dcterms:title</a> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://www.w3.org/ns/dcat#contactPoint">dcat:contactPoint</a> <span class="cardinality">min</span> 1<br/>
                     <a href="http://purl.org/dc/terms/modified">dcterms:modified</a> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#member">rdfs:member</a> <span class="cardinality">only</span> (<a href="#Loc-IFeature">loci:Feature</a><sup class="sup-c" title="class">c</sup> or <a href="#Loc-IDatasetLinkingStatement">loci:LinkingStatement</a><sup class="sup-c" title="class">c</sup>)<br/>
                 </td>
             </tr>
             <tr>
@@ -341,6 +339,7 @@ code {
                 <th>Restrictions</th>
                 <td>
                     <a href="http://www.opengis.net/ont/geosparql#hasGeometry">geo:hasGeometry</a> <span class="cardinality">min</span> 1 <a href="http://www.opengis.net/ont/geosparql#Geometry">geo:Geometry</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/dc/terms/identifier">dcterms:identifier</a> <span class="cardinality">min</span> 1<br/>
                 </td>
             </tr>
         </table>
@@ -367,6 +366,9 @@ code {
             <tr>
                 <th>Restrictions</th>
                 <td>
+                    <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#subject">rdf:subject</a> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#object">rdf:object</a> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate">rdf:predicate</a> <span class="cardinality">min</span> 1<br/>
                     <a href="#ismemberof">loci:isMemberOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1 <a href="#Loc-ILinkset">loci:Linkset</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#hadgenerationmethod">loci:hadGenerationMethod</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1 <a href="http://www.w3.org/ns/prov#Plan">prov:Plan</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
@@ -405,9 +407,41 @@ code {
 <section id="objectproperties">
     <h2>Object Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
     <ul class="hlist">
+        <li><a href="#contains">contains </a></li>
         <li><a href="#hadgenerationmethod">had generation method</a></li>
         <li><a href="#ismemberof">is member of</a></li>
+        <li><a href="#within">within </a></li>
+        <li><a href="#type">type</a></li>
     </ul>
+    <div class="entity property" id="contains">
+        <h3>contains <sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/loci#contains</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    The context resource contains the target resource, in some geospatial, logical, ownership, governance, jurisidictional or 'has-part' (compositional) sense. 
+
+This predicate provides a convenient generalized or super-property-of containment relations with more specialized semantics. It may be useful in formulating some generalized SPARQL queries where any kind of containment relationship is intended. 
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.opengis.net/ont/geosparql#SpatialObject">geo:SpatialObject</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.opengis.net/ont/geosparql#SpatialObject">geo:SpatialObject</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
     <div class="entity property" id="hadgenerationmethod">
         <h3>had generation method<sup title="object property" class="sup-op">op</sup></h3>
         <table>
@@ -433,18 +467,6 @@ code {
                     <a href="http://www.w3.org/ns/prov#Plan">prov:Plan</a><sup class="sup-c" title="class">c</sup>
                 </td>
             </tr>
-            <tr>
-                <th>Editorial Note</th>
-                <td>
-                    This property is a property chain axiom equivalent to a chain of three properties in the PROV ontology: prov:wasGeneratedBy, prov:qualifiedAssociation and prof:hadPlan linking a prov:Entity (the thing generated) to a prov:Plan (the thin instruction generation - the method) via a prov:Activity (the generating event) and a prov:Association that the prov:Activity has linking it to the prov:Plan.
-                </td>
-            </tr>
-            <tr>
-                <th>Property Chain Axiom</th>
-                <td>
-                    <code>owl:propertyChainAxiom (prov:wasGeneratedBy prov:qualifiedAssociation prov:hadPlan)</code>
-                </td>
-            </tr>            
         </table>
     </div>
     <div class="entity property" id="ismemberof">
@@ -457,7 +479,59 @@ code {
             <tr>
                 <th>Description</th>
                 <td>
-                    In principle this is just inverse of rdfs:member, but because it is defined in a local namespace, make it a sub-property of the inverse
+                    In principle this is inverse of rdfs:member, but because it is defined in a local namespace it is made a sub-property of the inverse
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="within">
+        <h3>within <sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://linked.data.gov.au/def/loci#within</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    The context resource is contained by the target resource, in some geospatial, logical, ownership, governance, jurisidictional or 'has-part' (compositional) sense. 
+
+This predicate provides a convenient generalized or super-property-of contained-by relations with more specializaed semantics. It may be useful in formulating some generalized SPARQL queries where any kind of containment relationship is intended. 
+                </td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="#contains">loci:contains</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.opengis.net/ont/geosparql#SpatialObject">geo:SpatialObject</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.opengis.net/ont/geosparql#SpatialObject">geo:SpatialObject</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="type">
+        <h3>type<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/dc/terms/type</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    In the context of Loc-I datasets, `dcterms:type` is used for an additional classifier, such as a place-type or meshblock-category. 
+
+The value should be taken from a controlled-vocabulary, and may be expressed as a `skos:Concept` or an `rdfs:Class` or some other kind of resource providing it is from a well-governed source. 
                 </td>
             </tr>
         </table>
@@ -474,7 +548,7 @@ code {
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>ub1bL210C22</code></td>
+                <td><code>ub1bL248C22</code></td>
             </tr>
         </table>
     </div>
@@ -485,6 +559,8 @@ code {
     <dl>
         <dt><em>default (:)</em></dt>
         <dd><code>http://linked.data.gov.au/def/loci#</code></dd>
+        <dt>asgs</dt>
+        <dd><code>http://linked.data.gov.au/def/asgs#</code></dd>
         <dt>dcat</dt>
         <dd><code>http://www.w3.org/ns/dcat#</code></dd>
         <dt>dcterms</dt>
@@ -511,6 +587,8 @@ code {
         <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
         <dt>rdfs</dt>
         <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
+        <dt>schema</dt>
+        <dd><code>http://schema.org/</code></dd>
         <dt>sdo</dt>
         <dd><code>https://schema.org/</code></dd>
         <dt>skos</dt>

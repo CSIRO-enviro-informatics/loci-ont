@@ -155,6 +155,11 @@ loci:Feature
   rdfs:subClassOf geo:Feature ;
   rdfs:subClassOf [
       a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:identifier ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onClass geo:Geometry ;
       owl:onProperty geo:hasGeometry ;
