@@ -1,8 +1,10 @@
 # baseURI: http://linked.data.gov.au/def/loci
 # imports: http://linked.data.gov.au/def/geox
+# imports: http://schema.org/
 # imports: http://vocab.deri.ie/void
 # prefix: loci
 
+@prefix asgs: <http://linked.data.gov.au/def/asgs#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix doap: <http://usefulinc.com/ns/doap#> .
@@ -16,23 +18,36 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
 @prefix sdo: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<http://catalogue.linked.data.gov.au/org/csiro>
+  a schema:Organization ;
+  schema:name "CSIRO Australia" ;
+  schema:subjectOf <https://csiro.au> ;
+.
+asgs:isComposedOf
+  rdfs:subPropertyOf loci:contains ;
+.
+asgs:within
+  rdfs:subPropertyOf loci:within ;
+.
 <http://linked.data.gov.au/def/loci>
   a owl:Ontology ;
   a prof:Profile ;
   dcterms:created "2018-10-29"^^xsd:date ;
-  dcterms:creator "<a href='http://orcid.org/0000-0002-8742-7730'>Nicholas J Car, Surround Australia</a>"^^rdf:HTML ;
-  dcterms:creator "<a href='https://orcid.org/0000-0002-3884-3420'>Simon J D Cox, CSIRO</a>"^^rdf:HTML ;
-  dcterms:modified "2020-02-04"^^xsd:date ;
+  dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
+  dcterms:creator <https://orcid.org/0000-0002-8742-7730> ;
+  dcterms:modified "2020-04-29"^^xsd:date ;
   rdfs:comment """An ontology to govern Linked Data resources published within the [Loc-I](https://confluence.csiro.au/display/DIPAAnalyticHubs/Location+Integration+Capability+Loc-I) project.
 
 The primary focus is on (a) datasets composed of multiple geospatial features (objects); (b) recording relationships between features, with metadata attached to reified rdf:Statements. """ ;
   rdfs:label "Loc-I Ontology" ;
   owl:imports <http://linked.data.gov.au/def/geox> ;
+  owl:imports schema: ;
   owl:imports <http://vocab.deri.ie/void> ;
   owl:versionIRI <http://linked.data.gov.au/def/loci/1.1> ;
   owl:versionInfo "Beta version"@en ;
@@ -202,10 +217,12 @@ loci:Linkset
 .
 loci:contains
   a owl:ObjectProperty ;
-  dcterms:description "Logical relationship that asserts a location (spatial feature) contains another but without implying that the containment is also strictly geometric" ;
-  rdfs:domain geo:Feature ;
-  rdfs:label "contains" ;
-  rdfs:range geo:Feature ;
+  dcterms:description """The context resource contains the target resource, in some geospatial, logical, ownership, governance, jurisidictional or 'has-part' (compositional) sense. 
+
+This predicate provides a convenient generalized or super-property-of containment relations with more specialized semantics. It may be useful in formulating some generalized SPARQL queries where any kind of containment relationship is intended. """ ;
+  rdfs:domain geo:SpatialObject ;
+  rdfs:label "contains " ;
+  rdfs:range geo:SpatialObject ;
 .
 loci:hadGenerationMethod
   a owl:ObjectProperty ;
@@ -222,7 +239,7 @@ loci:hadGenerationMethod
 .
 loci:isMemberOf
   a owl:ObjectProperty ;
-  rdfs:comment "In principle this is just inverse of rdfs:member, but because it is defined in a local namespace it is made a sub-property of the inverse" ;
+  rdfs:comment "In principle this is inverse of rdfs:member, but because it is defined in a local namespace it is made a sub-property of the inverse" ;
   rdfs:label "is member of" ;
   rdfs:subPropertyOf [
       a owl:ObjectProperty ;
@@ -231,10 +248,12 @@ loci:isMemberOf
 .
 loci:within
   a owl:ObjectProperty ;
-  dcterms:description "Logical relationship that asserts a location (spatial feature) is inside another but without implying that the containment is also strictly geometric" ;
-  rdfs:domain geo:Feature ;
-  rdfs:label "within" ;
-  rdfs:range geo:Feature ;
+  dcterms:description """The context resource is contained by the target resource, in some geospatial, logical, ownership, governance, jurisidictional or 'has-part' (compositional) sense. 
+
+This predicate provides a convenient generalized or super-property-of contained-by relations with more specializaed semantics. It may be useful in formulating some generalized SPARQL queries where any kind of containment relationship is intended. """ ;
+  rdfs:domain geo:SpatialObject ;
+  rdfs:label "within " ;
+  rdfs:range geo:SpatialObject ;
   owl:inverseOf loci:contains ;
 .
 dcterms:type
@@ -242,4 +261,26 @@ dcterms:type
   dcterms:description """In the context of Loc-I datasets, `dcterms:type` is used for an additional classifier, such as a place-type or meshblock-category. 
 
 The value should be taken from a controlled-vocabulary, and may be expressed as a `skos:Concept` or an `rdfs:Class` or some other kind of resource providing it is from a well-governed source. """ ;
+.
+geo:sfContains
+  rdfs:subPropertyOf loci:contains ;
+.
+geo:sfWithin
+  rdfs:subPropertyOf loci:within ;
+.
+<https://orcid.org/0000-0002-3884-3420>
+  a schema:Person ;
+  schema:affiliation <http://catalogue.linked.data.gov.au/org/csiro> ;
+  schema:identifier "https://orcid.org/0000-0002-3884-3420"^^xsd:anyURI ;
+  schema:name "Simon J D Cox" ;
+  schema:subjectOf <https://people.csiro.au/C/S/simon-cox> ;
+.
+<https://orcid.org/0000-0002-8742-7730>
+  a schema:Person ;
+  schema:affiliation [
+      a schema:Organization ;
+      schema:name "Surround Australia" ;
+    ] ;
+  schema:identifier "https://orcid.org/0000-0002-8742-7730"^^xsd:anyURI ;
+  schema:name "Nicholas J Car" ;
 .
