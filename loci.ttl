@@ -88,13 +88,7 @@ loci:Dataset
   rdfs:subClassOf dcat:Dataset ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:allValuesFrom [
-          a owl:Class ;
-          owl:unionOf (
-              loci:Feature
-              loci:LinkingStatement
-            ) ;
-        ] ;
+      owl:allValuesFrom loci:Thing ;
       owl:onProperty rdfs:member ;
     ] ;
   rdfs:subClassOf [
@@ -131,13 +125,20 @@ loci:Dataset
       owl:allValuesFrom loci:DataPublisher ;
       owl:onProperty dcterms:publisher ;
     ] ;
+  skos:editorialNote "Membership of a loci:Dataset is (a) geo:Feature (Loc-I conformant) (b) loci:LinkingStatement (c) related types, such as PlaceNames" ;
 .
 loci:Feature
   a owl:Class ;
   rdfs:comment "A Loc-I Feature is a GeoSPARQL Feature that has at least one Geometry" ;
   rdfs:comment "Might be better implemented as a SHACL shape" ;
   rdfs:label "Loc-I Feature" ;
+  rdfs:subClassOf loci:Thing ;
   rdfs:subClassOf geo:Feature ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:identifier ;
+    ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -149,6 +150,7 @@ loci:LinkingStatement
   a owl:Class ;
   rdfs:comment "An RDF Statement (Subject, Predicate, Object + additional metadata) that links class instances in one Loc-I Dataset with class instances in another"@en ;
   rdfs:label "Loc-I Dataset Linking Statement" ;
+  rdfs:subClassOf loci:Thing ;
   rdfs:subClassOf rdf:Statement ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -184,6 +186,17 @@ loci:Linkset
       owl:allValuesFrom loci:Dataset ;
       owl:onProperty void:subjectsTarget ;
     ] ;
+.
+loci:Thing
+  a owl:Class ;
+  rdfs:comment """Potential member of a loci:Dataset
+
+Two subclasses are known about a-priori, viz. 
+- loci:Feature
+- loci:LinkingStatement
+
+Other resource types may be in a loci:Dataset, such as PlaceName (which is associated with a geo:Feature, but is not itself a Feature), so are implicitly loci:Things""" ;
+  rdfs:label "Loc-I thing" ;
 .
 loci:hadGenerationMethod
   a owl:ObjectProperty ;
