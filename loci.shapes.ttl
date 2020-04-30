@@ -22,16 +22,6 @@ loci:Feature
   rdfs:label "Loc-I Feature" ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path loci:isMemberOf ;
-      sh:class loci:Dataset ;
-      sh:description "link to the registered dataset of which this is a member" ;
-      sh:minCount 1 ;
-      sh:name "is member of" ;
-      sh:nodeKind sh:IRI ;
-      sh:severity sh:Info ;
-    ] ;
-  sh:property [
-      a sh:PropertyShape ;
       sh:path dcterms:identifier ;
       sh:description """Persistent identifier for the Feature. 
 Usually maintained by the dataset custodian. """ ;
@@ -55,42 +45,6 @@ Usually maintained by the dataset custodian. """ ;
       sh:description "Link to a description of a georeferenced geometry associated with this feature " ;
       sh:minCount 1 ;
       sh:name "has geometry" ;
-      sh:nodeKind sh:IRI ;
-      sh:severity sh:Info ;
-    ] ;
-  sh:property [
-      a sh:PropertyShape ;
-      sh:path geo:sfContains ;
-      sh:class geo:Feature ;
-      sh:description "topological relationships from Loc-I features are only to other *features*" ;
-      sh:name "contains" ;
-      sh:nodeKind sh:IRI ;
-      sh:severity sh:Info ;
-    ] ;
-  sh:property [
-      a sh:PropertyShape ;
-      sh:path geo:sfEquals ;
-      sh:class geo:Feature ;
-      sh:description "topological relationships from Loc-I features are only to other *features*" ;
-      sh:name "equals" ;
-      sh:nodeKind sh:IRI ;
-      sh:severity sh:Info ;
-    ] ;
-  sh:property [
-      a sh:PropertyShape ;
-      sh:path geo:sfOverlaps ;
-      sh:class geo:Feature ;
-      sh:description "topological relationships from Loc-I features are only to other *features*" ;
-      sh:name "overlaps" ;
-      sh:nodeKind sh:IRI ;
-      sh:severity sh:Info ;
-    ] ;
-  sh:property [
-      a sh:PropertyShape ;
-      sh:path geo:sfWithin ;
-      sh:class geo:Feature ;
-      sh:description "topological relationships from Loc-I features are only to other *features*" ;
-      sh:name "within" ;
       sh:nodeKind sh:IRI ;
       sh:severity sh:Info ;
     ] ;
