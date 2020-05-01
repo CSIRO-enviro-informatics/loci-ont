@@ -131,8 +131,8 @@ loci:Dataset
 .
 loci:Feature
   a owl:Class ;
-  rdfs:comment "A Loc-I Feature is a GeoSPARQL Feature that has at least one Geometry" ;
-  rdfs:comment "Might be better implemented as a SHACL shape" ;
+  rdfs:comment "A Loc-I Feature is a GeoSPARQL Feature that has at least one Geometry, one persistent identifier, and is a member of a loci:Dataset" ;
+  rdfs:comment "Implemented as a SHACL shape" ;
   rdfs:label "Loc-I Feature" ;
   rdfs:subClassOf geo:Feature ;
   rdfs:subClassOf [
