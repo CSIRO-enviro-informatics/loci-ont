@@ -3,6 +3,7 @@
 # imports: http://vocab.deri.ie/void
 # prefix: loci
 
+@prefix asgs: <http://linked.data.gov.au/def/asgs#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix doap: <http://usefulinc.com/ns/doap#> .
@@ -16,6 +17,7 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
 @prefix sdo: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix void: <http://rdfs.org/ns/void#> .
@@ -88,13 +90,7 @@ loci:Dataset
   rdfs:subClassOf dcat:Dataset ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:allValuesFrom [
-          a owl:Class ;
-          owl:unionOf (
-              loci:Feature
-              loci:LinkingStatement
-            ) ;
-        ] ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty rdfs:member ;
     ] ;
   rdfs:subClassOf [
@@ -131,6 +127,7 @@ loci:Dataset
       owl:allValuesFrom loci:DataPublisher ;
       owl:onProperty dcterms:publisher ;
     ] ;
+  skos:editorialNote "Membership of a loci:Dataset is (a) geo:Feature (Loc-I conformant) (b) loci:LinkingStatement (c) related types, such as PlaceNames" ;
 .
 loci:Feature
   a owl:Class ;
@@ -138,6 +135,11 @@ loci:Feature
   rdfs:comment "Might be better implemented as a SHACL shape" ;
   rdfs:label "Loc-I Feature" ;
   rdfs:subClassOf geo:Feature ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:identifier ;
+    ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -202,6 +204,7 @@ loci:isMemberOf
   a owl:ObjectProperty ;
   rdfs:comment "In principle this is just inverse of rdfs:member, but because it is defined in a local namespace it is made a sub-property of the inverse" ;
   rdfs:label "is member of" ;
+  rdfs:range loci:Dataset ;
   rdfs:subPropertyOf [
       a owl:ObjectProperty ;
       owl:inverseOf rdfs:member ;
