@@ -103,13 +103,7 @@ loci:Dataset
   rdfs:subClassOf dcat:Dataset ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:allValuesFrom [
-          a owl:Class ;
-          owl:unionOf (
-              loci:Feature
-              loci:LinkingStatement
-            ) ;
-        ] ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty rdfs:member ;
     ] ;
   rdfs:subClassOf [
@@ -146,21 +140,22 @@ loci:Dataset
       owl:allValuesFrom loci:DataPublisher ;
       owl:onProperty dcterms:publisher ;
     ] ;
+  skos:editorialNote "Membership of a loci:Dataset is (a) geo:Feature (Loc-I conformant) (b) loci:LinkingStatement (c) related types, such as PlaceNames" ;
 .
 loci:Feature
   a owl:Class ;
-  rdfs:comment "A Loc-I Feature is a GeoSPARQL Feature that has at least one Geometry" ;
-  rdfs:comment "Might be better implemented as a SHACL shape" ;
+  rdfs:comment "A Loc-I Feature is a GeoSPARQL Feature that has at least one Geometry, one persistent identifier, and is a member of a loci:Dataset" ;
+  rdfs:comment "Implemented as a SHACL shape" ;
   rdfs:label "Loc-I Feature" ;
   rdfs:subClassOf geo:Feature ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:allValuesFrom loci:Feature ;
+      owl:allValuesFrom geo:Feature ;
       owl:onProperty loci:hasPart ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:allValuesFrom loci:Feature ;
+      owl:allValuesFrom geo:Feature ;
       owl:onProperty loci:isPartOf ;
     ] ;
   rdfs:subClassOf [
@@ -245,7 +240,7 @@ loci:hadGenerationMethod
 .
 loci:hasPart
   a owl:ObjectProperty ;
-  dcterms:description """The context resource contains the target resource, in some geospatial, logical, ownership, governance, jurisidictional or 'has-part' (compositional) sense. 
+  dcterms:description """The context resource contains the target resource, in some geospatial, logical, ownership, governance, jurisidictional or compositional sense. 
 
 This predicate provides a convenient generalized or super-property-of containment relations with more specialized semantics. It may be useful in formulating some generalized SPARQL queries where any kind of containment relationship is intended. 
 
@@ -258,6 +253,7 @@ loci:isMemberOf
   a owl:ObjectProperty ;
   rdfs:comment "In principle this is inverse of rdfs:member, but because it is defined in a local namespace it is made a sub-property of the inverse" ;
   rdfs:label "is member of" ;
+  rdfs:range loci:Dataset ;
   rdfs:subPropertyOf [
       a owl:ObjectProperty ;
       owl:inverseOf rdfs:member ;
