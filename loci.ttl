@@ -3,6 +3,7 @@
 # imports: http://vocab.deri.ie/void
 # prefix: loci
 
+@prefix asgs: <http://linked.data.gov.au/def/asgs#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix doap: <http://usefulinc.com/ns/doap#> .
@@ -16,6 +17,7 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
 @prefix sdo: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix void: <http://rdfs.org/ns/void#> .
@@ -88,7 +90,7 @@ loci:Dataset
   rdfs:subClassOf dcat:Dataset ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:allValuesFrom loci:Thing ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty rdfs:member ;
     ] ;
   rdfs:subClassOf [
@@ -132,7 +134,6 @@ loci:Feature
   rdfs:comment "A Loc-I Feature is a GeoSPARQL Feature that has at least one Geometry" ;
   rdfs:comment "Might be better implemented as a SHACL shape" ;
   rdfs:label "Loc-I Feature" ;
-  rdfs:subClassOf loci:Thing ;
   rdfs:subClassOf geo:Feature ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -150,7 +151,6 @@ loci:LinkingStatement
   a owl:Class ;
   rdfs:comment "An RDF Statement (Subject, Predicate, Object + additional metadata) that links class instances in one Loc-I Dataset with class instances in another"@en ;
   rdfs:label "Loc-I Dataset Linking Statement" ;
-  rdfs:subClassOf loci:Thing ;
   rdfs:subClassOf rdf:Statement ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -187,17 +187,6 @@ loci:Linkset
       owl:onProperty void:subjectsTarget ;
     ] ;
 .
-loci:Thing
-  a owl:Class ;
-  rdfs:comment """Potential member of a loci:Dataset
-
-Two subclasses are known about a-priori, viz. 
-- loci:Feature
-- loci:LinkingStatement
-
-Other resource types may be in a loci:Dataset, such as PlaceName (which is associated with a geo:Feature, but is not itself a Feature), so are implicitly loci:Things""" ;
-  rdfs:label "Loc-I thing" ;
-.
 loci:hadGenerationMethod
   a owl:ObjectProperty ;
   rdfs:domain rdf:Statement ;
@@ -215,6 +204,7 @@ loci:isMemberOf
   a owl:ObjectProperty ;
   rdfs:comment "In principle this is just inverse of rdfs:member, but because it is defined in a local namespace it is made a sub-property of the inverse" ;
   rdfs:label "is member of" ;
+  rdfs:range loci:Dataset ;
   rdfs:subPropertyOf [
       a owl:ObjectProperty ;
       owl:inverseOf rdfs:member ;
