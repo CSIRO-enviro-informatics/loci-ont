@@ -6,23 +6,21 @@ Markdown documentation created by [pyLODE](http://github.com/rdflib/pyLODE)
 * **IRI**
   * `http://linked.data.gov.au/def/loci`
 * **Creators(s)**
-  * <a href='https://orcid.org/0000-0002-3884-3420'>Simon J D Cox, CSIRO</a>
-  * <a href='http://orcid.org/0000-0002-8742-7730'>Nicholas J Car, Surround Australia</a>
+  * <a href="https://orcid.org/0000-0002-8742-7730">Nicholas J Car</a> of Surround Australia
+  * <a href="https://orcid.org/0000-0002-3884-3420">Simon J D Cox</a> of CSIRO Australia
 * **Created**
   * 2018-10-29
 * **Modified**
-  * 2020-02-04
+  * 2020-04-29
 * **Version Information**
   * Beta version
 * **Version IRI**
   * <a href="http://linked.data.gov.au/def/loci/1.1">http://linked.data.gov.au/def/loci/1.1</a>
 * **Imports**
-  * <a href="http://vocab.deri.ie/void">http://vocab.deri.ie/void</a>
   * <a href="http://linked.data.gov.au/def/geox">http://linked.data.gov.au/def/geox</a>
-  * <a href="http://www.w3.org/ns/dcat#">dcat:</a>
-  * <a href="http://www.w3.org/ns/dcat">http://www.w3.org/ns/dcat</a>
-  * <a href="http://xmlns.com/foaf/0.1/">foaf:</a>
-* **Ontology Source**
+  * <a href="http://schema.org/">schema:</a>
+  * <a href="http://vocab.deri.ie/void">http://vocab.deri.ie/void</a>
+* **Ontology RDF**
   * <a href="loci.ttl">RDF (turtle)</a>
 * **Code Repository**
   * <https://github.com/CSIRO-enviro-informatics/loci-ont>
@@ -38,7 +36,7 @@ Markdown documentation created by [pyLODE](http://github.com/rdflib/pyLODE)
 
 
 ## Overview
-![Loc-I ontology overview](./images/loci.png)
+
 **Figure 1:** Ontology overview  
 ## Classes
 [Loc-I Data Publishers](#Loc-IDataPublishers),
@@ -57,8 +55,8 @@ Property | Value
 --- | ---
 IRI | `http://linked.data.gov.au/def/loci#Dataset`
 Description | A Loc-I Dataset is a DCAT and VOID Dataset that has been accepted by the Loc-I Registry Manager.
-Super-classes |<a href="http://rdfs.org/ns/void#Dataset">void:Dataset</a><sup class="sup-c" title="class">c</sup><br /><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag">rdf:Bag</a><sup class="sup-c" title="class">c</sup><br /><a href="http://www.w3.org/ns/dcat#Dataset">dcat:Dataset</a><sup class="sup-c" title="class">c</sup><br />
-Restrictions |<a href="http://www.w3.org/2000/01/rdf-schema#member">rdfs:member</a> <span class="cardinality">only</span> (<a href="#Loc-IFeature">loci:Feature</a><sup class="sup-c" title="class">c</sup> or <a href="#Loc-IDatasetLinkingStatement">loci:LinkingStatement</a><sup class="sup-c" title="class">c</sup>)<br /><a href="http://purl.org/dc/terms/issued">dcterms:issued</a> <span class="cardinality">exactly</span> 1<br /><a href="http://purl.org/dc/terms/title">dcterms:title</a> <span class="cardinality">exactly</span> 1<br /><a href="http://purl.org/dc/terms/publisher">dcterms:publisher</a> <span class="cardinality">exactly</span> 1 <a href="http://www.w3.org/ns/org#Organization">org:Organization</a><sup class="sup-c" title="class">c</sup><br /><a href="http://purl.org/dc/terms/modified">dcterms:modified</a> <span class="cardinality">exactly</span> 1<br /><a href="http://www.w3.org/ns/dcat#contactPoint">dcat:contactPoint</a> <span class="cardinality">min</span> 1<br />
+Super-classes |<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag">rdf:Bag</a><sup class="sup-c" title="class">c</sup><br /><a href="http://rdfs.org/ns/void#Dataset">void:Dataset</a><sup class="sup-c" title="class">c</sup><br /><a href="http://www.w3.org/ns/dcat#Dataset">dcat:Dataset</a><sup class="sup-c" title="class">c</sup><br />
+Restrictions |<a href="http://www.w3.org/2000/01/rdf-schema#member">rdfs:member</a> <span class="cardinality">only</span> (<a href="#Loc-IFeature">loci:Feature</a><sup class="sup-c" title="class">c</sup> or <a href="#Loc-IDatasetLinkingStatement">loci:LinkingStatement</a><sup class="sup-c" title="class">c</sup>)<br /><a href="http://purl.org/dc/terms/issued">dcterms:issued</a> <span class="cardinality">exactly</span> 1<br /><a href="http://www.w3.org/ns/dcat#contactPoint">dcat:contactPoint</a> <span class="cardinality">min</span> 1<br /><a href="http://purl.org/dc/terms/modified">dcterms:modified</a> <span class="cardinality">exactly</span> 1<br /><a href="http://purl.org/dc/terms/title">dcterms:title</a> <span class="cardinality">exactly</span> 1<br /><a href="http://purl.org/dc/terms/publisher">dcterms:publisher</a> <span class="cardinality">exactly</span> 1 <a href="http://www.w3.org/ns/org#Organization">org:Organization</a><sup class="sup-c" title="class">c</sup><br />
 Sub-classes |<a href="#Loc-ILinkset">loci:Linkset</a><sup class="sup-c" title="class">c</sup><br />
 ### Loc-I Feature <sup>c</sup>
 Property | Value
@@ -66,14 +64,14 @@ Property | Value
 IRI | `http://linked.data.gov.au/def/loci#Feature`
 Description | A Loc-I Feature is a GeoSPARQL Feature that has at least one Geometry
 Super-classes |<a href="http://www.opengis.net/ont/geosparql#Feature">geo:Feature</a><sup class="sup-c" title="class">c</sup><br />
-Restrictions |<a href="http://www.opengis.net/ont/geosparql#hasGeometry">geo:hasGeometry</a> <span class="cardinality">min</span> 1 <a href="http://www.opengis.net/ont/geosparql#Geometry">geo:Geometry</a><sup class="sup-c" title="class">c</sup><br />
+Restrictions |<a href="http://www.opengis.net/ont/geosparql#hasGeometry">geo:hasGeometry</a> <span class="cardinality">min</span> 1 <a href="http://www.opengis.net/ont/geosparql#Geometry">geo:Geometry</a><sup class="sup-c" title="class">c</sup><br /><a href="http://purl.org/dc/terms/identifier">dcterms:identifier</a> <span class="cardinality">min</span> 1<br />
 ### Loc-I Dataset Linking Statement <sup>c</sup>
 Property | Value
 --- | ---
 IRI | `http://linked.data.gov.au/def/loci#LinkingStatement`
 Description | An RDF Statement (Subject, Predicate, Object + additional metadata) that links class instances in one Loc-I Dataset with class instances in another
 Super-classes |<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement">rdf:Statement</a><sup class="sup-c" title="class">c</sup><br />
-Restrictions |<a href="#hadgenerationmethod">loci:hadGenerationMethod</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1 <a href="http://www.w3.org/ns/prov#Plan">prov:Plan</a><sup class="sup-c" title="class">c</sup><br /><a href="#ismemberof">loci:isMemberOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1 <a href="#Loc-ILinkset">loci:Linkset</a><sup class="sup-c" title="class">c</sup><br />
+Restrictions |<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#object">rdf:object</a> <span class="cardinality">exactly</span> 1<br /><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#subject">rdf:subject</a> <span class="cardinality">exactly</span> 1<br /><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate">rdf:predicate</a> <span class="cardinality">min</span> 1<br /><a href="#ismemberof">loci:isMemberOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1 <a href="#Loc-ILinkset">loci:Linkset</a><sup class="sup-c" title="class">c</sup><br /><a href="#hadgenerationmethod">loci:hadGenerationMethod</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1 <a href="http://www.w3.org/ns/prov#Plan">prov:Plan</a><sup class="sup-c" title="class">c</sup><br />
 ### Loc-I Linkset <sup>c</sup>
 Property | Value
 --- | ---
@@ -83,8 +81,21 @@ Super-classes |<a href="#Loc-IDataset">loci:Dataset</a><sup class="sup-c" title=
 Restrictions |<a href="http://www.w3.org/2000/01/rdf-schema#member">rdfs:member</a> <span class="cardinality">only</span> <a href="#Loc-IDatasetLinkingStatement">loci:LinkingStatement</a><sup class="sup-c" title="class">c</sup><br />
 
 ## Object Properties
+[contains ](contains),
 [had generation method](hadgenerationmethod),
 [is member of](ismemberof),
+[within ](within),
+[type](type),
+[](contains)
+### contains  <sup>op</sup>
+Property | Value
+--- | ---
+IRI | `http://linked.data.gov.au/def/loci#contains`
+Description | The context resource contains the target resource, in some geospatial, logical, ownership, governance, jurisidictional or 'has-part' (compositional) sense. 
+
+This predicate provides a convenient generalized or super-property-of containment relations with more specialized semantics. It may be useful in formulating some generalized SPARQL queries where any kind of containment relationship is intended. 
+Domain(s) |<a href="http://www.opengis.net/ont/geosparql#SpatialObject">geo:SpatialObject</a><sup class="sup-c" title="class">c</sup><br />
+Range(s) |<a href="http://www.opengis.net/ont/geosparql#SpatialObject">geo:SpatialObject</a><sup class="sup-c" title="class">c</sup><br />
 [](hadgenerationmethod)
 ### had generation method <sup>op</sup>
 Property | Value
@@ -98,7 +109,25 @@ Range(s) |<a href="http://www.w3.org/ns/prov#Plan">prov:Plan</a><sup class="sup-
 Property | Value
 --- | ---
 IRI | `http://linked.data.gov.au/def/loci#isMemberOf`
-Description | In principle this is just inverse of rdfs:member, but because it is defined in a local namespace, make it a sub-property of the inverse
+Description | In principle this is inverse of rdfs:member, but because it is defined in a local namespace it is made a sub-property of the inverse
+[](within)
+### within  <sup>op</sup>
+Property | Value
+--- | ---
+IRI | `http://linked.data.gov.au/def/loci#within`
+Description | The context resource is contained by the target resource, in some geospatial, logical, ownership, governance, jurisidictional or 'has-part' (compositional) sense. 
+
+This predicate provides a convenient generalized or super-property-of contained-by relations with more specializaed semantics. It may be useful in formulating some generalized SPARQL queries where any kind of containment relationship is intended. 
+Domain(s) |<a href="http://www.opengis.net/ont/geosparql#SpatialObject">geo:SpatialObject</a><sup class="sup-c" title="class">c</sup><br />
+Range(s) |<a href="http://www.opengis.net/ont/geosparql#SpatialObject">geo:SpatialObject</a><sup class="sup-c" title="class">c</sup><br />
+[](type)
+### type <sup>op</sup>
+Property | Value
+--- | ---
+IRI | `http://purl.org/dc/terms/type`
+Description | In the context of Loc-I datasets, `dcterms:type` is used for an additional classifier, such as a place-type or meshblock-category. 
+
+The value should be taken from a controlled-vocabulary, and may be expressed as a `skos:Concept` or an `rdfs:Class` or some other kind of resource providing it is from a well-governed source. 
 
 ## Properties
 [None](None),
@@ -106,11 +135,13 @@ Description | In principle this is just inverse of rdfs:member, but because it i
 ### None <sup>p</sup>
 Property | Value
 --- | ---
-IRI | `ub1bL210C22`
+IRI | `ub1bL248C22`
 
 ## Namespaces
 * **default (:)**
   * `http://linked.data.gov.au/def/loci#`
+* **asgs**
+  * `http://linked.data.gov.au/def/asgs#`
 * **dcat**
   * `http://www.w3.org/ns/dcat#`
 * **dcterms**
@@ -137,6 +168,8 @@ IRI | `ub1bL210C22`
   * `http://www.w3.org/1999/02/22-rdf-syntax-ns#`
 * **rdfs**
   * `http://www.w3.org/2000/01/rdf-schema#`
+* **schema**
+  * `http://schema.org/`
 * **sdo**
   * `https://schema.org/`
 * **skos**

@@ -6,6 +6,21 @@
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
   <cd:Diagram>
+    <rdfs:label>loci:Linkset Diagram</rdfs:label>
+    <cd:selectedResource rdf:resource="http://linked.data.gov.au/def/loci#Linkset"/>
+    <cd:nodes>
+      <cd:URINode>
+        <cd:height rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >85</cd:height>
+        <cd:width rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >405</cd:width>
+        <cd:y rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >150</cd:y>
+        <cd:x rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >199</cd:x>
+        <cd:class rdf:resource="http://linked.data.gov.au/def/loci#Feature"/>
+      </cd:URINode>
+    </cd:nodes>
     <cd:nodes>
       <cd:URINode>
         <cd:height rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
@@ -13,10 +28,17 @@
         <cd:width rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >231</cd:width>
         <cd:y rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+<<<<<<< HEAD
+        >291</cd:y>
+        <cd:x rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >649</cd:x>
+        <cd:class rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+=======
         >27</cd:y>
         <cd:x rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >283</cd:x>
         <cd:class rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+>>>>>>> master
       </cd:URINode>
     </cd:nodes>
     <cd:nodes>
@@ -26,10 +48,17 @@
         <cd:width rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >382</cd:width>
         <cd:y rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+<<<<<<< HEAD
+        >413</cd:y>
+        <cd:x rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >110</cd:x>
+        <cd:class rdf:resource="http://linked.data.gov.au/def/loci#Linkset"/>
+=======
         >22</cd:y>
         <cd:x rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >677</cd:x>
         <cd:class rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+>>>>>>> master
       </cd:URINode>
     </cd:nodes>
     <cd:selectedResource rdf:resource="http://linked.data.gov.au/def/loci#Linkset"/>
@@ -50,6 +79,16 @@
     <cd:nodes>
       <cd:URINode>
         <cd:height rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+<<<<<<< HEAD
+        >204</cd:height>
+        <cd:width rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >382</cd:width>
+        <cd:y rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >22</cd:y>
+        <cd:x rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >677</cd:x>
+        <cd:class rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+=======
         >107</cd:height>
         <cd:width rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >431</cd:width>
@@ -71,13 +110,22 @@
         <cd:x rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >110</cd:x>
         <cd:class rdf:resource="http://linked.data.gov.au/def/loci#Linkset"/>
+>>>>>>> master
       </cd:URINode>
     </cd:nodes>
     <cd:nodes>
       <cd:URINode>
         <cd:height rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >52</cd:height>
+        >55</cd:height>
         <cd:width rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+<<<<<<< HEAD
+        >231</cd:width>
+        <cd:y rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >27</cd:y>
+        <cd:x rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >283</cd:x>
+        <cd:class rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+=======
         >284</cd:width>
         <cd:y rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >291</cd:y>
@@ -97,6 +145,7 @@
         <cd:x rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >199</cd:x>
         <cd:class rdf:resource="http://linked.data.gov.au/def/loci#Feature"/>
+>>>>>>> master
       </cd:URINode>
     </cd:nodes>
   </cd:Diagram>
@@ -104,10 +153,22 @@
     <cd:nodes>
       <cd:URINode>
         <cd:height rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+<<<<<<< HEAD
+        >107</cd:height>
+=======
         >36</cd:height>
+>>>>>>> master
         <cd:width rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >115</cd:width>
         <cd:y rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+<<<<<<< HEAD
+        >392</cd:y>
+        <cd:x rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >580</cd:x>
+        <cd:class rdf:resource="http://linked.data.gov.au/def/loci#LinkingStatement"/>
+      </cd:URINode>
+    </cd:nodes>
+=======
         >159</cd:y>
         <cd:x rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
         >28</cd:x>
@@ -194,5 +255,6 @@
       </cd:URINode>
     </cd:nodes>
     <rdfs:label>geo:SpatialObject Diagram</rdfs:label>
+>>>>>>> master
   </cd:Diagram>
 </rdf:RDF>
