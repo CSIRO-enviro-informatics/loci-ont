@@ -225,6 +225,15 @@ loci:Linkset
       owl:onProperty void:subjectsTarget ;
     ] ;
 .
+loci:equivalent
+  a owl:ObjectProperty ;
+  rdfs:comment """This property is used to relate an individual feature from one geography or dataset with a feature from another geography or dataset which is intended to represent the same real-world entity.
+
+Use of loci:equivalent would allow representations using slightly different geometrical bases (e.g. surveyed geometries, aggregates of DGGS cells, aggregates of ASGS meshblocks) to be linked, in situations where a purely geometrical computation might not deduce a `geo:sfEquals` relationships because of differing precision, slivers, etc,. When the data provider's intention is that they match, then this predicate can be used to make that assertion. The provenance of the assertion maybe be recorded in the usual way in a link-set.""" ;
+  rdfs:domain geo:Feature ;
+  rdfs:label "equivalent to" ;
+  rdfs:range geo:Feature ;
+.
 loci:hadGenerationMethod
   a owl:ObjectProperty ;
   rdfs:domain rdf:Statement ;
@@ -263,7 +272,7 @@ loci:isPartOf
   a owl:ObjectProperty ;
   dcterms:description """The context resource is part of the target resource, in some geospatial, logical, ownership, governance, jurisidictional or compositional sense. 
 
-This predicate provides a convenient generalized or super-property-of contained-by relations with more specializaed semantics. It may be useful in formulating some generalized SPARQL queries where any kind of containment relationship is intended. 
+This predicate provides a convenient generalized or super-property-of contained-by relations with more specialized semantics. It may be useful in formulating some generalized SPARQL queries where any kind of containment relationship is intended. 
 
 Note that this property is **not transitive** though some sub-properties may be. """ ;
   rdfs:domain geo:SpatialObject ;
@@ -286,9 +295,25 @@ geo:sfWithin
 <https://orcid.org/0000-0002-3884-3420>
   a schema:Person ;
   schema:affiliation <http://catalogue.linked.data.gov.au/org/csiro> ;
+  schema:affiliation [
+      schema:identifier "http://catalogue.linked.data.gov.au/org/csiro"^^xsd:anyURI ;
+      schema:name "CSIRO" ;
+    ] ;
+  schema:email <mailto:simon.cox@csiro.au> ;
   schema:identifier "https://orcid.org/0000-0002-3884-3420"^^xsd:anyURI ;
   schema:name "Simon J D Cox" ;
+  schema:name "Simon J D Cox"@en ;
   schema:subjectOf <https://people.csiro.au/C/S/simon-cox> ;
+.
+<https://orcid.org/0000-0002-4643-7289>
+  a schema:Person ;
+  schema:affiliation [
+      schema:identifier "http://catalogue.linked.data.gov.au/org/ga"^^xsd:anyURI ;
+      schema:name "Geoscience Australia" ;
+    ] ;
+  schema:email <mailto:irina.bastrakova@ga.gov.au> ;
+  schema:identifier "https://orcid.org/0000-0002-4643-7289"^^xsd:anyURI ;
+  schema:name "Irina Bastrakova"@en ;
 .
 <https://orcid.org/0000-0002-8742-7730>
   a schema:Person ;
@@ -296,6 +321,22 @@ geo:sfWithin
       a schema:Organization ;
       schema:name "Surround Australia" ;
     ] ;
+  schema:affiliation [
+      schema:name "Surround Australia" ;
+      schema:uri <https://surroundaustralia.com/> ;
+    ] ;
+  schema:email <mailto:nicholas.car@surroundaustralia.com> ;
   schema:identifier "https://orcid.org/0000-0002-8742-7730"^^xsd:anyURI ;
+  schema:name "Nicholas Car"@en ;
   schema:name "Nicholas J Car" ;
+.
+<https://orcid.org/0000-0003-3425-0780>
+  a schema:Person ;
+  schema:affiliation [
+      schema:identifier "http://catalogue.linked.data.gov.au/org/anu"^^xsd:anyURI ;
+      schema:name "Australian National University" ;
+    ] ;
+  schema:email <mailto:armin.haller@anu.edu.au> ;
+  schema:identifier "https://orcid.org/0000-0003-3425-0780"^^xsd:anyURI ;
+  schema:name "Armin Haller"@en ;
 .
