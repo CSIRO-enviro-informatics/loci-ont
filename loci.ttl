@@ -41,6 +41,7 @@ asgs:within
   dcterms:created "2018-10-29"^^xsd:date ;
   dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
   dcterms:creator <https://orcid.org/0000-0002-8742-7730> ;
+  dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
   dcterms:modified "2020-04-29"^^xsd:date ;
   rdfs:comment """An ontology to govern Linked Data resources published within the [Loc-I](https://confluence.csiro.au/display/DIPAAnalyticHubs/Location+Integration+Capability+Loc-I) project.
 
@@ -144,8 +145,8 @@ loci:Dataset
 .
 loci:Feature
   a owl:Class ;
-  rdfs:comment "A Loc-I Feature is a GeoSPARQL Feature that has at least one Geometry, one persistent identifier, and is a member of a loci:Dataset" ;
-  rdfs:comment "Implemented as a SHACL shape" ;
+  dcterms:description "A Loc-I Feature is a GeoSPARQL Feature that has at least one Geometry, one persistent identifier, and is a member of a loci:Dataset" ;
+  rdfs:comment "Should be implemented as a SHACL shape" ;
   rdfs:label "Loc-I Feature" ;
   rdfs:subClassOf geo:Feature ;
   rdfs:subClassOf [
@@ -227,7 +228,7 @@ loci:Linkset
 .
 loci:equivalent
   a owl:ObjectProperty ;
-  rdfs:comment """This property is used to relate an individual feature from one geography or dataset with a feature from another geography or dataset which is intended to represent the same real-world entity.
+  dcterms:description """This property is used to relate an individual feature from one geography or dataset with a feature from another geography or dataset which is intended to represent the same real-world entity.
 
 Use of loci:equivalent would allow representations using slightly different geometrical bases (e.g. surveyed geometries, aggregates of DGGS cells, aggregates of ASGS meshblocks) to be linked, in situations where a purely geometrical computation might not deduce a `geo:sfEquals` relationships because of differing precision, slivers, etc,. When the data provider's intention is that they match, then this predicate can be used to make that assertion. The provenance of the assertion maybe be recorded in the usual way in a link-set.""" ;
   rdfs:domain geo:Feature ;
@@ -236,6 +237,7 @@ Use of loci:equivalent would allow representations using slightly different geom
 .
 loci:hadGenerationMethod
   a owl:ObjectProperty ;
+  dcterms:description "The method that was used to generate this object"@en ;
   rdfs:domain rdf:Statement ;
   rdfs:label "had generation method" ;
   rdfs:range prov:Plan ;
@@ -244,7 +246,6 @@ loci:hadGenerationMethod
       prov:qualifiedAssociation
       prov:hadPlan
     ) ;
-  skos:definition "The method that was used to generate this object"@en ;
   skos:editorialNote "This property is a property chain axiom equivalent to a chain of three properties in the PROV ontology: prov:wasGeneratedBy, prov:qualifiedAssociation and prof:hadPlan linking a prov:Entity (the thing generated) to a prov:Plan (the thin instruction generation - the method) via a prov:Activity (the generating event) and a prov:Association that the prov:Activity has linking it to the prov:Plan."@en ;
 .
 loci:hasPart
@@ -260,7 +261,7 @@ Note that this property is **not transitive** though some sub-properties may be.
 .
 loci:isMemberOf
   a owl:ObjectProperty ;
-  rdfs:comment "In principle this is inverse of rdfs:member, but because it is defined in a local namespace it is made a sub-property of the inverse" ;
+  dcterms:description "The context resource is a member of the target resource (a collection, aggregate or composite)" ;
   rdfs:label "is member of" ;
   rdfs:range loci:Dataset ;
   rdfs:subPropertyOf [
