@@ -2,6 +2,7 @@
 # imports: http://linked.data.gov.au/def/geox
 # imports: http://schema.org/
 # imports: http://vocab.deri.ie/void
+# imports: http://www.w3.org/2006/time
 # prefix: loci
 
 @prefix asgs: <http://linked.data.gov.au/def/asgs#> .
@@ -12,6 +13,7 @@
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix geox: <http://linked.data.gov.au/def/geox#> .
 @prefix loci: <http://linked.data.gov.au/def/loci#> .
+@prefix my: <http://example.org/loci-test/> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prof: <http://www.w3.org/ns/dx/prof/> .
@@ -21,6 +23,7 @@
 @prefix schema: <http://schema.org/> .
 @prefix sdo: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -29,11 +32,44 @@
   schema:name "CSIRO Australia" ;
   schema:subjectOf <https://csiro.au> ;
 .
-asgs:isComposedOf
-  rdfs:subPropertyOf loci:hasPart ;
+my:Feature67
+  a loci:Feature ;
 .
-asgs:within
-  rdfs:subPropertyOf loci:isPartOf ;
+my:Feature78
+  a loci:Feature ;
+.
+my:Link56
+  a loci:LinkingStatement ;
+  dcterms:valid [
+      a time:Interval ;
+      time:hasBeginning [
+          a time:Instant ;
+          time:inXSDDate "2021-02-10"^^xsd:date ;
+        ] ;
+    ] ;
+.
+my:Link89
+  a loci:LinkingStatement ;
+  loci:hadGenerationMethod my:manual-inspection ;
+  loci:isMemberOf my:Linkset34 ;
+  dcterms:isReplacedBy my:Link56 ;
+  dcterms:valid [
+      a time:Interval ;
+      time:hasBeginning [
+          a time:Instant ;
+          time:inXSDDate "2021-02-01"^^xsd:date ;
+        ] ;
+    ] ;
+  rdf:object my:Feature67 ;
+  rdf:predicate loci:isPartOf ;
+  rdf:subject my:Feature78 ;
+.
+my:Linkset34
+  a loci:Linkset ;
+.
+my:manual-inspection
+  a prov:Plan ;
+  rdfs:comment "Manual inspection" ;
 .
 <http://linked.data.gov.au/def/loci>
   a owl:Ontology ;
@@ -50,6 +86,7 @@ The primary focus is on (a) datasets composed of multiple geospatial features (o
   owl:imports <http://linked.data.gov.au/def/geox> ;
   owl:imports schema: ;
   owl:imports <http://vocab.deri.ie/void> ;
+  owl:imports <http://www.w3.org/2006/time> ;
   owl:versionIRI <http://linked.data.gov.au/def/loci/1.1> ;
   owl:versionInfo "Beta version"@en ;
   prof:hasResource [
@@ -203,8 +240,9 @@ loci:LinkingStatement
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:allValuesFrom xsd:date ;
+      owl:allValuesFrom time:Interval ;
       owl:onProperty dcterms:valid ;
+      skos:scopeNote "Usually just the beginning of the validity interval is provided, using the time:hasBeginning property " ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -240,7 +278,25 @@ loci:LinkingStatement
     ] ;
   skos:editorialNote "A separate date of creation may be useful in some scenarios" ;
   skos:editorialNote "Do we need to specify what values may be used for rdf:predicate (for LOCI)" ;
-  skos:editorialNote "End of validity corresponds to the valid-date of the statement that replaces this one. " ;
+  skos:editorialNote "End of validity usually corresponds to the valid-date of the replacement statement. **What if the statement is retired with no replacement?**" ;
+  skos:example """
+my:Link89
+  rdf:type loci:LinkingStatement ;
+  loci:hadGenerationMethod my:manual-inspection ;
+  loci:isMemberOf my:Linkset34 ;
+  dct:isReplacedBy my:Link56 ;
+  dct:valid [
+      rdf:type time:Interval ;
+      time:hasBeginning [
+          rdf:type time:Instant ;
+          time:inXSDDate \"2021-02-01\"^^xsd:date ;
+        ] ;
+    ] ;
+  rdf:object my:Feature67 ;
+  rdf:predicate loci:isPartOf ;
+  rdf:subject my:Feature78 ;
+.
+""" ;
 .
 loci:Linkset
   a owl:Class ;
@@ -296,6 +352,10 @@ Note that this property is **not transitive** though some sub-properties may be.
   rdfs:domain geo:SpatialObject ;
   rdfs:label "has part " ;
   rdfs:range geo:SpatialObject ;
+  skos:scopeNote """The LOCI relationships `hasPart` and `isPartOf` are intended to be used for relationships between LOCI features within the same dataset. 
+Care should be taken for relationships between features from different datasets, including different versions (e.g. different dates) of the same theme. 
+
+LOCI Linking Statements provide a richer mechanisms for relationships between features from different datasets, including temporal scope. """ ;
 .
 loci:isMemberOf
   a owl:ObjectProperty ;
@@ -318,6 +378,15 @@ Note that this property is **not transitive** though some sub-properties may be.
   rdfs:label "is part of " ;
   rdfs:range geo:SpatialObject ;
   owl:inverseOf loci:hasPart ;
+  skos:scopeNote """The LOCI relationships `hasPart` and `isPartOf` are intended to be used for relationships between LOCI features within the same dataset. 
+Care should be taken for relationships between features from different datasets, including different versions (e.g. different dates) of the same theme. 
+
+LOCI Linking Statements provide a richer mechanisms for relationships between features from different datasets, including temporal scope. """ ;
+.
+loci:sfRelation
+  a owl:ObjectProperty ;
+  rdfs:comment "Superset of all the sf* properties from GeoSPARQL" ;
+  rdfs:label "sf Relation" ;
 .
 dcterms:type
   a owl:ObjectProperty ;
@@ -327,9 +396,29 @@ The value should be taken from a controlled-vocabulary, and may be expressed as 
 .
 geo:sfContains
   rdfs:subPropertyOf loci:hasPart ;
+  rdfs:subPropertyOf loci:sfRelation ;
+.
+geo:sfCrosses
+  rdfs:subPropertyOf loci:sfRelation ;
+.
+geo:sfDisjoint
+  rdfs:subPropertyOf loci:sfRelation ;
+.
+geo:sfEquals
+  rdfs:subPropertyOf loci:sfRelation ;
+.
+geo:sfIntersects
+  rdfs:subPropertyOf loci:sfRelation ;
+.
+geo:sfOverlaps
+  rdfs:subPropertyOf loci:sfRelation ;
+.
+geo:sfTouches
+  rdfs:subPropertyOf loci:sfRelation ;
 .
 geo:sfWithin
   rdfs:subPropertyOf loci:isPartOf ;
+  rdfs:subPropertyOf loci:sfRelation ;
 .
 <https://orcid.org/0000-0002-3884-3420>
   a schema:Person ;
