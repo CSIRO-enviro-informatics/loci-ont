@@ -32,44 +32,17 @@
   schema:name "CSIRO Australia" ;
   schema:subjectOf <https://csiro.au> ;
 .
-my:Feature67
-  a loci:Feature ;
-.
-my:Feature78
-  a loci:Feature ;
-.
-my:Link56
-  a loci:LinkingStatement ;
-  dcterms:valid [
-      a time:Interval ;
-      time:hasBeginning [
-          a time:Instant ;
-          time:inXSDDate "2021-02-10"^^xsd:date ;
-        ] ;
-    ] ;
-.
-my:Link89
-  a loci:LinkingStatement ;
-  loci:hadGenerationMethod my:manual-inspection ;
-  loci:isMemberOf my:Linkset34 ;
-  dcterms:isReplacedBy my:Link56 ;
-  dcterms:valid [
-      a time:Interval ;
-      time:hasBeginning [
-          a time:Instant ;
-          time:inXSDDate "2021-02-01"^^xsd:date ;
-        ] ;
-    ] ;
-  rdf:object my:Feature67 ;
-  rdf:predicate loci:isPartOf ;
-  rdf:subject my:Feature78 ;
-.
-my:Linkset34
-  a loci:Linkset ;
-.
 my:manual-inspection
   a prov:Plan ;
   rdfs:comment "Manual inspection" ;
+.
+my:t-89
+  a time:Instant ;
+  time:inXSDDate "2021-02-01"^^xsd:date ;
+.
+my:t89-56
+  a time:Instant ;
+  time:inXSDDate "2021-02-10"^^xsd:date ;
 .
 <http://linked.data.gov.au/def/loci>
   a owl:Ontology ;
@@ -89,6 +62,7 @@ The primary focus is on (a) datasets composed of multiple geospatial features (o
   owl:imports <http://www.w3.org/2006/time> ;
   owl:versionIRI <http://linked.data.gov.au/def/loci/1.1> ;
   owl:versionInfo "Beta version"@en ;
+  skos:editorialNote "Should we have local versions of the temporal properties dcterms:valid and dcterms:created?" ;
   prof:hasResource [
       a prof:ResourceDescriptor ;
       dcterms:format <https://w3id.org/mediatype/image/svg> ;
@@ -188,13 +162,31 @@ loci:Feature
   rdfs:subClassOf geo:Feature ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:allValuesFrom geo:Feature ;
-      owl:onProperty loci:hasPart ;
+      rdfs:comment "`created` says when the record of the feature was created. Must be before the `retired` date" ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:created ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      rdfs:comment "`retiredDate` says when the record of the feature was replaced or retired. Must be after the `created` date" ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loci:retiredDate ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      rdfs:comment "`valid` describes the period of validity or existence of the feature in the world. The value is an interval, in which may be open at either end" ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:valid ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:allValuesFrom geo:Feature ;
-      owl:onProperty loci:isPartOf ;
+      owl:onProperty loci:contains ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom geo:Feature ;
+      owl:onProperty loci:isWithin ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -211,8 +203,23 @@ loci:Feature
 loci:LinkingStatement
   a owl:Class ;
   rdfs:comment "An RDF Statement (Subject, Predicate, Object + additional metadata) that links class instances in one Loc-I Dataset with class instances in another"@en ;
+  rdfs:comment "Note that a LinkingStatement has (1) a validity interval, with a beginning and end which gives the period that the link or relationship between features applied and (2) a creation and rretirement date when the statement (information) was recorded and replaced. We're into some cool meta-modeling here folks. " ;
+  rdfs:comment "The validity period of the linkingStatement must be within the validity period of both subject and object features" ;
   rdfs:label "Loc-I Dataset Linking Statement" ;
   rdfs:subClassOf rdf:Statement ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      rdfs:comment "For it to be a logical/useful replacement, the subject and/or object of the replacement statement must be the same as either the subject and/or object of the statement that it replaces" ;
+      owl:allValuesFrom loci:LinkingStatement ;
+      owl:onProperty dcterms:isReplacedBy ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      rdfs:comment "If there is a replacement link, the end of this interval must be equal to the beginning of the replacement" ;
+      owl:allValuesFrom time:Interval ;
+      owl:onProperty dcterms:valid ;
+      skos:scopeNote "Usually just the beginning of the validity interval is provided, using the time:hasBeginning property " ;
+    ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:allValuesFrom loci:Feature ;
@@ -222,11 +229,6 @@ loci:LinkingStatement
       a owl:Restriction ;
       owl:allValuesFrom loci:Feature ;
       owl:onProperty rdf:subject ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:allValuesFrom loci:LinkingStatement ;
-      owl:onProperty dcterms:isReplacedBy ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -240,9 +242,8 @@ loci:LinkingStatement
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:allValuesFrom time:Interval ;
-      owl:onProperty dcterms:valid ;
-      skos:scopeNote "Usually just the beginning of the validity interval is provided, using the time:hasBeginning property " ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:created ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -258,6 +259,11 @@ loci:LinkingStatement
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty rdf:subject ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loci:retiredDate ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -279,24 +285,39 @@ loci:LinkingStatement
   skos:editorialNote "A separate date of creation may be useful in some scenarios" ;
   skos:editorialNote "Do we need to specify what values may be used for rdf:predicate (for LOCI)" ;
   skos:editorialNote "End of validity usually corresponds to the valid-date of the replacement statement. **What if the statement is retired with no replacement?**" ;
-  skos:example """
-my:Link89
+  skos:example """my:Link89
   rdf:type loci:LinkingStatement ;
   loci:hadGenerationMethod my:manual-inspection ;
   loci:isMemberOf my:Linkset34 ;
   dct:isReplacedBy my:Link56 ;
   dct:valid [
       rdf:type time:Interval ;
-      time:hasBeginning [
-          rdf:type time:Instant ;
-          time:inXSDDate \"2021-02-01\"^^xsd:date ;
-        ] ;
+      rdfs:comment \"If there is a replacement link, the end of this interval must be equal to the beginning of the replacement\" ;
+      time:hasBeginning my:t-89 ;
+      time:hasEnd my:t89-56 ;
     ] ;
   rdf:object my:Feature67 ;
   rdf:predicate loci:isPartOf ;
   rdf:subject my:Feature78 ;
+  rdfs:comment \"This is an example where the replacement link starts later. This would correspond to changes in-the-world.\" ;
 .
-""" ;
+
+my:Link89_1
+  rdf:type loci:LinkingStatement ;
+  loci:hadGenerationMethod my:manual-inspection ;
+  loci:isMemberOf my:Linkset34 ;
+  dct:isReplacedBy my:Link56_1 ;
+  dct:valid [
+      rdf:type time:Interval ;
+      rdfs:comment \"If there is a replacement, the end of this interval must be equal to the beginning of the replacement\" ;
+      time:hasBeginning my:t-89 ;
+      time:hasEnd my:t-89 ;
+    ] ;
+  rdf:object my:Feature67 ;
+  rdf:predicate loci:isPartOf ;
+  rdf:subject my:Feature78 ;
+  rdfs:comment \"This is an example where the replacement link has the same start-date. This corresponds to a change of knowledge?\" ;
+.""" ;
 .
 loci:Linkset
   a owl:Class ;
@@ -320,14 +341,20 @@ loci:Linkset
       owl:onProperty void:subjectsTarget ;
     ] ;
 .
-loci:equivalent
+loci:contains
   a owl:ObjectProperty ;
-  dcterms:description """This property is used to relate an individual feature from one geography or dataset with a feature from another geography or dataset which is intended to represent the same real-world entity.
+  rdfs:comment """This predicate provides a convenient generalized or super-property-of containment relations with more specialized semantics. It may be useful in formulating some generalized SPARQL queries where any kind of containment relationship is intended. 
 
-Use of loci:equivalent would allow representations using slightly different geometrical bases (e.g. surveyed geometries, aggregates of DGGS cells, aggregates of ASGS meshblocks) to be linked, in situations where a purely geometrical computation might not deduce a `geo:sfEquals` relationships because of differing precision, slivers, etc,. When the data provider's intention is that they match, then this predicate can be used to make that assertion. The provenance of the assertion maybe be recorded in the usual way in a link-set.""" ;
-  rdfs:domain geo:Feature ;
-  rdfs:label "equivalent to" ;
-  rdfs:range geo:Feature ;
+Note that this property is **not transitive** though some sub-properties may be.""" ;
+  rdfs:domain geo:SpatialObject ;
+  rdfs:label "contains" ;
+  rdfs:range geo:SpatialObject ;
+  rdfs:subPropertyOf dcterms:hasPart ;
+  skos:definition "The context resource contains the target resource, in some geospatial, logical, ownership, governance, jurisidictional or compositional sense. " ;
+  skos:scopeNote """The LOCI relationships `contains` and `isWithin` are intended to be used for relationships between LOCI features within the same dataset. 
+Care should be taken for relationships between features from different datasets, including different versions (e.g. different dates) of the same theme. 
+
+LOCI Linking Statements provide a richer mechanisms for relationships between features from different datasets, including temporal scope. """ ;
 .
 loci:hadGenerationMethod
   a owl:ObjectProperty ;
@@ -342,20 +369,29 @@ loci:hadGenerationMethod
     ) ;
   skos:editorialNote "This property is a property chain axiom equivalent to a chain of three properties in the PROV ontology: prov:wasGeneratedBy, prov:qualifiedAssociation and prof:hadPlan linking a prov:Entity (the thing generated) to a prov:Plan (the thin instruction generation - the method) via a prov:Activity (the generating event) and a prov:Association that the prov:Activity has linking it to the prov:Plan."@en ;
 .
-loci:hasPart
+loci:isDisjointWith
   a owl:ObjectProperty ;
-  dcterms:description """The context resource contains the target resource, in some geospatial, logical, ownership, governance, jurisidictional or compositional sense. 
-
-This predicate provides a convenient generalized or super-property-of containment relations with more specialized semantics. It may be useful in formulating some generalized SPARQL queries where any kind of containment relationship is intended. 
-
-Note that this property is **not transitive** though some sub-properties may be. """ ;
   rdfs:domain geo:SpatialObject ;
-  rdfs:label "has part " ;
+  rdfs:label "is disjoint with" ;
   rdfs:range geo:SpatialObject ;
-  skos:scopeNote """The LOCI relationships `hasPart` and `isPartOf` are intended to be used for relationships between LOCI features within the same dataset. 
-Care should be taken for relationships between features from different datasets, including different versions (e.g. different dates) of the same theme. 
-
-LOCI Linking Statements provide a richer mechanisms for relationships between features from different datasets, including temporal scope. """ ;
+  rdfs:subPropertyOf dcterms:relation ;
+  skos:definition "The target resource does not touch or intersect with the context resource" ;
+.
+loci:isEquivalentTo
+  a owl:ObjectProperty ;
+  dcterms:description """The target resource is intended to represent the same real-world entity as the context resource
+""" ;
+  rdfs:domain geo:SpatialObject ;
+  rdfs:label "is equivalent to" ;
+  rdfs:range geo:SpatialObject ;
+  rdfs:subPropertyOf dcterms:relation ;
+  skos:definition "The target resource is intended to represent the same real-world entity as the context resource" ;
+  skos:narrowMatch dcterms:hasFormat ;
+  skos:narrowMatch dcterms:hasVersion ;
+  skos:narrowMatch dcterms:isFormatOf ;
+  skos:narrowMatch dcterms:isVersionOf ;
+  skos:scopeNote """This property is used to relate an individual feature from one geography or dataset with a feature from another geography or dataset which is intended to represent the same real-world entity.
+Use of loci:equivalent would allow representations using slightly different geometrical bases (e.g. surveyed geometries, aggregates of DGGS cells, aggregates of ASGS meshblocks) to be linked, in situations where a purely geometrical computation might not deduce a `geo:sfEquals` relationships because of differing precision, slivers, etc,. When the data provider's intention is that they match, then this predicate can be used to make that assertion. The provenance of the assertion maybe be recorded in the usual way in a link-set.""" ;
 .
 loci:isMemberOf
   a owl:ObjectProperty ;
@@ -367,26 +403,41 @@ loci:isMemberOf
       owl:inverseOf rdfs:member ;
     ] ;
 .
-loci:isPartOf
+loci:isWithin
   a owl:ObjectProperty ;
-  dcterms:description """The context resource is part of the target resource, in some geospatial, logical, ownership, governance, jurisidictional or compositional sense. 
+  rdfs:comment """This predicate provides a convenient generalized or super-property-of contained-by and aggregates to relations with more specialized semantics. It may be useful in formulating some generalized SPARQL queries where any kind of containment relationship is intended. 
 
-This predicate provides a convenient generalized or super-property-of contained-by relations with more specialized semantics. It may be useful in formulating some generalized SPARQL queries where any kind of containment relationship is intended. 
-
-Note that this property is **not transitive** though some sub-properties may be. """ ;
+Note that this property is **not transitive** though some sub-properties may be.""" ;
   rdfs:domain geo:SpatialObject ;
-  rdfs:label "is part of " ;
+  rdfs:label "is within" ;
   rdfs:range geo:SpatialObject ;
-  owl:inverseOf loci:hasPart ;
-  skos:scopeNote """The LOCI relationships `hasPart` and `isPartOf` are intended to be used for relationships between LOCI features within the same dataset. 
+  rdfs:subPropertyOf dcterms:isPartOf ;
+  owl:inverseOf loci:contains ;
+  skos:definition "The context resource is within or is part of the target resource, in some geospatial, logical, ownership, governance, jurisidictional or compositional sense. " ;
+  skos:scopeNote """The LOCI relationships `contains` and `isWithin` are intended to be used for relationships between LOCI features within the same dataset. 
 Care should be taken for relationships between features from different datasets, including different versions (e.g. different dates) of the same theme. 
 
 LOCI Linking Statements provide a richer mechanisms for relationships between features from different datasets, including temporal scope. """ ;
+.
+loci:retiredDate
+  a owl:ObjectProperty ;
+  rdfs:comment "The date when this LinkingStatement was replaced by one or more LinkingStatmeent or it was retired altogether." ;
+  rdfs:domain [
+      a owl:Class ;
+      owl:unionOf (
+          loci:LinkingStatement
+          loci:Feature
+        ) ;
+    ] ;
+  rdfs:label "Replacement date" ;
+  rdfs:range xsd:date ;
+  rdfs:subPropertyOf dcterms:date ;
 .
 loci:sfRelation
   a owl:ObjectProperty ;
   rdfs:comment "Superset of all the sf* properties from GeoSPARQL" ;
   rdfs:label "sf Relation" ;
+  rdfs:subPropertyOf dcterms:relation ;
 .
 dcterms:type
   a owl:ObjectProperty ;
@@ -395,16 +446,18 @@ dcterms:type
 The value should be taken from a controlled-vocabulary, and may be expressed as a `skos:Concept` or an `rdfs:Class` or some other kind of resource providing it is from a well-governed source. """ ;
 .
 geo:sfContains
-  rdfs:subPropertyOf loci:hasPart ;
+  rdfs:subPropertyOf loci:contains ;
   rdfs:subPropertyOf loci:sfRelation ;
 .
 geo:sfCrosses
   rdfs:subPropertyOf loci:sfRelation ;
 .
 geo:sfDisjoint
+  rdfs:subPropertyOf loci:isDisjointWith ;
   rdfs:subPropertyOf loci:sfRelation ;
 .
 geo:sfEquals
+  rdfs:subPropertyOf loci:isEquivalentTo ;
   rdfs:subPropertyOf loci:sfRelation ;
 .
 geo:sfIntersects
@@ -417,7 +470,7 @@ geo:sfTouches
   rdfs:subPropertyOf loci:sfRelation ;
 .
 geo:sfWithin
-  rdfs:subPropertyOf loci:isPartOf ;
+  rdfs:subPropertyOf loci:isWithin ;
   rdfs:subPropertyOf loci:sfRelation ;
 .
 <https://orcid.org/0000-0002-3884-3420>
