@@ -1,0 +1,35 @@
+# baseURI: http://linked.data.gov.au/def/asgs-loci
+# imports: http://linked.data.gov.au/def/asgs
+# imports: http://linked.data.gov.au/def/loci
+# prefix: asgs-loci
+
+@prefix asgs: <http://linked.data.gov.au/def/asgs#> .
+@prefix asgs-loci: <http://linked.data.gov.au/def/asgs-loci#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdo: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+asgs:Feature
+  rdfs:subClassOf <http://linked.data.gov.au/def/loci#Feature> ;
+.
+asgs:aggregatesTo
+  rdfs:subPropertyOf <http://linked.data.gov.au/def/loci#isWithin> ;
+.
+asgs:isAggregationOf
+  rdfs:subPropertyOf <http://linked.data.gov.au/def/loci#contains> ;
+.
+<http://linked.data.gov.au/def/asgs-loci>
+  a owl:Ontology ;
+  dcterms:created "2021-02-17"^^xsd:date ;
+  dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
+  dcterms:description """This graph contains an alignment of the ASGS ontology to the LOCI Ontology. 
+Users of ASGS in the context of LOCI should <import> this graph rather than just the original ASGS Ontology."""@en ;
+  dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+  dcterms:rights "© 2021 CSIRO" ;
+  owl:imports <http://linked.data.gov.au/def/asgs> ;
+  owl:imports <http://linked.data.gov.au/def/loci> ;
+  sdo:codeRepository <https://github.com/AGLDWG/asgs-ont/> ;
+.
