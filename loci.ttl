@@ -32,18 +32,6 @@
   schema:name "CSIRO Australia" ;
   schema:subjectOf <https://csiro.au> ;
 .
-my:manual-inspection
-  a prov:Plan ;
-  rdfs:comment "Manual inspection" ;
-.
-my:t-89
-  a time:Instant ;
-  time:inXSDDate "2021-02-01"^^xsd:date ;
-.
-my:t89-56
-  a time:Instant ;
-  time:inXSDDate "2021-02-10"^^xsd:date ;
-.
 <http://linked.data.gov.au/def/loci>
   a owl:Ontology ;
   a prof:Profile ;

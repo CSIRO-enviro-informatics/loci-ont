@@ -89,6 +89,18 @@ my:Link89_1
 my:Linkset34
   a loci:Linkset ;
 .
+my:manual-inspection
+  a prov:Plan ;
+  rdfs:comment "Manual inspection" ;
+.
+my:t-89
+  a time:Instant ;
+  time:inXSDDate "2021-02-01"^^xsd:date ;
+.
+my:t89-56
+  a time:Instant ;
+  time:inXSDDate "2021-02-10"^^xsd:date ;
+.
 <http://loci.example.org>
   a owl:Ontology ;
   owl:imports <http://linked.data.gov.au/def/geox> ;
