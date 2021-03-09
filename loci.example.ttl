@@ -1,6 +1,7 @@
 # baseURI: http://loci.example.org
 # imports: http://linked.data.gov.au/def/geox
 # imports: http://linked.data.gov.au/def/loci
+# imports: http://qudt.org/2.1/schema/qudt
 # imports: http://w3id.org/lindt/custom_datatypes
 # imports: http://www.opengis.net/ont/geosparql
 # prefix: ex
@@ -13,6 +14,7 @@
 @prefix loci: <http://linked.data.gov.au/def/loci#> .
 @prefix my: <http://example.org/loci-test/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix time: <http://www.w3.org/2006/time#> .
@@ -105,9 +107,9 @@ my:t89-56
   a owl:Ontology ;
   owl:imports <http://linked.data.gov.au/def/geox> ;
   owl:imports <http://linked.data.gov.au/def/loci> ;
+  owl:imports <http://qudt.org/2.1/schema/qudt> ;
   owl:imports <http://w3id.org/lindt/custom_datatypes> ;
   owl:imports <http://www.opengis.net/ont/geosparql> ;
-  owl:versionInfo "Created with TopBraid Composer" ;
 .
 ex:G987
   a geo:Geometry ;

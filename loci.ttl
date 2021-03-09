@@ -103,6 +103,16 @@ loci:Dataset
   rdfs:subClassOf dcat:Dataset ;
   rdfs:subClassOf [
       a owl:Restriction ;
+      owl:allValuesFrom time:Interval ;
+      owl:onProperty dcterms:valid ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:valid ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty rdfs:member ;
     ] ;
@@ -163,7 +173,7 @@ loci:Feature
   rdfs:subClassOf [
       a owl:Restriction ;
       rdfs:comment "`valid` describes the period of validity or existence of the feature in the world. The value is an interval, in which may be open at either end" ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dcterms:valid ;
     ] ;
   rdfs:subClassOf [
@@ -175,6 +185,11 @@ loci:Feature
       a owl:Restriction ;
       owl:allValuesFrom geo:Feature ;
       owl:onProperty loci:isWithin ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom time:Interval ;
+      owl:onProperty dcterms:valid ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
