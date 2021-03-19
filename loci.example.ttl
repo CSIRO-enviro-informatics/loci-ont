@@ -17,9 +17,49 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+my:FA
+  a loci:Feature ;
+.
+my:FA-FB
+  a loci:LinkingStatement ;
+  rdf:object my:FB ;
+  rdf:predicate dcterms:relation ;
+  rdf:subject my:FA ;
+.
+my:FB
+  a loci:Feature ;
+.
+my:FB-FC
+  a loci:LinkingStatement ;
+  rdf:object my:FC ;
+  rdf:predicate dcterms:relation ;
+  rdf:subject my:FB ;
+.
+my:FC
+  a loci:Feature ;
+.
+my:FC-FD
+  a loci:LinkingStatement ;
+  rdf:object my:FD ;
+  rdf:predicate dcterms:relation ;
+  rdf:subject my:FC ;
+.
+my:FD
+  a loci:Feature ;
+.
+my:FD-FE
+  a loci:LinkingStatement ;
+  rdf:object my:FE ;
+  rdf:predicate dcterms:relation ;
+  rdf:subject my:FD ;
+.
+my:FE
+  a loci:Feature ;
+.
 my:Feature10
   a loci:Feature ;
 .
@@ -34,8 +74,13 @@ my:Feature78
 .
 my:Link56
   a loci:LinkingStatement ;
-  dcterms:created "2021-02-19"^^xsd:date ;
-  dcterms:valid [
+  loci:hadGenerationMethod my:manual-inspection ;
+  loci:isMemberOf my:Linkset34 ;
+  loci:recordLifecycle [
+      a time:Interval ;
+      time:hasBeginning [ time:inXSDDate "2021-02-19"^^xsd:date ; ] ;
+    ] ;
+  loci:resourceLifecycle [
       a time:Interval ;
       time:hasBeginning my:t89-56 ;
     ] ;
@@ -45,8 +90,13 @@ my:Link56
 .
 my:Link56_1
   a loci:LinkingStatement ;
-  dcterms:created "2021-02-19"^^xsd:date ;
-  dcterms:valid [
+  loci:hadGenerationMethod my:manual-inspection ;
+  loci:isMemberOf my:Linkset34 ;
+  loci:recordLifecycle [
+      a time:Interval ;
+      time:hasBeginning [ time:inXSDDate "2021-02-19"^^xsd:date ; ] ;
+    ] ;
+  loci:resourceLifecycle [
       a time:Interval ;
       time:hasBeginning my:t-89 ;
     ] ;
@@ -58,10 +108,13 @@ my:Link89
   a loci:LinkingStatement ;
   loci:hadGenerationMethod my:manual-inspection ;
   loci:isMemberOf my:Linkset34 ;
-  loci:retiredDate "2021-02-19"^^xsd:date ;
-  dcterms:created "2021-02-17"^^xsd:date ;
-  dcterms:isReplacedBy my:Link56 ;
-  dcterms:valid [
+  loci:recordLifecycle [
+      a time:Interval ;
+      time:hasBeginning [ time:inXSDDate "2021-02-17"^^xsd:date ; ] ;
+      time:hasEnd  [ time:inXSDDate "2021-02-19"^^xsd:date ; ] ;
+      dcterms:isReplacedBy my:Link56 ;
+    ] ;
+  loci:resourceLifecycle [
       a time:Interval ;
       time:hasBeginning my:t-89 ;
       time:hasEnd my:t89-56 ;
@@ -75,10 +128,13 @@ my:Link89_1
   a loci:LinkingStatement ;
   loci:hadGenerationMethod my:manual-inspection ;
   loci:isMemberOf my:Linkset34 ;
-  loci:retiredDate "2021-02-19"^^xsd:date ;
-  dcterms:created "2021-02-17"^^xsd:date ;
-  dcterms:isReplacedBy my:Link56_1 ;
-  dcterms:valid [
+  loci:recordLifecycle [
+      a time:Interval ;
+      time:hasBeginning [ time:inXSDDate "2021-02-17"^^xsd:date ; ] ;
+      time:hasEnd  [ time:inXSDDate "2021-02-19"^^xsd:date ; ] ;
+      dcterms:isReplacedBy my:Link56_1 ;
+    ] ;
+  loci:resourceLifecycle [
       a time:Interval ;
       time:hasBeginning my:t-89 ;
       time:hasEnd my:t-89 ;
@@ -110,6 +166,13 @@ my:t89-56
   owl:imports <http://qudt.org/2.1/schema/qudt> ;
   owl:imports <http://w3id.org/lindt/custom_datatypes> ;
   owl:imports <http://www.opengis.net/ont/geosparql> ;
+  skos:note """Need to figure out how to query chains of relations. 
+Here's a start with SPARQL: 
+SELECT *
+WHERE {
+#	?s a loci:LinkingStatement . 
+	?s rdf:subject ?n ; rdf:object my:FE .
+}""" ;
 .
 ex:G987
   a geo:Geometry ;

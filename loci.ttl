@@ -160,24 +160,6 @@ loci:Feature
   rdfs:subClassOf geo:Feature ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      rdfs:comment "`created` says when the record of the feature was created. Must be before the `retired` date" ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:created ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      rdfs:comment "`retiredDate` says when the record of the feature was replaced or retired. Must be after the `created` date" ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty loci:retiredDate ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      rdfs:comment "`valid` describes the period of validity or existence of the feature in the world. The value is an interval, in which may be open at either end" ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:valid ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
       owl:allValuesFrom geo:Feature ;
       owl:onProperty loci:contains ;
     ] ;
@@ -188,19 +170,45 @@ loci:Feature
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:allValuesFrom time:Interval ;
-      owl:onProperty dcterms:valid ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dcterms:identifier ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass loci:Dataset ;
+      owl:onProperty loci:isMemberOf ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onClass geo:Geometry ;
       owl:onProperty geo:hasGeometry ;
+    ] ;
+.
+loci:Lifecycle
+  a owl:Class ;
+  rdfs:label "lifecycle information" ;
+  rdfs:subClassOf time:Interval ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:isReplacedBy ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:replaces ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty time:hasBeginning ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty time:hasEnd ;
     ] ;
 .
 loci:LinkingStatement
@@ -212,19 +220,6 @@ loci:LinkingStatement
   rdfs:subClassOf rdf:Statement ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      rdfs:comment "For it to be a logical/useful replacement, the subject and/or object of the replacement statement must be the same as either the subject and/or object of the statement that it replaces" ;
-      owl:allValuesFrom loci:LinkingStatement ;
-      owl:onProperty dcterms:isReplacedBy ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      rdfs:comment "If there is a replacement link, the end of this interval must be equal to the beginning of the replacement" ;
-      owl:allValuesFrom time:Interval ;
-      owl:onProperty dcterms:valid ;
-      skos:scopeNote "Usually just the beginning of the validity interval is provided, using the time:hasBeginning property " ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
       owl:allValuesFrom loci:Feature ;
       owl:onProperty rdf:object ;
     ] ;
@@ -235,26 +230,6 @@ loci:LinkingStatement
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:allValuesFrom loci:LinkingStatement ;
-      owl:onProperty dcterms:replaces ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:allValuesFrom xsd:date ;
-      owl:onProperty dcterms:created ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:created ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:valid ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty rdf:object ;
     ] ;
@@ -262,11 +237,6 @@ loci:LinkingStatement
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty rdf:subject ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty loci:retiredDate ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -290,34 +260,36 @@ loci:LinkingStatement
   skos:editorialNote "End of validity usually corresponds to the valid-date of the replacement statement. **What if the statement is retired with no replacement?**" ;
   skos:example """my:Link89
   rdf:type loci:LinkingStatement ;
+  loci:createdDate \"2021-02-17\"^^xsd:date ;
   loci:hadGenerationMethod my:manual-inspection ;
   loci:isMemberOf my:Linkset34 ;
-  dct:isReplacedBy my:Link56 ;
-  dct:valid [
+  loci:retiredDate \"2021-02-19\"^^xsd:date ;
+  loci:valid [
       rdf:type time:Interval ;
-      rdfs:comment \"If there is a replacement link, the end of this interval must be equal to the beginning of the replacement\" ;
       time:hasBeginning my:t-89 ;
       time:hasEnd my:t89-56 ;
     ] ;
+  dct:isReplacedBy my:Link56 ;
   rdf:object my:Feature67 ;
-  rdf:predicate loci:isPartOf ;
+  rdf:predicate loci:isWithin ;
   rdf:subject my:Feature78 ;
   rdfs:comment \"This is an example where the replacement link starts later. This would correspond to changes in-the-world.\" ;
 .
 
 my:Link89_1
   rdf:type loci:LinkingStatement ;
+  loci:createdDate \"2021-02-17\"^^xsd:date ;
   loci:hadGenerationMethod my:manual-inspection ;
   loci:isMemberOf my:Linkset34 ;
-  dct:isReplacedBy my:Link56_1 ;
-  dct:valid [
+  loci:retiredDate \"2021-02-19\"^^xsd:date ;
+  loci:valid [
       rdf:type time:Interval ;
-      rdfs:comment \"If there is a replacement, the end of this interval must be equal to the beginning of the replacement\" ;
       time:hasBeginning my:t-89 ;
       time:hasEnd my:t-89 ;
     ] ;
+  dct:isReplacedBy my:Link56_1 ;
   rdf:object my:Feature67 ;
-  rdf:predicate loci:isPartOf ;
+  rdf:predicate loci:isWithin ;
   rdf:subject my:Feature78 ;
   rdfs:comment \"This is an example where the replacement link has the same start-date. This corresponds to a change of knowledge?\" ;
 .""" ;
@@ -361,8 +333,8 @@ LOCI Linking Statements provide a richer mechanisms for relationships between fe
 .
 loci:hadGenerationMethod
   a owl:ObjectProperty ;
-  dcterms:description "The method that was used to generate this object"@en ;
-  rdfs:domain rdf:Statement ;
+  dcterms:description "The method that was used to generate this Linking Statement"@en ;
+  rdfs:domain loci:LinkingStatement ;
   rdfs:label "had generation method" ;
   rdfs:range prov:Plan ;
   owl:propertyChainAxiom (
@@ -422,19 +394,33 @@ Care should be taken for relationships between features from different datasets,
 
 LOCI Linking Statements provide a richer mechanisms for relationships between features from different datasets, including temporal scope. """ ;
 .
-loci:retiredDate
+loci:recordLifecycle
   a owl:ObjectProperty ;
-  rdfs:comment "The date when this LinkingStatement was replaced by one or more LinkingStatmeent or it was retired altogether." ;
+  rdfs:comment "Information about the lifecycle of this record about a Location (feature) or Linking-Statement" ;
   rdfs:domain [
       a owl:Class ;
       owl:unionOf (
-          loci:LinkingStatement
           loci:Feature
+          loci:Dataset
+          loci:LinkingStatement
         ) ;
     ] ;
-  rdfs:label "Replacement date" ;
-  rdfs:range xsd:date ;
-  rdfs:subPropertyOf dcterms:date ;
+  rdfs:label "lifecycle of this record" ;
+  rdfs:range loci:Lifecycle ;
+.
+loci:resourceLifecycle
+  a owl:ObjectProperty ;
+  rdfs:comment "Information about the lifecycle of this Dataset, Location (feature) or Linking-Statement" ;
+  rdfs:domain [
+      a owl:Class ;
+      owl:unionOf (
+          loci:Feature
+          loci:Dataset
+          loci:LinkingStatement
+        ) ;
+    ] ;
+  rdfs:label "lifecycle of this resource" ;
+  rdfs:range loci:Lifecycle ;
 .
 loci:sfRelation
   a owl:ObjectProperty ;
