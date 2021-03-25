@@ -6,6 +6,7 @@
 # prefix: loci
 
 @prefix asgs: <http://linked.data.gov.au/def/asgs#> .
+@prefix cdt: <http://w3id.org/lindt/custom_datatypes#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix doap: <http://usefulinc.com/ns/doap#> .
@@ -103,13 +104,8 @@ loci:Dataset
   rdfs:subClassOf dcat:Dataset ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:allValuesFrom time:Interval ;
-      owl:onProperty dcterms:valid ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:valid ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:license ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -194,6 +190,11 @@ loci:Lifecycle
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty dcterms:isReplacedBy ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:modified ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -343,6 +344,16 @@ loci:hadGenerationMethod
       prov:hadPlan
     ) ;
   skos:editorialNote "This property is a property chain axiom equivalent to a chain of three properties in the PROV ontology: prov:wasGeneratedBy, prov:qualifiedAssociation and prof:hadPlan linking a prov:Entity (the thing generated) to a prov:Plan (the thin instruction generation - the method) via a prov:Activity (the generating event) and a prov:Association that the prov:Activity has linking it to the prov:Plan."@en ;
+.
+loci:hasArea
+  a owl:DatatypeProperty ;
+  rdfs:comment """This version of the 'has area' property allows the size to be encoded in compact form as a structured literal. 
+
+Area is an important property of Loc-I features, used in some re-apportionment algorithms. """ ;
+  rdfs:domain loci:Feature ;
+  rdfs:label "Area of spatial feature (entity)" ;
+  rdfs:range cdt:ucum ;
+  skos:example "<> loci:hasArea \"48941.9 km2\"^^cdt:ucum ." ;
 .
 loci:isDisjointWith
   a owl:ObjectProperty ;

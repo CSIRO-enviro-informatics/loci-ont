@@ -1,5 +1,7 @@
 # baseURI: http://linked.data.gov.au/def/asgs-loci
 # imports: http://linked.data.gov.au/def/asgs
+# imports: http://linked.data.gov.au/def/asgs/cat
+# imports: http://linked.data.gov.au/def/asgs/id
 # imports: http://linked.data.gov.au/def/loci
 # prefix: asgs-loci
 
@@ -30,6 +32,8 @@ Users of ASGS in the context of LOCI should <import> this graph rather than just
   dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
   dcterms:rights "© 2021 CSIRO" ;
   owl:imports <http://linked.data.gov.au/def/asgs> ;
+  owl:imports <http://linked.data.gov.au/def/asgs/cat> ;
+  owl:imports <http://linked.data.gov.au/def/asgs/id> ;
   owl:imports <http://linked.data.gov.au/def/loci> ;
   sdo:codeRepository <https://github.com/AGLDWG/asgs-ont/> ;
 .
