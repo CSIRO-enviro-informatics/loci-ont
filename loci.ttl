@@ -417,7 +417,7 @@ loci:recordLifecycle
         ) ;
     ] ;
   rdfs:label "lifecycle of this record" ;
-  rdfs:range loci:Lifecycle ;
+  rdfs:range time:Interval ;
 .
 loci:resourceLifecycle
   a owl:ObjectProperty ;
@@ -431,7 +431,7 @@ loci:resourceLifecycle
         ) ;
     ] ;
   rdfs:label "lifecycle of this resource" ;
-  rdfs:range loci:Lifecycle ;
+  rdfs:range time:Interval ;
 .
 loci:sfRelation
   a owl:ObjectProperty ;
