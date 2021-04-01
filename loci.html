@@ -395,7 +395,7 @@
             <tr>
                 <th>Description</th>
                 <td>
-                    <p>Implemented as a SHACL shape</p>
+                    <p>Should be implemented as a SHACL shape</p>
                 </td>
             </tr>
             <tr>
@@ -478,12 +478,29 @@
 <section id="objectproperties">
     <h2>Object Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
     <ul class="hlist">
+        <li><a href="#equivalentTo">equivalent to</a></li>
         <li><a href="#type">type</a></li>
         <li><a href="#hadGenerationMethod">had generation method</a></li>
         <li><a href="#hasPart">has part</a></li>
         <li><a href="#isMemberOf">is member of</a></li>
         <li><a href="#isPartOf">is part of</a></li>
     </ul>
+    <div class="entity property" id="equivalentTo">
+        <h3>equivalent to<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://linked.data.gov.au/def/loci#equivalentTo</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>This property is used to relate an individual feature from one geography or dataset with a feature from another geography or dataset which is intended to represent the same real-world entity.</p>
+                    <p>Use of <code>loci:equivalent</code> would allow representations using slightly different geometrical bases (e.g. surveyed geometries, aggregates of DGGS cells, aggregates of ASGS meshblocks) to be linked, in situations where a purely geometrical computation might not deduce a `geo:sfEquals` relationships because of differing precision, slivers, etc,. When the data provider's intention is that they match, then this predicate can be used to make that assertion. The provenance of the assertion maybe be recorded in the usual way in a link-set.</p>
+                </td>
+            </tr>
+        </table>
+    </div>    
     <div class="entity property" id="type">
         <h3>type<sup title="object property" class="sup-op">op</sup></h3>
         <table>
@@ -569,7 +586,7 @@ Note that this property is **not transitive** though some sub-properties may be.
             <tr>
                 <th>Description</th>
                 <td>
-                    In principle this is inverse of rdfs:member, but because it is defined in a local namespace it is made a sub-property of the inverse
+                    The context resource is a member of the target resource (a collection, aggregate or composite)
                 </td>
             </tr>
             <tr>
@@ -592,7 +609,7 @@ Note that this property is **not transitive** though some sub-properties may be.
                 <td>
                     The context resource is part of the target resource, in some geospatial, logical, ownership, governance, jurisidictional or compositional sense. 
 
-This predicate provides a convenient generalized or super-property-of contained-by relations with more specializaed semantics. It may be useful in formulating some generalized SPARQL queries where any kind of containment relationship is intended. 
+This predicate provides a convenient generalized or super-property-of contained-by relations with more specialized semantics. It may be useful in formulating some generalized SPARQL queries where any kind of containment relationship is intended. 
 
 Note that this property is **not transitive** though some sub-properties may be.
                 </td>
