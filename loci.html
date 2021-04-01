@@ -5,170 +5,191 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     
     <style>
-#pylode {
-    position: fixed;
-    top: 80px;
-    left: -60px;
-    font-size: small;
-    transform: rotate(-90deg);
-    color: grey;
-}
-#pylode a {
-    font-size: 2em;
-    font-weight: bold;
-    text-decoration: none;
-    color: #005A9C;
-}
-#pylode a:hover {
-    color: #333;
-}
+        #pylode {
+            position: fixed;
+            top: 130px;
+            left: -60px;
+            font-size: small;
+            transform: rotate(-90deg);
+            color: grey;
+        }
+        #pylode a {
+            font-size: 2em;
+            font-weight: bold;
+            text-decoration: none;
+            color: #005A9C;
+        }
+        #pylode a:hover {
+            color: #333;
+        }
 
-.cardinality {
-    font-style: italic;
-    color: #aa00aa;
-}
+        .cardinality {
+            font-style: italic;
+            color: #aa00aa;
+        }
 
-dt {
-    font-weight: bold;
-    padding: 5px 0 5px 0;
-}
+        dt {
+            font-weight: bold;
+            padding: 5px 0 5px 0;
+        }
 
-ul.hlist {
-    list-style-type: none;
-    border: 1px solid navy;
-    padding:5px;
-    background-color: #F4FFFF;
-}
+        ul.hlist {
+            list-style-type: none;
+            border: 1px solid navy;
+            padding:5px;
+            background-color: #F4FFFF;
+        }
 
-
-ul.hlist li {
-    display: inline;
-    margin-right: 10px;
-}
-
-.entity {
-    border: 1px solid navy;
-    margin:5px 0 5px 0;
-    padding: 5px;
-}
-
-.entity th {
-    width: 150px;
-    vertical-align: top;
-}
-
-.entity th,
-.entity td {
-    padding-bottom: 20px;
-}
-
-.entity table th {
-    text-align: left;
-}
-
-section#overview img {
-    max-width: 1000px;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    text-align: left
-}
-h1, h2, h3 {
-    color: #005A9C; background: white
-}
-h1 {
-    font: 170% sans-serif;
-    line-height: 110%;
-}
-h2 {
-    font: 140% sans-serif;
-    margin-top:40px;
-}
-h3 {
-    font: 120% sans-serif;
-    margin-top: 3px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid navy;
-}
-h4 { font: bold 100% sans-serif }
-h5 { font: italic 100% sans-serif }
-h6 { font: small-caps 100% sans-serif }
+        ul.hierarchy {
+            border: 1px solid navy;
+            padding: 5px 25px 5px 25px;
+            background-color: #F4FFFF;
+        }
 
 
-body {
-    padding: 2em 70px 2em 70px;
-    margin: 0;
-    font-family: sans-serif;
-    color: black;
-    background: white;
-    background-position: top left;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    text-align: justify;
-}
+        ul.hlist li {
+            display: inline;
+            margin-right: 10px;
+        }
 
-section {
-    max-width: 1500px;
-}
+        .entity {
+            border: 1px solid navy;
+            margin:5px 0 5px 0;
+            padding: 5px;
+        }
 
-.figure {
-    margin-bottom: 20px;
-}
+        .entity th {
+            width: 150px;
+            vertical-align: top;
+        }
 
-:link { color: #00C; background: transparent }
-:visited { color: #609; background: transparent }
-a:active { color: #C00; background: transparent }
+        .entity th,
+        .entity td {
+            padding-bottom: 20px;
+        }
 
-.sup-c,
-.sup-op,
-.sup-fp,
-.sup-dp,
-.sup-ap,
-.sup-p,
-.sup-ni {
-    cursor:help;
-    margin-left: 3px;
-}
+        .entity table th {
+            text-align: left;
+        }
 
-.sup-c {
-    color:orange;
-}
+        section#overview img {
+            max-width: 1000px;
+        }
 
-.sup-op {
-    color:navy;
-}
+        h1, h2, h3, h4, h5, h6 {
+            text-align: left
+        }
+        h1, h2, h3 {
+            color: #005A9C; background: white
+        }
+        h1 {
+            font: 170% sans-serif;
+            line-height: 110%;
+        }
+        h2 {
+            font: 140% sans-serif;
+            margin-top:40px;
+        }
+        h3 {
+            font: 120% sans-serif;
+            margin-top: 3px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid navy;
+        }
+        h4 { font: bold 100% sans-serif }
+        h5 { font: italic 100% sans-serif }
+        h6 { font: small-caps 100% sans-serif }
 
-.sup-fp {
-    color:lightskyblue;
-}
 
-.sup-dp {
-    color:green;
-}
+        body {
+            padding: 2em 70px 2em 70px;
+            margin: 0;
+            font-family: sans-serif;
+            color: black;
+            background: white;
+            background-position: top left;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            text-align: justify;
+        }
 
-.sup-ap {
-    color:darkred;
-}
+        section {
+            max-width: 1500px;
+        }
 
-.sup-p {
-    color:black;
-}
+        .figure {
+            margin-bottom: 20px;
+        }
 
-.sup-ni {
-    color:brown;
-}
+        :link { color: #00C; background: transparent }
+        :visited { color: #609; background: transparent }
+        a:active { color: #C00; background: transparent }
 
-code {
-    font-size: large;
-    color: darkred;
-}
+        .sup-c,
+        .sup-op,
+        .sup-fp,
+        .sup-dp,
+        .sup-ap,
+        .sup-p,
+        .sup-ni,
+        .sup-cp,
+        .sup-cl {
+            cursor:help;
+            margin-left: 3px;
+        }
 
+        .sup-c {
+            color:orange;
+        }
+
+        .sup-op {
+            color:navy;
+        }
+
+        .sup-fp {
+            color:lightskyblue;
+        }
+
+        .sup-dp {
+            color:green;
+        }
+
+        .sup-ap {
+            color:darkred;
+        }
+
+        .sup-p {
+            color:black;
+        }
+
+        .sup-ni {
+            color:brown;
+        }
+
+        .sup-cp {
+            color:orange;
+        }
+
+        .sup-cl {
+            color:darkred;
+        }
+
+        code {
+            font-size: large;
+            color: darkred;
+        }
+
+        /* less prominent links for properties */
+        .proplink {
+            color: #336;
+            text-decoration: none;
+        }
     </style>
     
     <script type="application/ld+json">
       [
   {
-    "@id": "http://linked.data.gov.au/def/loci",
+    "@id": "https://linked.data.gov.au/def/loci",
     "@type": [
       "https://schema.org/DefinedTermSet"
     ],
@@ -179,12 +200,22 @@ code {
     ],
     "https://schema.org/description": [
       {
-        "@value": "<p>An ontology to govern Linked Data resources published within the <a href=\"https://confluence.csiro.au/display/DIPAAnalyticHubs/Location+Integration+Capability+Loc-I\">Loc-I</a> project.</p>\n<p>The primary focus is on (a) datasets composed of multiple geospatial features (objects); (b) recording relationships between features, with metadata attached to reified rdf:Statements. </p>"
+        "@value": "<p>An ontology to govern Linked Data resources published within the <a href=\"https://confluence.csiro.au/display/DIPAAnalyticHubs/Location+Integration+Capability+Loc-I\">Loc-I</a> project.</p>\n<p>The primary focus is on (a) datasets composed of multiple geospatial features (objects); (b) recording relationships between features, with metadata attached to reified rdf:Statements.</p>"
+      }
+    ],
+    "https://schema.org/license": [
+      {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
       }
     ],
     "https://schema.org/name": [
       {
         "@value": "Loc-I Ontology"
+      }
+    ],
+    "https://schema.org/rights": [
+      {
+        "@value": "&copy; Commonwealth of Australia (CSIRO), 2021"
       }
     ]
   }
@@ -192,41 +223,96 @@ code {
     </script>
 </head>
 <body>
-<div id="pylode">made by <a href="http://github.com/rdflib/pyLODE">pyLODE</a></div>
-<h1>Loc-I Ontology</h1>
+  <div id="pylode">made by <a href="http://github.com/rdflib/pyLODE">
+    <span style="color:#329545;">p</span><span style="color:#f9cb33;">y</span>LODE</a>
+    <span style="font-size:smaller;">2.8.6</span>
+  </div>
+  <h1>Loc-I Ontology</h1>
 <section id="metadata">
     <h2 style="display:none;">Metadata</h2>
     <dl>
-        <dt>IRI</dt>
-        <dd><code>http://linked.data.gov.au/def/loci</code></dd>
-        <dt>Creator(s)</dt>
+        <dt>URI</dt>
+        <dd><code>https://linked.data.gov.au/def/loci</code></dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/publisher">Publisher</a>(s)</dt>
         <dd>
-            <a href="https://orcid.org/0000-0002-3884-3420">Simon J D Cox</a> of CSIRO Australia<br/>
-            <a href="https://orcid.org/0000-0002-8742-7730">Nicholas J Car</a> of Surround Australia<br/>
+            
+    <a href="https://linked.data.gov.au/org/csiro">CSIRO</a><br/>
         </dd>
-        <dt>Created</dt>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/creator">Creator</a>(s)</dt>
+        <dd>
+            
+    <a href="https://orcid.org/0000-0002-3884-3420">Simon JD Cox</a>
+    <a href="https://orcid.org/0000-0002-3884-3420"><svg width="15px" height="15px" viewBox="0 0 72 72" version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Orcid logo</title>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="hero" transform="translate(-924.000000, -72.000000)" fill-rule="nonzero">
+            <g id="Group-4">
+                <g id="vector_iD_icon" transform="translate(924.000000, 72.000000)">
+                    <path d="M72,36 C72,55.884375 55.884375,72 36,72 C16.115625,72 0,55.884375 0,36 C0,16.115625 16.115625,0 36,0 C55.884375,0 72,16.115625 72,36 Z" id="Path" fill="#A6CE39"></path>
+                    <g id="Group" transform="translate(18.868966, 12.910345)" fill="#FFFFFF">
+                        <polygon id="Path" points="5.03734929 39.1250878 0.695429861 39.1250878 0.695429861 9.14431787 5.03734929 9.14431787 5.03734929 22.6930505 5.03734929 39.1250878"></polygon>
+                        <path d="M11.409257,9.14431787 L23.1380784,9.14431787 C34.303014,9.14431787 39.2088191,17.0664074 39.2088191,24.1486995 C39.2088191,31.846843 33.1470485,39.1530811 23.1944669,39.1530811 L11.409257,39.1530811 L11.409257,9.14431787 Z M15.7511765,35.2620194 L22.6587756,35.2620194 C32.49858,35.2620194 34.7541226,27.8438084 34.7541226,24.1486995 C34.7541226,18.1301509 30.8915059,13.0353795 22.4332213,13.0353795 L15.7511765,13.0353795 L15.7511765,35.2620194 Z" id="Shape"></path>
+                        <path d="M5.71401206,2.90182329 C5.71401206,4.441452 4.44526937,5.72914146 2.86638958,5.72914146 C1.28750978,5.72914146 0.0187670918,4.441452 0.0187670918,2.90182329 C0.0187670918,1.33420133 1.28750978,0.0745051096 2.86638958,0.0745051096 C4.44526937,0.0745051096 5.71401206,1.36219458 5.71401206,2.90182329 Z" id="Path"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg></a> of 
+    CSIRO<br/>
+            
+    <a href="https://orcid.org/0000-0002-8742-7730">Nicholas J. Car</a>
+    <a href="https://orcid.org/0000-0002-8742-7730"><svg width="15px" height="15px" viewBox="0 0 72 72" version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Orcid logo</title>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="hero" transform="translate(-924.000000, -72.000000)" fill-rule="nonzero">
+            <g id="Group-4">
+                <g id="vector_iD_icon" transform="translate(924.000000, 72.000000)">
+                    <path d="M72,36 C72,55.884375 55.884375,72 36,72 C16.115625,72 0,55.884375 0,36 C0,16.115625 16.115625,0 36,0 C55.884375,0 72,16.115625 72,36 Z" id="Path" fill="#A6CE39"></path>
+                    <g id="Group" transform="translate(18.868966, 12.910345)" fill="#FFFFFF">
+                        <polygon id="Path" points="5.03734929 39.1250878 0.695429861 39.1250878 0.695429861 9.14431787 5.03734929 9.14431787 5.03734929 22.6930505 5.03734929 39.1250878"></polygon>
+                        <path d="M11.409257,9.14431787 L23.1380784,9.14431787 C34.303014,9.14431787 39.2088191,17.0664074 39.2088191,24.1486995 C39.2088191,31.846843 33.1470485,39.1530811 23.1944669,39.1530811 L11.409257,39.1530811 L11.409257,9.14431787 Z M15.7511765,35.2620194 L22.6587756,35.2620194 C32.49858,35.2620194 34.7541226,27.8438084 34.7541226,24.1486995 C34.7541226,18.1301509 30.8915059,13.0353795 22.4332213,13.0353795 L15.7511765,13.0353795 L15.7511765,35.2620194 Z" id="Shape"></path>
+                        <path d="M5.71401206,2.90182329 C5.71401206,4.441452 4.44526937,5.72914146 2.86638958,5.72914146 C1.28750978,5.72914146 0.0187670918,4.441452 0.0187670918,2.90182329 C0.0187670918,1.33420133 1.28750978,0.0745051096 2.86638958,0.0745051096 C4.44526937,0.0745051096 5.71401206,1.36219458 5.71401206,2.90182329 Z" id="Path"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg></a> of 
+    SURROUND Australia<br/>
+        </dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/created">Created</a></dt>
         <dd>2018-10-29</dd>
-        <dt>Modified</dt>
-        <dd>2020-04-29</dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/modified">Modified</a></dt>
+        <dd>2021-04-01</dd>
         <dt>Version Information</dt>
         <dd>Beta version</dd>
-        <dt>Version IRI</dt>
-        <dd><a href="http://linked.data.gov.au/def/loci/1.1">http://linked.data.gov.au/def/loci/1.1</a></dd>
+        <dt>Version URI</dt>
+        <dd><a href="https://linked.data.gov.au/def/loci/1.1">https://linked.data.gov.au/def/loci/1.1</a></dd>
         <dt>Imports</dt>
         <dd>
             <a href="http://vocab.deri.ie/void">http://vocab.deri.ie/void</a><br/>
-            <a href="http://schema.org/">schema:</a><br/>
-            <a href="http://linked.data.gov.au/def/geox">http://linked.data.gov.au/def/geox</a><br/>
+            <a href="https://linked.data.gov.au/def/geox">https://linked.data.gov.au/def/geox</a><br/>
+            <a href="https://schema.org/">sdo:</a><br/>
+        </dd>
+        <dt>License &amp; Rights</dt>
+        <dd>
+            <a href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a><br />
+            &copy; Commonwealth of Australia (CSIRO), 2021
         </dd>
         <dt>Ontology RDF</dt>
-        <dd><a href="loci.ttl">RDF (turtle)</a></dd>
+        <dd><a href="https://linked.data.gov.au/def/loci.ttl">RDF (turtle)</a></dd>
         <dt>Code Repository</dt>
         <dd><a href="https://github.com/CSIRO-enviro-informatics/loci-ont">https://github.com/CSIRO-enviro-informatics/loci-ont</a></dd>
     </dl>
     <h2>Description</h2>
     <div id="description">
         <p>An ontology to govern Linked Data resources published within the <a href="https://confluence.csiro.au/display/DIPAAnalyticHubs/Location+Integration+Capability+Loc-I">Loc-I</a> project.</p>
-<p>The primary focus is on (a) datasets composed of multiple geospatial features (objects); (b) recording relationships between features, with metadata attached to reified rdf:Statements. </p>
+<p>The primary focus is on (a) datasets composed of multiple geospatial features (objects); (b) recording relationships between features, with metadata attached to reified rdf:Statements.</p>
     </div>
 </section>
 <section id="toc">
@@ -234,7 +320,6 @@ code {
     <ol>
         <li><a href="#classes">Classes</a></li>
         <li><a href="#objectproperties">Object Properties</a></li>
-        <li><a href="#properties">Properties</a></li>
         <li><a href="#namespaces">Namespaces</a></li>
         <li><a href="#legend">Legend</a></li>
     </ol>
@@ -242,70 +327,48 @@ code {
 <section id="overview">
     <h2>Overview</h2>
     <div class="figure">
-        <div style="width:500px; height:500px; background-color: black;"><img height="500px" src="./images/loci.png"/></div>
+        <img height="500px" src="./images/loci.png"/>
         <div class="caption"><strong>Figure 1:</strong> Ontology overview</div>
     </div>
 </section>
-<section id="classes">
+  <section id="classes">
     <h2>Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
     <ul class="hlist">
-        <li><a href="#Loc-IDataPublishers">Loc-I Data Publishers</a></li>
         <li><a href="#Loc-IDataset">Loc-I Dataset</a></li>
         <li><a href="#Loc-IDatasetLinkingStatement">Loc-I Dataset Linking Statement</a></li>
         <li><a href="#Loc-IFeature">Loc-I Feature</a></li>
         <li><a href="#Loc-ILinkset">Loc-I Linkset</a></li>
     </ul>
-    <div class="entity class" id="Loc-IDataPublishers">
-        <h3>Loc-I Data Publishers<sup title="class" class="sup-c">c</sup></h3>
-        <table>
-            <tr>
-                <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/loci#DataPublisher</code></td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>
-                    The set of all approved publishers of Loc-I data, all of whom are known
-                </td>
-            </tr>
-            <tr>
-                <th>Super-classes</th>
-                <td>
-                    <a href="http://xmlns.com/foaf/0.1/Group">foaf:Group</a><sup class="sup-c" title="class">c</sup><br/>
-                </td>
-            </tr>
-        </table>
-    </div>
     <div class="entity class" id="Loc-IDataset">
         <h3>Loc-I Dataset<sup title="class" class="sup-c">c</sup></h3>
         <table>
             <tr>
-                <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/loci#Dataset</code></td>
+                <th>URI</th>
+                <td><code>https://linked.data.gov.au/def/loci#Dataset</code></td>
             </tr>
             <tr>
                 <th>Description</th>
                 <td>
-                    A Loc-I Dataset is a DCAT and VOID Dataset that has been accepted by the Loc-I Registry Manager.
+                    <p>A Loc-I Dataset is a DCAT and VOID Dataset that has been accepted by the Loc-I Registry Manager.</p>
                 </td>
             </tr>
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="http://rdfs.org/ns/void#Dataset">void:Dataset</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag">rdf:Bag</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://rdfs.org/ns/void#Dataset">void:Dataset</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/dcat#Dataset">dcat:Dataset</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>Restrictions</th>
                 <td>
+                    <a href="http://purl.org/dc/terms/issued">dcterms:issued</a> <span class="cardinality">exactly</span> 1<br/>
                     <a href="http://purl.org/dc/terms/publisher">dcterms:publisher</a> <span class="cardinality">exactly</span> 1 <a href="http://www.w3.org/ns/org#Organization">org:Organization</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/dc/terms/modified">dcterms:modified</a> <span class="cardinality">exactly</span> 1<br/>
                     <a href="http://purl.org/dc/terms/title">dcterms:title</a> <span class="cardinality">exactly</span> 1<br/>
                     <a href="http://www.w3.org/ns/dcat#contactPoint">dcat:contactPoint</a> <span class="cardinality">min</span> 1<br/>
                     <a href="http://www.w3.org/2000/01/rdf-schema#member">rdfs:member</a> <span class="cardinality">min</span> 1<br/>
-                    <a href="http://purl.org/dc/terms/issued">dcterms:issued</a> <span class="cardinality">exactly</span> 1<br/>
-                    <a href="http://purl.org/dc/terms/modified">dcterms:modified</a> <span class="cardinality">exactly</span> 1<br/>
                 </td>
             </tr>
             <tr>
@@ -317,7 +380,7 @@ code {
             <tr>
                 <th>In range of</th>
                 <td>
-                    <a href="#ismemberof">loci:isMemberOf</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#isMemberOf">loci:isMemberOf</a><sup class="sup-op" title="object property">op</sup><br/>
                 </td>
             </tr>
         </table>
@@ -326,13 +389,13 @@ code {
         <h3>Loc-I Feature<sup title="class" class="sup-c">c</sup></h3>
         <table>
             <tr>
-                <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/loci#Feature</code></td>
+                <th>URI</th>
+                <td><code>https://linked.data.gov.au/def/loci#Feature</code></td>
             </tr>
             <tr>
                 <th>Description</th>
                 <td>
-                    Implemented as a SHACL shape
+                    <p>Implemented as a SHACL shape</p>
                 </td>
             </tr>
             <tr>
@@ -344,10 +407,10 @@ code {
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="#ispartof">loci:isPartOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">only</span> <a href="http://www.opengis.net/ont/geosparql#Feature">geo:Feature</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#haspart">loci:hasPart</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">only</span> <a href="http://www.opengis.net/ont/geosparql#Feature">geo:Feature</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://www.opengis.net/ont/geosparql#hasGeometry">geo:hasGeometry</a> <span class="cardinality">min</span> 1 <a href="http://www.opengis.net/ont/geosparql#Geometry">geo:Geometry</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#isPartOf">loci:isPartOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">only</span> <a href="http://www.opengis.net/ont/geosparql#Feature">geo:Feature</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://purl.org/dc/terms/identifier">dcterms:identifier</a> <span class="cardinality">min</span> 1<br/>
+                    <a href="#hasPart">loci:hasPart</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">only</span> <a href="http://www.opengis.net/ont/geosparql#Feature">geo:Feature</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.opengis.net/ont/geosparql#hasGeometry">geo:hasGeometry</a> <span class="cardinality">min</span> 1 <a href="http://www.opengis.net/ont/geosparql#Geometry">geo:Geometry</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -356,13 +419,13 @@ code {
         <h3>Loc-I Dataset Linking Statement<sup title="class" class="sup-c">c</sup></h3>
         <table>
             <tr>
-                <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/loci#LinkingStatement</code></td>
+                <th>URI</th>
+                <td><code>https://linked.data.gov.au/def/loci#LinkingStatement</code></td>
             </tr>
             <tr>
                 <th>Description</th>
                 <td>
-                    An RDF Statement (Subject, Predicate, Object + additional metadata) that links class instances in one Loc-I Dataset with class instances in another
+                    <p>An RDF Statement (Subject, Predicate, Object + additional metadata) that links class instances in one Loc-I Dataset with class instances in another</p>
                 </td>
             </tr>
             <tr>
@@ -374,11 +437,11 @@ code {
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#subject">rdf:subject</a> <span class="cardinality">exactly</span> 1<br/>
-                    <a href="#ismemberof">loci:isMemberOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1 <a href="#Loc-ILinkset">loci:Linkset</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate">rdf:predicate</a> <span class="cardinality">min</span> 1<br/>
+                    <a href="#isMemberOf">loci:isMemberOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1 <a href="#Loc-ILinkset">loci:Linkset</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#object">rdf:object</a> <span class="cardinality">exactly</span> 1<br/>
-                    <a href="#hadgenerationmethod">loci:hadGenerationMethod</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1 <a href="http://www.w3.org/ns/prov#Plan">prov:Plan</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate">rdf:predicate</a> <span class="cardinality">min</span> 1<br/>
+                    <a href="#hadGenerationMethod">loci:hadGenerationMethod</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1 <a href="http://www.w3.org/ns/prov#Plan">prov:Plan</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#subject">rdf:subject</a> <span class="cardinality">exactly</span> 1<br/>
                 </td>
             </tr>
         </table>
@@ -387,20 +450,20 @@ code {
         <h3>Loc-I Linkset<sup title="class" class="sup-c">c</sup></h3>
         <table>
             <tr>
-                <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/loci#Linkset</code></td>
+                <th>URI</th>
+                <td><code>https://linked.data.gov.au/def/loci#Linkset</code></td>
             </tr>
             <tr>
                 <th>Description</th>
                 <td>
-                    A Loc-I Linkset is a specialised form of a VoID Linkset that requires the void:subjectsTarget & void:objectsTarget indicate Loc-I Datasets
+                    <p>A Loc-I Linkset is a specialised form of a VoID Linkset that requires the void:subjectsTarget &amp; void:objectsTarget indicate Loc-I Datasets</p>
                 </td>
             </tr>
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="http://rdfs.org/ns/void#Linkset">void:Linkset</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#Loc-IDataset">loci:Dataset</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://rdfs.org/ns/void#Linkset">void:Linkset</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
@@ -415,18 +478,35 @@ code {
 <section id="objectproperties">
     <h2>Object Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
     <ul class="hlist">
-        <li><a href="#hadgenerationmethod">had generation method</a></li>
-        <li><a href="#haspart">has part </a></li>
-        <li><a href="#ismemberof">is member of</a></li>
-        <li><a href="#ispartof">is part of </a></li>
         <li><a href="#type">type</a></li>
+        <li><a href="#hadGenerationMethod">had generation method</a></li>
+        <li><a href="#hasPart">has part</a></li>
+        <li><a href="#isMemberOf">is member of</a></li>
+        <li><a href="#isPartOf">is part of</a></li>
     </ul>
-    <div class="entity property" id="hadgenerationmethod">
+    <div class="entity property" id="type">
+        <h3>type<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/type</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    In the context of Loc-I datasets, `dcterms:type` is used for an additional classifier, such as a place-type or meshblock-category. 
+
+The value should be taken from a controlled-vocabulary, and may be expressed as a `skos:Concept` or an `rdfs:Class` or some other kind of resource providing it is from a well-governed source.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hadGenerationMethod">
         <h3>had generation method<sup title="object property" class="sup-op">op</sup></h3>
         <table>
             <tr>
-                <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/loci#hadGenerationMethod</code></td>
+                <th>URI</th>
+                <td><code>https://linked.data.gov.au/def/loci#hadGenerationMethod</code></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -448,12 +528,12 @@ code {
             </tr>
         </table>
     </div>
-    <div class="entity property" id="haspart">
-        <h3>has part <sup title="object property" class="sup-op">op</sup></h3>
+    <div class="entity property" id="hasPart">
+        <h3>has part<sup title="object property" class="sup-op">op</sup></h3>
         <table>
             <tr>
-                <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/loci#hasPart</code></td>
+                <th>URI</th>
+                <td><code>https://linked.data.gov.au/def/loci#hasPart</code></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -462,7 +542,7 @@ code {
 
 This predicate provides a convenient generalized or super-property-of containment relations with more specialized semantics. It may be useful in formulating some generalized SPARQL queries where any kind of containment relationship is intended. 
 
-Note that this property is **not transitive** though some sub-properties may be. 
+Note that this property is **not transitive** though some sub-properties may be.
                 </td>
             </tr>
             <tr>
@@ -479,12 +559,12 @@ Note that this property is **not transitive** though some sub-properties may be.
             </tr>
         </table>
     </div>
-    <div class="entity property" id="ismemberof">
+    <div class="entity property" id="isMemberOf">
         <h3>is member of<sup title="object property" class="sup-op">op</sup></h3>
         <table>
             <tr>
-                <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/loci#isMemberOf</code></td>
+                <th>URI</th>
+                <td><code>https://linked.data.gov.au/def/loci#isMemberOf</code></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -500,12 +580,12 @@ Note that this property is **not transitive** though some sub-properties may be.
             </tr>
         </table>
     </div>
-    <div class="entity property" id="ispartof">
-        <h3>is part of <sup title="object property" class="sup-op">op</sup></h3>
+    <div class="entity property" id="isPartOf">
+        <h3>is part of<sup title="object property" class="sup-op">op</sup></h3>
         <table>
             <tr>
-                <th>IRI</th>
-                <td><code>http://linked.data.gov.au/def/loci#isPartOf</code></td>
+                <th>URI</th>
+                <td><code>https://linked.data.gov.au/def/loci#isPartOf</code></td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -514,13 +594,13 @@ Note that this property is **not transitive** though some sub-properties may be.
 
 This predicate provides a convenient generalized or super-property-of contained-by relations with more specializaed semantics. It may be useful in formulating some generalized SPARQL queries where any kind of containment relationship is intended. 
 
-Note that this property is **not transitive** though some sub-properties may be. 
+Note that this property is **not transitive** though some sub-properties may be.
                 </td>
             </tr>
             <tr>
                 <th>Inverse properties</th>
                 <td>
-                    <a href="#haspart">loci:hasPart</a><sup class="sup-op" title="object property">op</sup>
+                    <a href="#hasPart">loci:hasPart</a><sup class="sup-op" title="object property">op</sup>
                 </td>
             </tr>
             <tr>
@@ -537,62 +617,25 @@ Note that this property is **not transitive** though some sub-properties may be.
             </tr>
         </table>
     </div>
-    <div class="entity property" id="type">
-        <h3>type<sup title="object property" class="sup-op">op</sup></h3>
-        <table>
-            <tr>
-                <th>IRI</th>
-                <td><code>http://purl.org/dc/terms/type</code></td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>
-                    In the context of Loc-I datasets, `dcterms:type` is used for an additional classifier, such as a place-type or meshblock-category. 
-
-The value should be taken from a controlled-vocabulary, and may be expressed as a `skos:Concept` or an `rdfs:Class` or some other kind of resource providing it is from a well-governed source. 
-                </td>
-            </tr>
-        </table>
-    </div>
 </section>
-
-<section id="properties">
-    <h2>Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-    <ul class="hlist">
-        <li><a href="#None">None</a></li>
-    </ul>
-    <div class="entity property" id="None">
-        <h3>None<sup title="property" class="sup-p">p</sup></h3>
-        <table>
-            <tr>
-                <th>IRI</th>
-                <td><code>ub1bL256C22</code></td>
-            </tr>
-        </table>
-    </div>
-</section>
-
-<section id="namespaces">
+  
+  <section id="namespaces">
     <h2>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
     <dl>
-        <dt><em>default (:)</em></dt>
-        <dd><code>http://linked.data.gov.au/def/loci#</code></dd>
         <dt>asgs</dt>
-        <dd><code>http://linked.data.gov.au/def/asgs#</code></dd>
+        <dd><code>https://linked.data.gov.au/def/asgs#</code></dd>
         <dt>dcat</dt>
         <dd><code>http://www.w3.org/ns/dcat#</code></dd>
         <dt>dcterms</dt>
         <dd><code>http://purl.org/dc/terms/</code></dd>
         <dt>doap</dt>
         <dd><code>http://usefulinc.com/ns/doap#</code></dd>
-        <dt>foaf</dt>
-        <dd><code>http://xmlns.com/foaf/0.1/</code></dd>
         <dt>geo</dt>
         <dd><code>http://www.opengis.net/ont/geosparql#</code></dd>
         <dt>geox</dt>
-        <dd><code>http://linked.data.gov.au/def/geox#</code></dd>
+        <dd><code>https://linked.data.gov.au/def/geox#</code></dd>
         <dt>loci</dt>
-        <dd><code>http://linked.data.gov.au/def/loci#</code></dd>
+        <dd><code>https://linked.data.gov.au/def/loci#</code></dd>
         <dt>org</dt>
         <dd><code>http://www.w3.org/ns/org#</code></dd>
         <dt>owl</dt>
@@ -605,31 +648,27 @@ The value should be taken from a controlled-vocabulary, and may be expressed as 
         <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
         <dt>rdfs</dt>
         <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
-        <dt>schema</dt>
-        <dd><code>http://schema.org/</code></dd>
         <dt>sdo</dt>
         <dd><code>https://schema.org/</code></dd>
         <dt>skos</dt>
         <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
         <dt>void</dt>
         <dd><code>http://rdfs.org/ns/void#</code></dd>
-        <dt>xml</dt>
-        <dd><code>http://www.w3.org/XML/1998/namespace</code></dd>
         <dt>xsd</dt>
         <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
     </dl>
 </section>
-<section id="legend">
-    <h2>Legend</h2>
-    <table class="entity">
-        <tr><td><sup class="sup-c" title="Classes">c</sup></td><td>Classes</td></tr>
-        <tr><td><sup class="sup-op" title="Object Properties">op</sup></td><td>Object Properties</td></tr>
-        <tr><td><sup class="sup-fp" title="Functional Properties">fp</sup></td><td>Functional Properties</td></tr>
-        <tr><td><sup class="sup-dp" title="Data Properties">dp</sup></td><td>Data Properties</td></tr>
-        <tr><td><sup class="sup-ap" title="Annotation Properties">dp</sup></td><td>Annotation Properties</td></tr>
-        <tr><td><sup class="sup-p" title="Properties">p</sup></td><td>Properties</td></tr>
-        <tr><td><sup class="sup-ni" title="Named Individuals">ni</sup></td><td>Named Individuals</td></tr>
-    </table>
-</section>
+  <section id="legend">
+      <h2>Legend</h2>
+      <table class="entity">
+          <tr><td><sup class="sup-c" title="Classes">c</sup></td><td>Classes</td></tr>
+          <tr><td><sup class="sup-op" title="Object Properties">op</sup></td><td>Object Properties</td></tr>
+          <tr><td><sup class="sup-fp" title="Functional Properties">fp</sup></td><td>Functional Properties</td></tr>
+          <tr><td><sup class="sup-dp" title="Data Properties">dp</sup></td><td>Data Properties</td></tr>
+          <tr><td><sup class="sup-ap" title="Annotation Properties">dp</sup></td><td>Annotation Properties</td></tr>
+          <tr><td><sup class="sup-p" title="Properties">p</sup></td><td>Properties</td></tr>
+          <tr><td><sup class="sup-ni" title="Named Individuals">ni</sup></td><td>Named Individuals</td></tr>
+      </table>
+  </section>
 </body>
 </html>
