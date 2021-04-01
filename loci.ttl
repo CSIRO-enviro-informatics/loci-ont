@@ -7,7 +7,6 @@
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix loci: <https://linked.data.gov.au/def/loci#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix prof: <http://www.w3.org/ns/dx/prof/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -19,7 +18,6 @@
 
 <https://linked.data.gov.au/def/loci>
   a owl:Ontology ;
-  a prof:Profile ;
   dcterms:created "2018-10-29"^^xsd:date ;
   dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
   dcterms:creator <https://orcid.org/0000-0002-8742-7730> ;
@@ -27,7 +25,7 @@
   dcterms:modified "2021-04-01"^^xsd:date ;
   dcterms:publisher <https://linked.data.gov.au/org/csiro> ;  
   dcterms:rights "(c) Commonwealth of Australia (CSIRO), 2021"^^xsd:string ;
-  skos:definition """An ontology to govern Linked Data resources published within the [Loc-I](https://www.ga.gov.au/locationindex) project.
+  skos:definition """An ontology to govern Linked Data resources published within the [Loc-I project](https://www.ga.gov.au/locationindex).
 
 The primary focus is on (a) datasets composed of multiple geospatial features (objects); (b) recording relationships between features, with metadata attached to reified rdf:Statements."""@en ;
   skos:prefLabel "Loc-I Ontology"@en ;
@@ -182,7 +180,7 @@ loci:hadGenerationMethod
       prov:hadPlan
     ) ;
   skos:definition "The method that was used to generate this object"@en ;
-  skos:editorialNote "This property is a property chain axiom equivalent to a chain of three properties in the PROV ontology: prov:wasGeneratedBy, prov:qualifiedAssociation and prof:hadPlan linking a prov:Entity (the thing generated) to a prov:Plan (the thin instruction generation - the method) via a prov:Activity (the generating event) and a prov:Association that the prov:Activity has linking it to the prov:Plan."@en ;
+  skos:editorialNote "This property is a property chain axiom equivalent to a chain of three properties in the PROV ontology: prov:wasGeneratedBy, prov:qualifiedAssociation and prov:hadPlan linking a prov:Entity (the thing generated) to a prov:Plan (the thin instruction generation - the method) via a prov:Activity (the generating event) and a prov:Association that the prov:Activity has linking it to the prov:Plan."@en ;
 .
 loci:hasPart
   a owl:ObjectProperty ;
