@@ -183,39 +183,6 @@ loci:hadGenerationMethod
   skos:definition "The method that was used to generate this object"@en ;
   skos:editorialNote "This property is a property chain axiom equivalent to a chain of three properties in the PROV ontology: prov:wasGeneratedBy, prov:qualifiedAssociation and prov:hadPlan linking a prov:Entity (the thing generated) to a prov:Plan (the thin instruction generation - the method) via a prov:Activity (the generating event) and a prov:Association that the prov:Activity has linking it to the prov:Plan."@en ;
 .
-loci:hasPart
-  a owl:ObjectProperty ;
-  skos:definition """The context resource contains the target resource, in some geospatial, logical, ownership, governance, jurisidictional or compositional sense. 
-
-This predicate provides a convenient generalized or super-property-of containment relations with more specialized semantics. It may be useful in formulating some generalized SPARQL queries where any kind of containment relationship is intended. 
-
-Note that this property is **not transitive** though some sub-properties may be."""@en ;
-  rdfs:domain geo:SpatialObject ;
-  skos:prefLabel "has part"@en ;
-  rdfs:range geo:SpatialObject ;
-.
-loci:isMemberOf
-  a owl:ObjectProperty ;
-  skos:definition "The context resource is a member of the target resource (a collection, aggregate or composite)"@en ;
-  skos:prefLabel "is member of"@en ;
-  rdfs:range loci:Dataset ;
-  rdfs:subPropertyOf [
-      a owl:ObjectProperty ;
-      owl:inverseOf rdfs:member ;
-    ] ;
-.
-loci:isPartOf
-  a owl:ObjectProperty ;
-  skos:definition """The context resource is part of the target resource, in some geospatial, logical, ownership, governance, jurisidictional or compositional sense. 
-
-This predicate provides a convenient generalized or super-property-of contained-by relations with more specialized semantics. It may be useful in formulating some generalized SPARQL queries where any kind of containment relationship is intended. 
-
-Note that this property is **not transitive** though some sub-properties may be."""@en ;
-  rdfs:domain geo:SpatialObject ;
-  skos:prefLabel "is part of"@en ;
-  rdfs:range geo:SpatialObject ;
-  owl:inverseOf loci:hasPart ;
-.
 dcterms:type
   a owl:ObjectProperty ;
   skos:definition """In the context of Loc-I datasets, `dcterms:type` is used for an additional classifier, such as a place-type or meshblock-category. 
@@ -223,12 +190,7 @@ dcterms:type
 The value should be taken from a controlled-vocabulary, and may be expressed as a `skos:Concept` or an `rdfs:Class` or some other kind of resource providing it is from a well-governed source."""@en ;
   skos:prefLabel "type"@en ;
 .
-geo:sfContains
-  rdfs:subPropertyOf loci:hasPart ;
-.
-geo:sfWithin
-  rdfs:subPropertyOf loci:isPartOf ;
-.
+
 <https://linked.data.gov.au/org/csiro>
   a sdo:Organization ;
   sdo:name "CSIRO" ;
