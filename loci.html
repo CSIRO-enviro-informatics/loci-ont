@@ -200,7 +200,7 @@
     ],
     "https://schema.org/description": [
       {
-        "@value": "<p>An ontology to govern Linked Data resources published within the <a href=\"https://confluence.csiro.au/display/DIPAAnalyticHubs/Location+Integration+Capability+Loc-I\">Loc-I</a> project.</p>\n<p>The primary focus is on (a) datasets composed of multiple geospatial features (objects); (b) recording relationships between features, with metadata attached to reified rdf:Statements.</p>"
+        "@value": "<p>An ontology to describe spatial Linked Data resources as used within the <a href=\"https://www.ga.gov.au/locationindex\">Loc-I project</a>.</p>\n<p>This ontology's core taxonomy is Dataset, FeatureCollection, Feature &amp; Geometry which serve to bundle of spatial feature instances and link them to geometries. The secondary taxonomy is Linkset &amp; LinkingStatement whereby links between Datasets are bundled.</p>"
       }
     ],
     "https://schema.org/license": [
@@ -290,29 +290,34 @@
         <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/modified">Modified</a></dt>
         <dd>2021-04-01</dd>
         <dt>Version Information</dt>
-        <dd>Alpha version - AGOP-compliant</dd>
-        <dt>Version URI</dt>
-        <dd><a href="https://linked.data.gov.au/def/loci/1.1">https://linked.data.gov.au/def/loci/1.1</a></dd>
-        <dt>Imports</dt>
         <dd>
-            <a href="http://vocab.deri.ie/void">http://vocab.deri.ie/void</a><br/>
-            <a href="https://linked.data.gov.au/def/geox">https://linked.data.gov.au/def/geox</a><br/>
-            <a href="https://schema.org/">sdo:</a><br/>
+            <p>v2.0:</p>
+            <ul>
+                <li>updated to match OGC API requirements</li>
+                <li>removed unnecissary imports</li>
+                <li>used sdo: in place of org: & doap:</li>
+                <li>added FeatureCollection</li>
+                <li>required token IDs for FeatureCollection & Feature (for OGC API)</li>
+                <li>tightned class defns</li>
+                <li>removed part propeties (using dcterms:)</li>
+            </ul>
         </dd>
+        <dt>Version URI</dt>
+        <dd><a href="https://linked.data.gov.au/def/loc/2.0">https://linked.data.gov.au/def/loc/2.0</a></dd>
         <dt>License &amp; Rights</dt>
         <dd>
             <a href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a><br />
             &copy; Commonwealth of Australia (CSIRO), 2021
         </dd>
         <dt>Ontology RDF</dt>
-        <dd><a href="https://linked.data.gov.au/def/loci.ttl">RDF (turtle)</a></dd>
+        <dd><a href="loci.ttl">RDF (turtle)</a></dd>
         <dt>Code Repository</dt>
         <dd><a href="https://github.com/CSIRO-enviro-informatics/loci-ont">https://github.com/CSIRO-enviro-informatics/loci-ont</a></dd>
     </dl>
     <h2>Description</h2>
     <div id="description">
-        <p>An ontology to govern Linked Data resources published within the <a href="https://confluence.csiro.au/display/DIPAAnalyticHubs/Location+Integration+Capability+Loc-I">Loc-I</a> project.</p>
-<p>The primary focus is on (a) datasets composed of multiple geospatial features (objects); (b) recording relationships between features, with metadata attached to reified rdf:Statements.</p>
+        <p>An ontology to describe spatial Linked Data resources as used within the <a href="https://www.ga.gov.au/locationindex">Loc-I project</a>.</p>
+<p>This ontology's core taxonomy is Dataset, FeatureCollection, Feature &amp; Geometry which serve to bundle of spatial feature instances and link them to geometries. The secondary taxonomy is Linkset &amp; LinkingStatement whereby links between Datasets are bundled.</p>
     </div>
 </section>
 <section id="toc">
@@ -327,20 +332,21 @@
 <section id="overview">
     <h2>Overview</h2>
     <div class="figure">
-        <img height="500px" src="./images/loci.png"/>
-        <div class="caption"><strong>Figure 1:</strong> Ontology overview</div>
+        <img src="images/loci.png"/>
+        <div class="caption"><strong>Figure 1:</strong> Loc-I ontology classes and their major properties</div>
     </div>
 </section>
   <section id="classes">
     <h2>Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
     <ul class="hlist">
-        <li><a href="#Loc-IDataset">Loc-I Dataset</a></li>
-        <li><a href="#Loc-IDatasetLinkingStatement">Loc-I Dataset Linking Statement</a></li>
-        <li><a href="#Loc-IFeature">Loc-I Feature</a></li>
-        <li><a href="#Loc-ILinkset">Loc-I Linkset</a></li>
+        <li><a href="#Dataset">Dataset</a></li>
+        <li><a href="#Feature">Feature</a></li>
+        <li><a href="#FeatureCollection">Feature Collection</a></li>
+        <li><a href="#LinkingStatement">Linking Statement</a></li>
+        <li><a href="#Linkset">Linkset</a></li>
     </ul>
-    <div class="entity class" id="Loc-IDataset">
-        <h3>Loc-I Dataset<sup title="class" class="sup-c">c</sup></h3>
+    <div class="entity class" id="Dataset">
+        <h3>Dataset<sup title="class" class="sup-c">c</sup></h3>
         <table>
             <tr>
                 <th>URI</th>
@@ -349,44 +355,28 @@
             <tr>
                 <th>Description</th>
                 <td>
-                    <p>A Loc-I Dataset is a DCAT and VOID Dataset that has been accepted by the Loc-I Registry Manager.</p>
+                    <p>A Loc-I Dataset is the main management unit of data within the Loc-I project; all Loc-I data must be supplied within Datasets. </p>
+<p>This class is a specialised form (subClassOf) DCAT Dataset &amp; VoID Dataset and is expected to have basic metadata properties, as per DCAT, and may be the target of Linksets linking its elements to other Datasets, as per VoID.</p>
+<p>Loc-I Datasets are expected to contain Feature Collections (<code>loci:FeatureCollection</code> instances) which in turn contain Features (<code>loci:Feature</code> instances) that link to geometry data (<code>geo:Geometry</code> instances) and this taxonomy matches the elements of OGC API:Feature APIs.</p>
                 </td>
             </tr>
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag">rdf:Bag</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://rdfs.org/ns/void#Dataset">void:Dataset</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/dcat#Dataset">dcat:Dataset</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
-                <th>Restrictions</th>
-                <td>
-                    <a href="http://purl.org/dc/terms/issued">dcterms:issued</a> <span class="cardinality">exactly</span> 1<br/>
-                    <a href="http://purl.org/dc/terms/publisher">dcterms:publisher</a> <span class="cardinality">exactly</span> 1 <a href="http://www.w3.org/ns/org#Organization">org:Organization</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://purl.org/dc/terms/modified">dcterms:modified</a> <span class="cardinality">exactly</span> 1<br/>
-                    <a href="http://purl.org/dc/terms/title">dcterms:title</a> <span class="cardinality">exactly</span> 1<br/>
-                    <a href="http://www.w3.org/ns/dcat#contactPoint">dcat:contactPoint</a> <span class="cardinality">min</span> 1<br/>
-                    <a href="http://www.w3.org/2000/01/rdf-schema#member">rdfs:member</a> <span class="cardinality">min</span> 1<br/>
-                </td>
-            </tr>
-            <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="#Loc-ILinkset">loci:Linkset</a><sup class="sup-c" title="class">c</sup><br/>
-                </td>
-            </tr>
-            <tr>
-                <th>In range of</th>
-                <td>
-                    <a href="#isMemberOf">loci:isMemberOf</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#Linkset">loci:Linkset</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
     </div>
-    <div class="entity class" id="Loc-IFeature">
-        <h3>Loc-I Feature<sup title="class" class="sup-c">c</sup></h3>
+    <div class="entity class" id="Feature">
+        <h3>Feature<sup title="class" class="sup-c">c</sup></h3>
         <table>
             <tr>
                 <th>URI</th>
@@ -395,7 +385,9 @@
             <tr>
                 <th>Description</th>
                 <td>
-                    <p>Should be implemented as a SHACL shape</p>
+                    <p>A Loc-I Feature is a specialised form of GeoSPARQL Feature.</p>
+<p>Loc-I Deature instances always have at least one Geometry.</p>
+<p>Loc-I Feature instances are always part of one and only one Loc-I FeatureCollection instance and always have an identifier that can be used in OGC API:Feature instance.</p>
                 </td>
             </tr>
             <tr>
@@ -407,16 +399,45 @@
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="#isPartOf">loci:isPartOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">only</span> <a href="http://www.opengis.net/ont/geosparql#Feature">geo:Feature</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://purl.org/dc/terms/identifier">dcterms:identifier</a> <span class="cardinality">min</span> 1<br/>
-                    <a href="#hasPart">loci:hasPart</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">only</span> <a href="http://www.opengis.net/ont/geosparql#Feature">geo:Feature</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://www.opengis.net/ont/geosparql#hasGeometry">geo:hasGeometry</a> <span class="cardinality">min</span> 1 <a href="http://www.opengis.net/ont/geosparql#Geometry">geo:Geometry</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/dc/terms/identifier">dcterms:identifier</a> <span class="cardinality">only</span> <a href="http://www.w3.org/2001/XMLSchema#token">xsd:token</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/dc/terms/isPartOf">dcterms:isPartOf</a> <span class="cardinality">only</span> <a href="#FeatureCollection">loci:FeatureCollection</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.opengis.net/ont/geosparql#hasGeometry">geo:hasGeometry</a> <span class="cardinality">only</span> <a href="http://www.opengis.net/ont/geosparql#Geometry">geo:Geometry</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
     </div>
-    <div class="entity class" id="Loc-IDatasetLinkingStatement">
-        <h3>Loc-I Dataset Linking Statement<sup title="class" class="sup-c">c</sup></h3>
+    <div class="entity class" id="FeatureCollection">
+        <h3>Feature Collection<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://linked.data.gov.au/def/loci#FeatureCollection</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A Loc-I Feature Collection is a named and described collection of <code>loci:Feature</code> instances.</p>
+<p>This class is the equivalent to 'collection' in the OGC API:Features specification.</p>
+<p>Loc-I Feature Collection instances are always part of one and only one Loc-I Dataset instance and always have an identifier that can be used in OGC API:Feature instance.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://purl.org/dc/dcmitype/Collection">http://purl.org/dc/dcmitype/Collection</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://purl.org/dc/terms/isPartOf">dcterms:isPartOf</a> <span class="cardinality">only</span> <a href="#Dataset">loci:Dataset</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/dc/terms/identifier">dcterms:identifier</a> <span class="cardinality">only</span> <a href="http://www.w3.org/2001/XMLSchema#token">xsd:token</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="LinkingStatement">
+        <h3>Linking Statement<sup title="class" class="sup-c">c</sup></h3>
         <table>
             <tr>
                 <th>URI</th>
@@ -425,7 +446,9 @@
             <tr>
                 <th>Description</th>
                 <td>
-                    <p>An RDF Statement (Subject, Predicate, Object + additional metadata) that links class instances in one Loc-I Dataset with class instances in another</p>
+                    <p>An RDF Statement (<code>rdf:subject</code>, <code>rdf:predicate</code>, <code>rdf:object</code> + additional metadata for that triple) that links class instances in one Loc-I Dataset with class instances in another.</p>
+<p>Linking Statements are always part of a single <code>loci:Linkset</code> instance.</p>
+<p>They always indicate the method used to generate them (the Feature/Feature link).</p>
                 </td>
             </tr>
             <tr>
@@ -437,17 +460,17 @@
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="#isMemberOf">loci:isMemberOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1 <a href="#Loc-ILinkset">loci:Linkset</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#object">rdf:object</a> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="http://purl.org/dc/terms/isPartOf">dcterms:isPartOf</a> <span class="cardinality">exactly</span> 1 <a href="#Linkset">loci:Linkset</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate">rdf:predicate</a> <span class="cardinality">min</span> 1<br/>
                     <a href="#hadGenerationMethod">loci:hadGenerationMethod</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1 <a href="http://www.w3.org/ns/prov#Plan">prov:Plan</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#object">rdf:object</a> <span class="cardinality">exactly</span> 1<br/>
                     <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#subject">rdf:subject</a> <span class="cardinality">exactly</span> 1<br/>
                 </td>
             </tr>
         </table>
     </div>
-    <div class="entity class" id="Loc-ILinkset">
-        <h3>Loc-I Linkset<sup title="class" class="sup-c">c</sup></h3>
+    <div class="entity class" id="Linkset">
+        <h3>Linkset<sup title="class" class="sup-c">c</sup></h3>
         <table>
             <tr>
                 <th>URI</th>
@@ -456,20 +479,21 @@
             <tr>
                 <th>Description</th>
                 <td>
-                    <p>A Loc-I Linkset is a specialised form of a VoID Linkset that requires the void:subjectsTarget &amp; void:objectsTarget indicate Loc-I Datasets</p>
+                    <p>A Loc-I Linkset is a specialised form of a VoID Linkset that requires the <code>void:subjectsTarget</code> &amp; <code>void:objectsTarget</code> to indicate Loc-I Datasets.</p>
+<p>Loc-I Linkset instnaces are expected to contain metadata as per Loc-I Datasets and a list of Loc-I Linking Statements.</p>
                 </td>
             </tr>
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="#Loc-IDataset">loci:Dataset</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://rdfs.org/ns/void#Linkset">void:Linkset</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Dataset">loci:Dataset</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="http://www.w3.org/2000/01/rdf-schema#member">rdfs:member</a> <span class="cardinality">only</span> <a href="#Loc-IDatasetLinkingStatement">loci:LinkingStatement</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#member">rdfs:member</a> <span class="cardinality">only</span> <a href="#LinkingStatement">loci:LinkingStatement</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -478,29 +502,10 @@
 <section id="objectproperties">
     <h2>Object Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
     <ul class="hlist">
-        <li><a href="#equivalentTo">equivalent to</a></li>
         <li><a href="#type">type</a></li>
+        <li><a href="#equivalentTo">equivalent to</a></li>
         <li><a href="#hadGenerationMethod">had generation method</a></li>
-        <li><a href="#hasPart">has part</a></li>
-        <li><a href="#isMemberOf">is member of</a></li>
-        <li><a href="#isPartOf">is part of</a></li>
     </ul>
-    <div class="entity property" id="equivalentTo">
-        <h3>equivalent to<sup title="object property" class="sup-op">op</sup></h3>
-        <table>
-            <tr>
-                <th>URI</th>
-                <td><code>https://linked.data.gov.au/def/loci#equivalentTo</code></td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>
-                    <p>This property is used to relate an individual feature from one geography or dataset with a feature from another geography or dataset which is intended to represent the same real-world entity.</p>
-                    <p>Use of <code>loci:equivalent</code> would allow representations using slightly different geometrical bases (e.g. surveyed geometries, aggregates of DGGS cells, aggregates of ASGS meshblocks) to be linked, in situations where a purely geometrical computation might not deduce a `geo:sfEquals` relationships because of differing precision, slivers, etc,. When the data provider's intention is that they match, then this predicate can be used to make that assertion. The provenance of the assertion maybe be recorded in the usual way in a link-set.</p>
-                </td>
-            </tr>
-        </table>
-    </div>    
     <div class="entity property" id="type">
         <h3>type<sup title="object property" class="sup-op">op</sup></h3>
         <table>
@@ -514,6 +519,35 @@
                     In the context of Loc-I datasets, `dcterms:type` is used for an additional classifier, such as a place-type or meshblock-category. 
 
 The value should be taken from a controlled-vocabulary, and may be expressed as a `skos:Concept` or an `rdfs:Class` or some other kind of resource providing it is from a well-governed source.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="equivalentTo">
+        <h3>equivalent to<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://linked.data.gov.au/def/loci#equivalentTo</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    This property is used to relate an individual Feature in one Dataset with a Feature in another Dataset which is intended to represent the same real-world entity.
+
+Use of `loci:equivalent` would allow representations using slightly different geometrical bases (e.g. surveyed geometries, aggregates of DGGS cells, aggregates of ASGS meshblocks) to be linked, in situations where a purely geometrical computation might not deduce a `geo:sfEquals` relationships because of differing precision, slivers, etc,. When the data provider's intention is that they match, then this predicate can be used to make that assertion. The provenance of the assertion maybe be recorded in the usual way in a Linkset.
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.opengis.net/ont/geosparql#Feature">geo:Feature</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.opengis.net/ont/geosparql#Feature">geo:Feature</a><sup class="sup-c" title="class">c</sup>
                 </td>
             </tr>
         </table>
@@ -545,120 +579,23 @@ The value should be taken from a controlled-vocabulary, and may be expressed as 
             </tr>
         </table>
     </div>
-    <div class="entity property" id="hasPart">
-        <h3>has part<sup title="object property" class="sup-op">op</sup></h3>
-        <table>
-            <tr>
-                <th>URI</th>
-                <td><code>https://linked.data.gov.au/def/loci#hasPart</code></td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>
-                    The context resource contains the target resource, in some geospatial, logical, ownership, governance, jurisidictional or compositional sense. 
-
-This predicate provides a convenient generalized or super-property-of containment relations with more specialized semantics. It may be useful in formulating some generalized SPARQL queries where any kind of containment relationship is intended. 
-
-Note that this property is **not transitive** though some sub-properties may be.
-                </td>
-            </tr>
-            <tr>
-                <th>Domain(s)</th>
-                <td>
-                    <a href="http://www.opengis.net/ont/geosparql#SpatialObject">geo:SpatialObject</a><sup class="sup-c" title="class">c</sup>
-                </td>
-            </tr>
-            <tr>
-                <th>Range(s)</th>
-                <td>
-                    <a href="http://www.opengis.net/ont/geosparql#SpatialObject">geo:SpatialObject</a><sup class="sup-c" title="class">c</sup>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class="entity property" id="isMemberOf">
-        <h3>is member of<sup title="object property" class="sup-op">op</sup></h3>
-        <table>
-            <tr>
-                <th>URI</th>
-                <td><code>https://linked.data.gov.au/def/loci#isMemberOf</code></td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>
-                    The context resource is a member of the target resource (a collection, aggregate or composite)
-                </td>
-            </tr>
-            <tr>
-                <th>Range(s)</th>
-                <td>
-                    <a href="#Loc-IDataset">loci:Dataset</a><sup class="sup-c" title="class">c</sup>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class="entity property" id="isPartOf">
-        <h3>is part of<sup title="object property" class="sup-op">op</sup></h3>
-        <table>
-            <tr>
-                <th>URI</th>
-                <td><code>https://linked.data.gov.au/def/loci#isPartOf</code></td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>
-                    The context resource is part of the target resource, in some geospatial, logical, ownership, governance, jurisidictional or compositional sense. 
-
-This predicate provides a convenient generalized or super-property-of contained-by relations with more specialized semantics. It may be useful in formulating some generalized SPARQL queries where any kind of containment relationship is intended. 
-
-Note that this property is **not transitive** though some sub-properties may be.
-                </td>
-            </tr>
-            <tr>
-                <th>Inverse properties</th>
-                <td>
-                    <a href="#hasPart">loci:hasPart</a><sup class="sup-op" title="object property">op</sup>
-                </td>
-            </tr>
-            <tr>
-                <th>Domain(s)</th>
-                <td>
-                    <a href="http://www.opengis.net/ont/geosparql#SpatialObject">geo:SpatialObject</a><sup class="sup-c" title="class">c</sup>
-                </td>
-            </tr>
-            <tr>
-                <th>Range(s)</th>
-                <td>
-                    <a href="http://www.opengis.net/ont/geosparql#SpatialObject">geo:SpatialObject</a><sup class="sup-c" title="class">c</sup>
-                </td>
-            </tr>
-        </table>
-    </div>
 </section>
   
   <section id="namespaces">
     <h2>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
     <dl>
-        <dt>asgs</dt>
-        <dd><code>https://linked.data.gov.au/def/asgs#</code></dd>
         <dt>dcat</dt>
         <dd><code>http://www.w3.org/ns/dcat#</code></dd>
         <dt>dcterms</dt>
         <dd><code>http://purl.org/dc/terms/</code></dd>
-        <dt>doap</dt>
-        <dd><code>http://usefulinc.com/ns/doap#</code></dd>
+        <dt>foaf</dt>
+        <dd><code>http://xmlns.com/foaf/0.1/</code></dd>
         <dt>geo</dt>
         <dd><code>http://www.opengis.net/ont/geosparql#</code></dd>
-        <dt>geox</dt>
-        <dd><code>https://linked.data.gov.au/def/geox#</code></dd>
         <dt>loci</dt>
         <dd><code>https://linked.data.gov.au/def/loci#</code></dd>
-        <dt>org</dt>
-        <dd><code>http://www.w3.org/ns/org#</code></dd>
         <dt>owl</dt>
         <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
-        <dt>prof</dt>
-        <dd><code>http://www.w3.org/ns/dx/prof/</code></dd>
         <dt>prov</dt>
         <dd><code>http://www.w3.org/ns/prov#</code></dd>
         <dt>rdf</dt>
