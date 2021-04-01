@@ -1,10 +1,8 @@
 # baseURI: https://linked.data.gov.au/def/loci
 # prefix: loci
 
-@prefix asgs: <https://linked.data.gov.au/def/asgs#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix loci: <https://linked.data.gov.au/def/loci#> .
@@ -35,12 +33,7 @@ The primary focus is on (a) datasets composed of multiple geospatial features (o
   skos:prefLabel "Loc-I Ontology"@en ;
   owl:versionIRI <https://linked.data.gov.au/def/loc/2.0> ;
   owl:versionInfo "v2.0: updated to match OGC API requirements"^^xsd:string ;
-  prov:wasGeneratedBy [
-      a doap:Project ;
-      a prov:Activity ;
-      doap:repository <https://github.com/CSIRO-enviro-informatics/loci-ont> ;
-      rdfs:label "Loc-I project"^^xsd:string ;
-    ] ;
+  sdo:codeRepository "https://github.com/CSIRO-enviro-informatics/loci-ont"^^xsd:anyURI ;
 .
 loci:Dataset
   a owl:Class ;
