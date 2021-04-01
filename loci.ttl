@@ -1,4 +1,6 @@
 # baseURI: https://linked.data.gov.au/def/loci
+# imports: https://linked.data.gov.au/def/geox
+# imports: http://schema.org/
 # imports: http://vocab.deri.ie/void
 # prefix: loci
 
@@ -8,6 +10,7 @@
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix geox: <https://linked.data.gov.au/def/geox#> .
 @prefix loci: <https://linked.data.gov.au/def/loci#> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -35,10 +38,11 @@
 
 The primary focus is on (a) datasets composed of multiple geospatial features (objects); (b) recording relationships between features, with metadata attached to reified rdf:Statements."""@en ;
   skos:prefLabel "Loc-I Ontology"@en ;
+  owl:imports <https://linked.data.gov.au/def/geox> ;
   owl:imports sdo: ;
   owl:imports <http://vocab.deri.ie/void> ;
   owl:versionIRI <https://linked.data.gov.au/def/loci/1.1> ;
-  owl:versionInfo "v2.0: updated to meet OGC API requirements"^^xsd:string ;
+  owl:versionInfo "v2.0: updated to match OGC API requirements"^^xsd:string ;
   prov:wasGeneratedBy [
       a doap:Project ;
       a prov:Activity ;
