@@ -8,7 +8,6 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix loci: <https://linked.data.gov.au/def/loci#> .
-@prefix org: <http://www.w3.org/ns/org#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prof: <http://www.w3.org/ns/dx/prof/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -34,7 +33,7 @@
 
 The primary focus is on (a) datasets composed of multiple geospatial features (objects); (b) recording relationships between features, with metadata attached to reified rdf:Statements."""@en ;
   skos:prefLabel "Loc-I Ontology"@en ;
-  owl:versionIRI <https://linked.data.gov.au/def/loci/1.1> ;
+  owl:versionIRI <https://linked.data.gov.au/def/loc/2.0> ;
   owl:versionInfo "v2.0: updated to match OGC API requirements"^^xsd:string ;
   prov:wasGeneratedBy [
       a doap:Project ;
@@ -62,7 +61,7 @@ loci:Dataset
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:onClass org:Organization ;
+      owl:onClass sdo:Organization ;
       owl:onProperty dcterms:publisher ;
       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
     ] ;
