@@ -1,6 +1,4 @@
 # baseURI: https://linked.data.gov.au/def/loci
-# imports: http://schema.org/
-# imports: http://vocab.deri.ie/void
 # prefix: loci
 
 @prefix asgs: <https://linked.data.gov.au/def/asgs#> .
@@ -36,8 +34,6 @@
 
 The primary focus is on (a) datasets composed of multiple geospatial features (objects); (b) recording relationships between features, with metadata attached to reified rdf:Statements."""@en ;
   skos:prefLabel "Loc-I Ontology"@en ;
-  owl:imports sdo: ;
-  owl:imports <http://vocab.deri.ie/void> ;
   owl:versionIRI <https://linked.data.gov.au/def/loci/1.1> ;
   owl:versionInfo "v2.0: updated to match OGC API requirements"^^xsd:string ;
   prov:wasGeneratedBy [
