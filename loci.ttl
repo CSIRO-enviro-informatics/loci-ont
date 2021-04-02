@@ -49,6 +49,7 @@ loci:Dataset
   skos:prefLabel "Dataset"@en ;
   rdfs:subClassOf void:Dataset ;
   rdfs:subClassOf dcat:Dataset ;
+  skos:editorialNote "Requirements for the presence of other properties of Dataset may be conveyed in constraint language resource, not this ontology."@en ;
   skos:historyNote """Loc-I Ontology versions prior to v2.0 placed restrictions on this class for data validation, however as of v2.0, validation of Loc-I ontology data is expected to be done with contraint language validators (e.g. SHACL), not with ontology rules. Thos validators may target this specialised class for validation. Also, prior to v2.0, this class' definition focussed on governance however this emphasis has been removed in v2.0 and left to non ontology proceeses."""@en ;
 .
 loci:FeatureCollection
@@ -59,6 +60,7 @@ loci:FeatureCollection
 This class is the equivalent to 'collection' in the OGC API:Features specification.
 
 Loc-I Feature Collection instances are always part of one and only one Loc-I Dataset instance and always have an identifier that can be used in OGC API:Feature instance."""@en ;
+  skos:editorialNote "Requirements for the presence of other properties of Feature Collection may be conveyed in constraint language resource, not this ontology."@en ;
   skos:prefLabel "Feature Collection"@en ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -79,12 +81,13 @@ loci:Feature
 
 Loc-I Deature instances always have at least one Geometry.
 
-Loc-I Feature instances are always part of one and only one Loc-I FeatureCollection instance and always have an identifier that can be used in OGC API:Feature instance."""@en ;
+Loc-I Feature instances are always part of at least one Loc-I FeatureCollection instance and always have an identifier that can be used in OGC API:Feature instance."""@en ;
+  skos:editorialNote "Requirements for the presence of other properties of Feature may be conveyed in constraint language resource, not this ontology."@en ;
   skos:prefLabel "Feature"@en ;
   rdfs:subClassOf geo:Feature ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:allValuesFrom loci:FeatureCollection ;
       owl:onProperty dcterms:isPartOf ;
   ] ;
@@ -109,13 +112,9 @@ Linking Statements are always part of a single `loci:Linkset` instance.
 
 They always indicate the method used to generate them (the Feature/Feature link)."""@en ;
   skos:editorialNote "Linking Statement are just rdf:Statements use as per standard reification practice in VoID for describing links in Linksets however they are distinguished so validation systems can target them separately from any other rdf:Statement instances that may occure elsewhere in Loc-I data."@en ;
+  skos:editorialNote "Requirements for the presence of other properties of Linking Statement may be conveyed in constraint language resource, not this ontology."@en ;
   skos:prefLabel "Linking Statement"@en ;
   rdfs:subClassOf rdf:Statement ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty rdf:object ;
-    ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -125,6 +124,11 @@ They always indicate the method used to generate them (the Feature/Feature link)
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty rdf:predicate ;
+    ] ;    
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty rdf:object ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -143,12 +147,14 @@ loci:Linkset
   a owl:Class ;
   skos:definition """A Loc-I Linkset is a specialised form of a VoID Linkset that requires the `void:subjectsTarget` & `void:objectsTarget` to indicate Loc-I Datasets.
   
-Loc-I Linkset instnaces are expected to contain metadata as per Loc-I Datasets and a list of Loc-I Linking Statements."""@en ;
+Loc-I Linkset instnaces are expected to contain metadata as per Loc-I Datasets and a list of one or more Loc-I Linking Statements."""@en ;
+  skos:editorialNote "Requirements for the presence of other properties of Linkset may be conveyed in constraint language resource, not this ontology."@en ;
   skos:prefLabel "Linkset"@en ;
   rdfs:subClassOf loci:Dataset ;
   rdfs:subClassOf void:Linkset ;
   rdfs:subClassOf [
       a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:allValuesFrom loci:LinkingStatement ;
       owl:onProperty rdfs:member ;
     ] ;
