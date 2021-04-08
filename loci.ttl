@@ -40,7 +40,7 @@
   dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
   dcterms:creator <https://orcid.org/0000-0002-8742-7730> ;
   dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
-  dcterms:modified "2020-04-29"^^xsd:date ;
+  dcterms:modified "2021-04-08"^^xsd:date ;
   rdfs:comment """An ontology to govern Linked Data resources published within the [Loc-I](https://confluence.csiro.au/display/DIPAAnalyticHubs/Location+Integration+Capability+Loc-I) project.
 
 The primary focus is on (a) datasets composed of multiple geospatial features (objects); (b) recording relationships between features, with metadata attached to reified rdf:Statements. """ ;
@@ -332,6 +332,20 @@ Care should be taken for relationships between features from different datasets,
 
 LOCI Linking Statements provide a richer mechanisms for relationships between features from different datasets, including temporal scope. """ ;
 .
+loci:entityLifecycle
+  a owl:ObjectProperty ;
+  rdfs:comment "Information about the lifecycle of this Dataset, Location (feature) or Linking-Statement" ;
+  rdfs:domain [
+      a owl:Class ;
+      owl:unionOf (
+          loci:Feature
+          loci:Dataset
+          loci:LinkingStatement
+        ) ;
+    ] ;
+  rdfs:label "lifecycle of this resource" ;
+  rdfs:range time:Interval ;
+.
 loci:hadGenerationMethod
   a owl:ObjectProperty ;
   dcterms:description "The method that was used to generate this Linking Statement"@en ;
@@ -419,20 +433,6 @@ loci:recordLifecycle
   rdfs:label "lifecycle of this record" ;
   rdfs:range time:Interval ;
 .
-loci:resourceLifecycle
-  a owl:ObjectProperty ;
-  rdfs:comment "Information about the lifecycle of this Dataset, Location (feature) or Linking-Statement" ;
-  rdfs:domain [
-      a owl:Class ;
-      owl:unionOf (
-          loci:Feature
-          loci:Dataset
-          loci:LinkingStatement
-        ) ;
-    ] ;
-  rdfs:label "lifecycle of this resource" ;
-  rdfs:range time:Interval ;
-.
 loci:sfRelation
   a owl:ObjectProperty ;
   rdfs:comment "Superset of all the sf* properties from GeoSPARQL" ;
@@ -483,7 +483,6 @@ geo:sfWithin
   schema:email <mailto:simon.cox@csiro.au> ;
   schema:identifier "https://orcid.org/0000-0002-3884-3420"^^xsd:anyURI ;
   schema:name "Simon J D Cox" ;
-  schema:name "Simon J D Cox"@en ;
   schema:subjectOf <https://people.csiro.au/C/S/simon-cox> ;
 .
 <https://orcid.org/0000-0002-4643-7289>
@@ -494,7 +493,7 @@ geo:sfWithin
     ] ;
   schema:email <mailto:irina.bastrakova@ga.gov.au> ;
   schema:identifier "https://orcid.org/0000-0002-4643-7289"^^xsd:anyURI ;
-  schema:name "Irina Bastrakova"@en ;
+  schema:name "Irina Bastrakova" ;
 .
 <https://orcid.org/0000-0002-8742-7730>
   a schema:Person ;
@@ -508,7 +507,6 @@ geo:sfWithin
     ] ;
   schema:email <mailto:nicholas.car@surroundaustralia.com> ;
   schema:identifier "https://orcid.org/0000-0002-8742-7730"^^xsd:anyURI ;
-  schema:name "Nicholas Car"@en ;
   schema:name "Nicholas J Car" ;
 .
 <https://orcid.org/0000-0003-3425-0780>
@@ -519,5 +517,5 @@ geo:sfWithin
     ] ;
   schema:email <mailto:armin.haller@anu.edu.au> ;
   schema:identifier "https://orcid.org/0000-0003-3425-0780"^^xsd:anyURI ;
-  schema:name "Armin Haller"@en ;
+  schema:name "Armin Haller" ;
 .
