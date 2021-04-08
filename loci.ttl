@@ -20,18 +20,12 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix schema: <http://schema.org/> .
-@prefix sdo: <https://schema.org/> .
+@prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://catalogue.linked.data.gov.au/org/csiro>
-  a schema:Organization ;
-  schema:name "CSIRO Australia" ;
-  schema:subjectOf <https://csiro.au> ;
-.
 <http://linked.data.gov.au/def/loci>
   a owl:Ontology ;
   a prof:Profile ;
@@ -85,19 +79,13 @@ The primary focus is on (a) datasets composed of multiple geospatial features (o
       a doap:Project ;
       a prov:Activity ;
       doap:repository <https://github.com/CSIRO-enviro-informatics/loci-ont> ;
-      rdfs:label "Loc-I project" ;
+      rdfs:label "Loc-I project"^^xsd:string ;
     ] ;
-.
-loci:DataPublisher
-  a owl:Class ;
-  rdfs:comment "The set of all approved publishers of Loc-I data, all of whom are known"@en ;
-  rdfs:label "Loc-I Data Publishers" ;
-  rdfs:subClassOf foaf:Group ;
 .
 loci:Dataset
   a owl:Class ;
-  rdfs:comment "A Loc-I Dataset is a DCAT and VOID Dataset that has been accepted by the Loc-I Registry Manager."@en ;
-  rdfs:label "Loc-I Dataset" ;
+  skos:definition "A Loc-I Dataset is a DCAT and VOID Dataset that has been accepted by the Loc-I Registry Manager."@en ;
+  skos:prefLabel "Loc-I Dataset"@en ;
   rdfs:subClassOf void:Dataset ;
   rdfs:subClassOf rdf:Bag ;
   rdfs:subClassOf dcat:Dataset ;
@@ -140,12 +128,7 @@ loci:Dataset
       owl:onProperty dcterms:title ;
       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
     ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:allValuesFrom loci:DataPublisher ;
-      owl:onProperty dcterms:publisher ;
-    ] ;
-  skos:editorialNote "Membership of a loci:Dataset is (a) geo:Feature (Loc-I conformant) (b) loci:LinkingStatement (c) related types, such as PlaceNames" ;
+  skos:editorialNote "Membership of a loci:Dataset is (a) geo:Feature (Loc-I conformant) (b) loci:LinkingStatement (c) related types, such as PlaceNames"@en ;
 .
 loci:Feature
   a owl:Class ;
@@ -296,8 +279,8 @@ my:Link89_1
 .
 loci:Linkset
   a owl:Class ;
-  rdfs:comment "A Loc-I Linkset is a specialised form of a VoID Linkset that requires the void:subjectsTarget & void:objectsTarget indicate Loc-I Datasets"@en ;
-  rdfs:label "Loc-I Linkset" ;
+  skos:definition "A Loc-I Linkset is a specialised form of a VoID Linkset that requires the void:subjectsTarget & void:objectsTarget indicate Loc-I Datasets"@en ;
+  skos:prefLabel "Loc-I Linkset"@en ;
   rdfs:subClassOf loci:Dataset ;
   rdfs:subClassOf void:Linkset ;
   rdfs:subClassOf [
@@ -440,9 +423,10 @@ loci:sfRelation
 .
 dcterms:type
   a owl:ObjectProperty ;
-  dcterms:description """In the context of Loc-I datasets, `dcterms:type` is used for an additional classifier, such as a place-type or meshblock-category. 
+  skos:definition """In the context of Loc-I datasets, `dcterms:type` is used for an additional classifier, such as a place-type or meshblock-category. 
 
-The value should be taken from a controlled-vocabulary, and may be expressed as a `skos:Concept` or an `rdfs:Class` or some other kind of resource providing it is from a well-governed source. """ ;
+The value should be taken from a controlled-vocabulary, and may be expressed as a `skos:Concept` or an `rdfs:Class` or some other kind of resource providing it is from a well-governed source."""@en ;
+  skos:prefLabel "type"@en ;
 .
 geo:sfContains
   rdfs:subPropertyOf loci:contains ;
@@ -474,7 +458,6 @@ geo:sfWithin
 .
 <https://orcid.org/0000-0002-3884-3420>
   a schema:Person ;
-  schema:affiliation <http://catalogue.linked.data.gov.au/org/csiro> ;
   schema:affiliation [
       schema:identifier "http://catalogue.linked.data.gov.au/org/csiro"^^xsd:anyURI ;
       schema:name "CSIRO" ;
@@ -496,10 +479,6 @@ geo:sfWithin
 .
 <https://orcid.org/0000-0002-8742-7730>
   a schema:Person ;
-  schema:affiliation [
-      a schema:Organization ;
-      schema:name "Surround Australia" ;
-    ] ;
   schema:affiliation [
       schema:name "Surround Australia" ;
       schema:uri <https://surroundaustralia.com/> ;

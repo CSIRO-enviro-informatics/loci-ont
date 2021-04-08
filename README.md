@@ -1,20 +1,19 @@
 # LOC-I Ontology
-A profile of several ontologies implemented to govern Linked Data resources published within the LOC-I project.
+An ontology for Linked Data resources published within the [Loc-I](https://www.ga.gov.au/locationindex) project.
 
-This is a profile of the [GeoSPARQL](http://www.opengeospatial.org/standards/geosparql) and [DCAT v2](https://www.w3.org/TR/vocab-dcat-2/) & [VOID](http://www.w3.org/TR/void/) that require certain properties defined by those ontologies be present for several classes of resource that are of particular importance to the [LOC-I](https://confluence.csiro.au/display/DIPAAnalyticHubs/Location+Integration+Capability+Loc-I) project.
+The primary focus is on (a) datasets composed of multiple geospatial features (objects); (b) recording relationships between features, with metadata attached to Linking Statements.
 
-This ontology constrains both normative instruction on what constitutes LOC-I objects and supplies executable constraints to validate instances.
-
-![](images/model.svg)
+![](images/loci.png)
 **Figure 1**: a diagrammatic version of this ontology's model
+
+This is version 1.1 of this ontology.
 
 ## Contents
 The resources in this profile are:
-* **[model.html](loci.html)** - normative definitions of classes defined by this ontology that are equivalent to constrained vclasses defined by ontologies this profiles
-* **[loci.ttl](model.ttl)** - RDF version of the model
-* **[model.png](images/model.png)** - a diagram version of the model (also Figure 1 above)
-* **[profile.ttl](profile.ttl)** - a formal description of how this ontology profiles other ontologies, using the [Profiles Ontology](https://w3c.github.io/dxwg/profilesont/)
-* **[constraints-shacl.ttl](constraints-shacl.ttl)** - RDF data shape constraints using the [Shapes Constraint Language, SHACL](https://www.w3.org/TR/shacl/) to be used to validate LOC-I class & property instances
+* **[loci.html](loci.html)** - HTML documented version of the ontology
+    * see this online at <https://linked.data.gov.au/def/loci>
+* **[loci.ttl](loci.ttl)** - RDF version of the ontology
+* **[loci.png](images/loci.png)** - a diagram version of the model (also Figure 1 above)
 
 
 ## License
@@ -24,11 +23,16 @@ The content of this API is licensed for use under the [Creative Commons 4.0 Lice
 ## Citation
 If you wish to cite this profile, please do so like this:
 
-Car, N.J. (2018) "LOC-I Ontology". An OWL ontology and profile of other ontologies. http://linked.data.gov.au/def/loci
+Car, N.J. & Cox, S.J.D. (2018) "LOC-I Ontology". An OWL ontology. https://linked.data.gov.au/def/loci
 
 
 ## Contacts
-*author*:  
-**Nicholas Car**  
-CSIRO Land & Water, Environmental Informatics Group  
-<nicholas.car@csiro.au>
+*creators*:  
+**Nicholas J. Car**  
+SURROUND Australia Pty Ltd.  
+*formerly of CSIRO Land & Water, Environmental Informatics Group*  
+<nicholas.car@surrounduastralia.com>  
+
+**Simon J.D. Cox**  
+*CSIRO Land & Water, Environmental Informatics Group*  
+<simon.cox@csiro.au>
