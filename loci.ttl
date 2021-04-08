@@ -111,6 +111,8 @@ The primary focus is on (a) datasets composed of multiple geospatial features (o
     ] ;
   prof:hasToken "loci"^^xsd:token ;
   prof:isProfileOf <http://rdfs.org/ns/void> ;
+  prof:isProfileOf <http://www.opengis.net/ont/geosparql> ;
+  schema:codeRepository <https://github.com/CSIRO-enviro-informatics/loci-ont> ;
 .
 loci:Dataset
   a owl:Class ;
