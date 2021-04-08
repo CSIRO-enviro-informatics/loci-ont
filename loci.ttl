@@ -1,21 +1,15 @@
-# baseURI: http://linked.data.gov.au/def/loci
+# baseURI: https://linked.data.gov.au/def/loci
 # imports: http://purl.org/dc/elements/1.1/
 # imports: http://vocab.deri.ie/void
 # imports: http://www.opengis.net/ont/geosparql
-# imports: http://www.w3.org/2006/time
 # imports: https://schema.org/
 # prefix: loci
 
-@prefix asgs: <http://linked.data.gov.au/def/asgs#> .
 @prefix cdt: <http://w3id.org/lindt/custom_datatypes#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix doap: <http://usefulinc.com/ns/doap#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix loci: <http://linked.data.gov.au/def/loci#> .
-@prefix my: <http://example.org/loci-test/> .
-@prefix org: <http://www.w3.org/ns/org#> .
+@prefix loci: <https://linked.data.gov.au/def/loci#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prof: <http://www.w3.org/ns/dx/prof/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -23,11 +17,10 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix time: <http://www.w3.org/2006/time#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://linked.data.gov.au/def/loci>
+<https://linked.data.gov.au/def/loci>
   a owl:Ontology ;
   a prof:Profile ;
   dcterms:created "2018-10-29"^^xsd:date ;
@@ -42,12 +35,12 @@ The primary focus is on (a) datasets composed of multiple geospatial features (o
   owl:imports <http://purl.org/dc/elements/1.1/> ;
   owl:imports <http://vocab.deri.ie/void> ;
   owl:imports <http://www.opengis.net/ont/geosparql> ;
-  owl:imports <http://www.w3.org/2006/time> ;
   owl:imports schema: ;
-  owl:versionIRI <http://linked.data.gov.au/def/loci/2.0> ;
+  owl:versionIRI <https://linked.data.gov.au/def/loci/2.0> ;
   owl:versionInfo "2.0 alpha"@en ;
   skos:changeNote "2021-02-24 - revise relationship predicates - 1. basic relations contains, isWithin, isDisjointWith, isEquivalentTo 2. super-property sfRelation " ;
   skos:changeNote "2021-03-25 - simple loci:hasArea property whose value is a structured literal (cdt:ucum)" ;
+  skos:changeNote "2021-04-08 - Update loci namespace to https, version information to 2.0 alpha" ;
   prof:hasResource [
       a prof:ResourceDescriptor ;
       dcterms:format <https://w3id.org/mediatype/image/svg> ;
@@ -79,12 +72,7 @@ The primary focus is on (a) datasets composed of multiple geospatial features (o
   prof:hasToken "loci"^^xsd:token ;
   prof:isProfileOf <http://rdfs.org/ns/void> ;
   prof:isProfileOf <http://www.opengis.net/ont/geosparql> ;
-  prov:wasGeneratedBy [
-      a doap:Project ;
-      a prov:Activity ;
-      doap:repository <https://github.com/CSIRO-enviro-informatics/loci-ont> ;
-      rdfs:label "Loc-I project" ;
-    ] ;
+  schema:codeRepository <https://github.com/CSIRO-enviro-informatics/loci-ont> ;
 .
 loci:Dataset
   a owl:Class ;
@@ -108,7 +96,7 @@ loci:Dataset
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:onClass org:Organization ;
+      owl:onClass schema:Organization ;
       owl:onProperty dcterms:publisher ;
       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
     ] ;
