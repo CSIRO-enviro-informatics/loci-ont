@@ -6,7 +6,7 @@ The primary focus is on (a) datasets composed of multiple geospatial features (o
 ![](images/loci.png)
 **Figure 1**: a diagrammatic version of this ontology's model
 
-This is version 1.1 of this ontology.
+This is version 2.0 (alpha) of this ontology.
 
 ## Contents
 The resources in this profile are:
@@ -17,7 +17,7 @@ The resources in this profile are:
 
 
 ## License
-The content of this API is licensed for use under the [Creative Commons 4.0 License](https://creativecommons.org/licenses/by/4.0/). See the [license deed](LICENSE) all details.
+The content of this API is licensed for use under the [Creative Commons Public Domain license](https://creativecommons.org/publicdomain/zero/1.0/). See the [license deed](LICENSE) all details.
 
 
 ## Citation

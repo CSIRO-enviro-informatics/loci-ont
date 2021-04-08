@@ -1,8 +1,9 @@
 # baseURI: https://linked.data.gov.au/def/loci
-# imports: http://www.opengis.net/ont/geosparql
-# imports: http://schema.org/
+# imports: http://purl.org/dc/elements/1.1/
 # imports: http://vocab.deri.ie/void
+# imports: http://www.opengis.net/ont/geosparql
 # imports: http://www.w3.org/2006/time
+# imports: https://schema.org/
 # prefix: loci
 
 @prefix cdt: <http://w3id.org/lindt/custom_datatypes#> .
@@ -21,9 +22,45 @@
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+dcterms:type
+  a owl:ObjectProperty ;
+  skos:definition """In the context of Loc-I datasets, `dcterms:type` is used for an additional classifier, such as a place-type or meshblock-category. 
+
+The value should be taken from a controlled-vocabulary, and may be expressed as a `skos:Concept` or an `rdfs:Class` or some other kind of resource providing it is from a well-governed source."""@en ;
+  skos:prefLabel "type"@en ;
+.
+geo:sfContains
+  rdfs:subPropertyOf loci:contains ;
+  rdfs:subPropertyOf loci:sfRelation ;
+.
+geo:sfCrosses
+  rdfs:subPropertyOf loci:sfRelation ;
+.
+geo:sfDisjoint
+  rdfs:subPropertyOf loci:isDisjointWith ;
+  rdfs:subPropertyOf loci:sfRelation ;
+.
+geo:sfEquals
+  rdfs:subPropertyOf loci:isEquivalentTo ;
+  rdfs:subPropertyOf loci:sfRelation ;
+.
+geo:sfIntersects
+  rdfs:subPropertyOf loci:sfRelation ;
+.
+geo:sfOverlaps
+  rdfs:subPropertyOf loci:sfRelation ;
+.
+geo:sfTouches
+  rdfs:subPropertyOf loci:sfRelation ;
+.
+geo:sfWithin
+  rdfs:subPropertyOf loci:isWithin ;
+  rdfs:subPropertyOf loci:sfRelation ;
+.
 <https://linked.data.gov.au/def/loci>
   a owl:Ontology ;
   a prof:Profile ;
+  dcterms:contributor <https://orcid.org/0000-0002-9265-6941> ;
   dcterms:created "2018-10-29"^^xsd:date ;
   dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
   dcterms:creator <https://orcid.org/0000-0002-8742-7730> ;
@@ -31,15 +68,19 @@
   dcterms:modified "2021-04-08"^^xsd:date ;
   rdfs:comment """An ontology to govern Linked Data resources published within the [Loc-I](https://confluence.csiro.au/display/DIPAAnalyticHubs/Location+Integration+Capability+Loc-I) project.
 
-The primary focus is on (a) datasets composed of multiple geospatial features (objects); (b) recording relationships between features, with metadata attached to reified rdf:Statements. """ ;
+The primary focus is on (a) datasets composed of multiple geospatial features (objects); (b) recording relationships between features, with metadata attached to Linking Statements. """ ;
   rdfs:label "Loc-I Ontology" ;
-  owl:imports <http://www.opengis.net/ont/geosparql> ;
-  owl:imports schema: ;
+  owl:imports <http://purl.org/dc/elements/1.1/> ;
   owl:imports <http://vocab.deri.ie/void> ;
+  owl:imports <http://www.opengis.net/ont/geosparql> ;
   owl:imports <http://www.w3.org/2006/time> ;
-  owl:versionIRI <http://linked.data.gov.au/def/loci/1.1> ;
-  owl:versionInfo "Beta version"@en ;
-  skos:editorialNote "Should we have local versions of the temporal properties dcterms:valid and dcterms:created?" ;
+  owl:imports schema: ;
+  owl:versionIRI <https://linked.data.gov.au/def/loci/2.0> ;
+  owl:versionInfo "2.0 alpha"@en ;
+  skos:changeNote "2021-02-24 - revise relationship predicates - 1. basic relations contains, isWithin, isDisjointWith, isEquivalentTo 2. super-property sfRelation " ;
+  skos:changeNote "2021-03-25 - Temporal tags - entityLifecycle for details of the thing in the world; recordLifecycle for details of the linked-data-representation" ;
+  skos:changeNote "2021-03-25 - simple loci:hasArea property whose value is a structured literal (cdt:ucum)" ;
+  skos:changeNote "2021-04-08 - Update loci namespace to https, version information to 2.0 alpha" ;
   prof:hasResource [
       a prof:ResourceDescriptor ;
       dcterms:format <https://w3id.org/mediatype/image/svg> ;
@@ -73,8 +114,6 @@ The primary focus is on (a) datasets composed of multiple geospatial features (o
 .
 loci:Dataset
   a owl:Class ;
-  skos:definition "A Loc-I Dataset is a DCAT and VOID Dataset that has been accepted by the Loc-I Registry Manager."@en ;
-  skos:prefLabel "Loc-I Dataset"@en ;
   rdfs:subClassOf void:Dataset ;
   rdfs:subClassOf rdf:Bag ;
   rdfs:subClassOf dcat:Dataset ;
@@ -117,7 +156,11 @@ loci:Dataset
       owl:onProperty dcterms:title ;
       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
     ] ;
+  skos:definition "A Loc-I Dataset is a DCAT and VOID Dataset that has been accepted by the Loc-I Registry Manager."@en ;
   skos:editorialNote "Membership of a loci:Dataset is (a) geo:Feature (Loc-I conformant) (b) loci:LinkingStatement (c) related types, such as PlaceNames"@en ;
+  skos:prefLabel "Loc-I Dataset"@en ;
+  prof:isProfileOf <http://www.opengis.net/ont/geosparql> ;
+  schema:codeRepository <https://github.com/CSIRO-enviro-informatics/loci-ont> ;
 .
 loci:Feature
   a owl:Class ;
@@ -143,14 +186,14 @@ loci:Feature
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onClass loci:Dataset ;
-      owl:onProperty loci:isMemberOf ;
+      owl:onClass geo:Geometry ;
+      owl:onProperty geo:hasGeometry ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onClass geo:Geometry ;
-      owl:onProperty geo:hasGeometry ;
+      owl:onClass loci:Dataset ;
+      owl:onProperty loci:isMemberOf ;
     ] ;
 .
 loci:Lifecycle
@@ -171,16 +214,6 @@ loci:Lifecycle
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty dcterms:replaces ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty time:hasBeginning ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty time:hasEnd ;
     ] ;
 .
 loci:LinkingStatement
@@ -217,14 +250,14 @@ loci:LinkingStatement
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:onClass loci:Linkset ;
-      owl:onProperty loci:isMemberOf ;
+      owl:onClass prov:Plan ;
+      owl:onProperty loci:hadGenerationMethod ;
       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:onClass prov:Plan ;
-      owl:onProperty loci:hadGenerationMethod ;
+      owl:onClass loci:Linkset ;
+      owl:onProperty loci:isMemberOf ;
       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
     ] ;
   skos:editorialNote "A separate date of creation may be useful in some scenarios" ;
@@ -268,10 +301,8 @@ my:Link89_1
 .
 loci:Linkset
   a owl:Class ;
-  skos:definition "A Loc-I Linkset is a specialised form of a VoID Linkset that requires the void:subjectsTarget & void:objectsTarget indicate Loc-I Datasets"@en ;
-  skos:prefLabel "Loc-I Linkset"@en ;
-  rdfs:subClassOf loci:Dataset ;
   rdfs:subClassOf void:Linkset ;
+  rdfs:subClassOf loci:Dataset ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:allValuesFrom loci:LinkingStatement ;
@@ -287,6 +318,8 @@ loci:Linkset
       owl:allValuesFrom loci:Dataset ;
       owl:onProperty void:subjectsTarget ;
     ] ;
+  skos:definition "A Loc-I Linkset is a specialised form of a VoID Linkset that requires the void:subjectsTarget & void:objectsTarget indicate Loc-I Datasets"@en ;
+  skos:prefLabel "Loc-I Linkset"@en ;
 .
 loci:contains
   a owl:ObjectProperty ;
@@ -409,41 +442,6 @@ loci:sfRelation
   rdfs:comment "Superset of all the sf* properties from GeoSPARQL" ;
   rdfs:label "sf Relation" ;
   rdfs:subPropertyOf dcterms:relation ;
-.
-dcterms:type
-  a owl:ObjectProperty ;
-  skos:definition """In the context of Loc-I datasets, `dcterms:type` is used for an additional classifier, such as a place-type or meshblock-category. 
-
-The value should be taken from a controlled-vocabulary, and may be expressed as a `skos:Concept` or an `rdfs:Class` or some other kind of resource providing it is from a well-governed source."""@en ;
-  skos:prefLabel "type"@en ;
-.
-geo:sfContains
-  rdfs:subPropertyOf loci:contains ;
-  rdfs:subPropertyOf loci:sfRelation ;
-.
-geo:sfCrosses
-  rdfs:subPropertyOf loci:sfRelation ;
-.
-geo:sfDisjoint
-  rdfs:subPropertyOf loci:isDisjointWith ;
-  rdfs:subPropertyOf loci:sfRelation ;
-.
-geo:sfEquals
-  rdfs:subPropertyOf loci:isEquivalentTo ;
-  rdfs:subPropertyOf loci:sfRelation ;
-.
-geo:sfIntersects
-  rdfs:subPropertyOf loci:sfRelation ;
-.
-geo:sfOverlaps
-  rdfs:subPropertyOf loci:sfRelation ;
-.
-geo:sfTouches
-  rdfs:subPropertyOf loci:sfRelation ;
-.
-geo:sfWithin
-  rdfs:subPropertyOf loci:isWithin ;
-  rdfs:subPropertyOf loci:sfRelation ;
 .
 <https://orcid.org/0000-0002-3884-3420>
   a schema:Person ;
