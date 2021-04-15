@@ -1,15 +1,14 @@
-# baseURI: https://linked.data.gov.au/def/loci
+# baseURI: http://linked.data.gov.au/def/loci
 # imports: http://purl.org/dc/elements/1.1/
 # imports: http://vocab.deri.ie/void
 # imports: http://www.opengis.net/ont/geosparql
-# imports: https://schema.org/
 # prefix: loci
 
 @prefix cdt: <http://w3id.org/lindt/custom_datatypes#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix loci: <https://linked.data.gov.au/def/loci#> .
+@prefix loci: <http://linked.data.gov.au/def/loci#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prof: <http://www.w3.org/ns/dx/prof/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -20,14 +19,14 @@
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://linked.data.gov.au/def/loci>
+<http://linked.data.gov.au/def/loci>
   a owl:Ontology ;
   a prof:Profile ;
   dcterms:created "2018-10-29"^^xsd:date ;
   dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
   dcterms:creator <https://orcid.org/0000-0002-8742-7730> ;
   dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
-  dcterms:modified "2021-04-08"^^xsd:date ;
+  dcterms:modified "2021-04-15"^^xsd:date ;
   rdfs:comment """An ontology to govern Linked Data resources published within the [Loc-I](https://confluence.csiro.au/display/DIPAAnalyticHubs/Location+Integration+Capability+Loc-I) project.
 
 The primary focus is on (a) datasets composed of multiple geospatial features (objects); (b) recording relationships between features, with metadata attached to Linking Statements. """ ;
@@ -35,12 +34,11 @@ The primary focus is on (a) datasets composed of multiple geospatial features (o
   owl:imports <http://purl.org/dc/elements/1.1/> ;
   owl:imports <http://vocab.deri.ie/void> ;
   owl:imports <http://www.opengis.net/ont/geosparql> ;
-  owl:imports schema: ;
   owl:versionIRI <https://linked.data.gov.au/def/loci/2.0> ;
   owl:versionInfo "2.0 alpha"@en ;
   skos:changeNote "2021-02-24 - revise relationship predicates - 1. basic relations contains, isWithin, isDisjointWith, isEquivalentTo 2. super-property sfRelation " ;
   skos:changeNote "2021-03-25 - simple loci:hasArea property whose value is a structured literal (cdt:ucum)" ;
-  skos:changeNote "2021-04-08 - Update loci namespace to https, version information to 2.0 alpha" ;
+  skos:changeNote "2021-04-15 - Update version information to 2.0 alpha" ;
   prof:hasResource [
       a prof:ResourceDescriptor ;
       dcterms:format <https://w3id.org/mediatype/image/svg> ;
