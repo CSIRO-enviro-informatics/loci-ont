@@ -2,7 +2,7 @@
 # imports: http://linked.data.gov.au/def/asgs
 # imports: http://linked.data.gov.au/def/asgs/cat
 # imports: http://linked.data.gov.au/def/asgs/id
-# imports: http://linked.data.gov.au/def/loci
+# imports: https://linked.data.gov.au/def/loci
 # prefix: asgs-loci
 
 @prefix asgs: <http://linked.data.gov.au/def/asgs#> .
@@ -34,6 +34,6 @@ Users of ASGS in the context of LOCI should <import> this graph rather than just
   owl:imports <http://linked.data.gov.au/def/asgs> ;
   owl:imports <http://linked.data.gov.au/def/asgs/cat> ;
   owl:imports <http://linked.data.gov.au/def/asgs/id> ;
-  owl:imports <http://linked.data.gov.au/def/loci> ;
+  owl:imports <https://linked.data.gov.au/def/loci> ;
   sdo:codeRepository <https://github.com/AGLDWG/asgs-ont/> ;
 .
