@@ -1,11 +1,11 @@
-# baseURI: https://linked.data.gov.au/def/loci
+# baseURI: http://linked.data.gov.au/def/loci
 # prefix: loci
 
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix loci: <https://linked.data.gov.au/def/loci#> .
+@prefix loci: <http://linked.data.gov.au/def/loci#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -16,20 +16,20 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 
-<https://linked.data.gov.au/def/loci>
+<http://linked.data.gov.au/def/loci>
   a owl:Ontology ;
   dcterms:created "2018-10-29"^^xsd:date ;
   dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
   dcterms:creator <https://orcid.org/0000-0002-8742-7730> ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
   dcterms:modified "2021-04-01"^^xsd:date ;
-  dcterms:publisher <https://linked.data.gov.au/org/csiro> ;  
+  dcterms:publisher <http://linked.data.gov.au/org/csiro> ;  
   dcterms:rights "(c) Commonwealth of Australia (CSIRO), 2021"^^xsd:string ;
   skos:definition """An ontology to describe spatial Linked Data resources as used within the [Loc-I project](https://www.ga.gov.au/locationindex).
 
 This ontology's core taxonomy is Dataset, FeatureCollection, Feature & Geometry which serve to bundle of spatial feature instances and link them to geometries. The secondary taxonomy is Linkset & LinkingStatement whereby links between Datasets are bundled."""@en ;
   skos:prefLabel "Loc-I Ontology"@en ;
-  owl:versionIRI <https://linked.data.gov.au/def/loc/2.0> ;
+  owl:versionIRI <http://linked.data.gov.au/def/loc/2.0> ;
   owl:versionInfo """v2.0:  
 * updated to match OGC API requirements;  
 * removed unnecissary imports;
@@ -200,14 +200,14 @@ The value should be taken from a controlled-vocabulary, and may be expressed as 
   skos:prefLabel "type"@en ;
 .
 
-<https://linked.data.gov.au/org/csiro>
+<http://linked.data.gov.au/org/csiro>
   a sdo:Organization ;
   sdo:name "CSIRO" ;
   sdo:subjectOf "https://www.csiro.au"^^xsd:anyURI ;
 .
 <https://orcid.org/0000-0002-3884-3420>
   a sdo:Person ;
-  sdo:affiliation <https://linked.data.gov.au/org/csiro> ;
+  sdo:affiliation <http://linked.data.gov.au/org/csiro> ;
   sdo:identifier "https://orcid.org/0000-0002-3884-3420"^^xsd:anyURI ;
   sdo:name "Simon JD Cox" ;
   sdo:subjectOf <https://people.csiro.au/C/S/simon-cox> ;

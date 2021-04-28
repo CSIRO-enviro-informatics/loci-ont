@@ -11,7 +11,7 @@ This is verion 1.1 of this ontology.
 ## Contents
 The resources in this profile are:
 * **[loci.html](loci.html)** - nHTML odcumented version of the ontology
-    * see this live, online at <https://linked.data.gov.au/def/loci>
+    * see this live, online at <http://linked.data.gov.au/def/loci>
 * **[loci.ttl](loci.ttl)** - RDF version of the ontology
 * **[loci.png](images/loci.png)** - a diagram version of the model (also Figure 1 above)
 
@@ -23,7 +23,7 @@ The content of this API is licensed for use under the [Creative Commons 4.0 Lice
 ## Citation
 If you wish to cite this profile, please do so like this:
 
-Car, N.J. & Cox, S.J.D. (2018) "LOC-I Ontology". An OWL ontology. https://linked.data.gov.au/def/loci
+Car, N.J. & Cox, S.J.D. (2018) "LOC-I Ontology". An OWL ontology. http://linked.data.gov.au/def/loci
 
 
 ## Contacts
