@@ -1,17 +1,17 @@
-# baseURI: https://linked.data.gov.au/def/loci
-# imports: https://linked.data.gov.au/def/geox
-# imports: http://schema.org/
+# baseURI: http://linked.data.gov.au/def/loci
+# imports: http://linked.data.gov.au/def/geox
+# imports: https://schema.org/
 # imports: http://vocab.deri.ie/void
 # prefix: loci
 
-@prefix asgs: <https://linked.data.gov.au/def/asgs#> .
+@prefix asgs: <http://linked.data.gov.au/def/asgs#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix geox: <https://linked.data.gov.au/def/geox#> .
-@prefix loci: <https://linked.data.gov.au/def/loci#> .
+@prefix geox: <http://linked.data.gov.au/def/geox#> .
+@prefix loci: <http://linked.data.gov.au/def/loci#> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prof: <http://www.w3.org/ns/dx/prof/> .
@@ -24,7 +24,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 
-<https://linked.data.gov.au/def/loci>
+<http://linked.data.gov.au/def/loci>
   a owl:Ontology ;
   a prof:Profile ;
   dcterms:created "2018-10-29"^^xsd:date ;
@@ -38,10 +38,10 @@
 
 The primary focus is on (a) datasets composed of multiple geospatial features (objects); (b) recording relationships between features, with metadata attached to reified rdf:Statements."""@en ;
   skos:prefLabel "Loc-I Ontology"@en ;
-  owl:imports <https://linked.data.gov.au/def/geox> ;
+  owl:imports <http://linked.data.gov.au/def/geox> ;
   owl:imports sdo: ;
   owl:imports <http://vocab.deri.ie/void> ;
-  owl:versionIRI <https://linked.data.gov.au/def/loci/1.1> ;
+  owl:versionIRI <http://linked.data.gov.au/def/loci/1.1> ;
   owl:versionInfo "Alpha version - AGOP-compliant"^^xsd:string ;
   prov:wasGeneratedBy [
       a doap:Project ;
