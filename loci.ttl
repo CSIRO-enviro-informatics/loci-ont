@@ -23,7 +23,7 @@
   dcterms:creator <https://orcid.org/0000-0002-8742-7730> ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
   dcterms:modified "2021-04-01"^^xsd:date ;
-  dcterms:publisher <http://linked.data.gov.au/org/csiro> ;  
+  dcterms:publisher <https://linked.data.gov.au/org/csiro> ;  
   dcterms:rights "(c) Commonwealth of Australia (CSIRO), 2021"^^xsd:string ;
   skos:definition """An ontology to describe spatial Linked Data resources as used within the [Loc-I project](https://www.ga.gov.au/locationindex).
 
@@ -200,14 +200,14 @@ The value should be taken from a controlled-vocabulary, and may be expressed as 
   skos:prefLabel "type"@en ;
 .
 
-<http://linked.data.gov.au/org/csiro>
+<https://linked.data.gov.au/org/csiro>
   a sdo:Organization ;
   sdo:name "CSIRO" ;
   sdo:subjectOf "https://www.csiro.au"^^xsd:anyURI ;
 .
 <https://orcid.org/0000-0002-3884-3420>
   a sdo:Person ;
-  sdo:affiliation <http://linked.data.gov.au/org/csiro> ;
+  sdo:affiliation <https://linked.data.gov.au/org/csiro> ;
   sdo:identifier "https://orcid.org/0000-0002-3884-3420"^^xsd:anyURI ;
   sdo:name "Simon JD Cox" ;
   sdo:subjectOf <https://people.csiro.au/C/S/simon-cox> ;
