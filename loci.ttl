@@ -37,7 +37,7 @@ The primary focus is on (a) datasets composed of multiple geospatial features (o
   owl:imports <http://www.opengis.net/ont/geosparql> ;
   owl:imports <http://www.w3.org/2006/time> ;
   owl:versionIRI <https://linked.data.gov.au/def/loci/2.0> ;
-  owl:versionInfo "2.0 alpha"@en ;
+  owl:versionInfo "1.2 alpha"@en ;
   skos:changeNote "2021-02-24 - revise relationship predicates - 1. basic relations contains, isWithin, isDisjointWith, isEquivalentTo 2. super-property sfRelation " ;
   skos:changeNote "2021-03-25 - Temporal tags - entityLifecycle for details of the thing in the world; recordLifecycle for details of the linked-data-representation" ;
   skos:changeNote "2021-03-25 - simple loci:hasArea property whose value is a structured literal (cdt:ucum)" ;
@@ -62,7 +62,7 @@ loci:Dataset
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcat:contactPoint ;
+      owl:onProperty rdfs:member ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -126,6 +126,8 @@ loci:Feature
       owl:onClass geo:Geometry ;
       owl:onProperty geo:hasGeometry ;
     ] ;
+  skos:definition "A Loc-I Feature is a GeoSPARQL Feature that has at least one Geometry, one persistent identifier, and is a member of a loci:Dataset"@en ;
+  skos:prefLabel "Loc-I Feature"@en ;
 .
 loci:Lifecycle
   a owl:Class ;
@@ -298,7 +300,9 @@ loci:hasArea
   a owl:DatatypeProperty ;
   rdfs:comment """This version of the 'has area' property allows the size to be encoded in compact form as a structured literal. 
 
-Area is an important property of Loc-I features, used in some re-apportionment algorithms. """ ;
+Area is an important property of Loc-I features, used in some re-apportionment algorithms. 
+
+Related to geo:hasArea but DatatypeProperty rather than ObjectProperty""" ;
   rdfs:domain loci:Feature ;
   rdfs:label "Area of spatial feature (entity)" ;
   rdfs:range cdt:ucum ;
@@ -338,6 +342,8 @@ loci:isMemberOf
       a owl:ObjectProperty ;
       owl:inverseOf rdfs:member ;
     ] ;
+  skos:definition "The context resource is a member of the target resource (a collection, aggregate or composite)"@en ;
+  skos:prefLabel "is member of"@en ;
 .
 loci:isWithin
   a owl:ObjectProperty ;
