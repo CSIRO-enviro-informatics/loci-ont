@@ -3,6 +3,7 @@
 # imports: http://vocab.deri.ie/void
 # imports: http://www.opengis.net/ont/geosparql
 # imports: http://www.w3.org/2006/time
+# prefix: loci
 
 @prefix cdt: <http://w3id.org/lindt/custom_datatypes#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
@@ -10,16 +11,39 @@
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix loci: <http://linked.data.gov.au/def/loci#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix prof: <http://www.w3.org/ns/dx/prof/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix schema: <https://schema.org/> .
+@prefix sdo: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<http://linked.data.gov.au/def/loci>
+  a owl:Ontology ;
+  dcterms:contributor <https://orcid.org/0000-0002-9265-6941> ;
+  dcterms:created "2018-10-29"^^xsd:date ;
+  dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
+  dcterms:creator <https://orcid.org/0000-0002-8742-7730> ;
+  dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+  dcterms:modified "2021-04-15"^^xsd:date ;
+  rdfs:comment """An ontology to govern Linked Data resources published within the [Loc-I](https://confluence.csiro.au/display/DIPAAnalyticHubs/Location+Integration+Capability+Loc-I) project.
+
+The primary focus is on (a) datasets composed of multiple geospatial features (objects); (b) recording relationships between features, with metadata attached to Linking Statements. """ ;
+  rdfs:label "Loc-I Ontology" ;
+  owl:imports <http://purl.org/dc/elements/1.1/> ;
+  owl:imports <http://vocab.deri.ie/void> ;
+  owl:imports <http://www.opengis.net/ont/geosparql> ;
+  owl:imports <http://www.w3.org/2006/time> ;
+  owl:versionIRI <https://linked.data.gov.au/def/loci/2.0> ;
+  owl:versionInfo "2.0 alpha"@en ;
+  skos:changeNote "2021-02-24 - revise relationship predicates - 1. basic relations contains, isWithin, isDisjointWith, isEquivalentTo 2. super-property sfRelation " ;
+  skos:changeNote "2021-03-25 - Temporal tags - entityLifecycle for details of the thing in the world; recordLifecycle for details of the linked-data-representation" ;
+  skos:changeNote "2021-03-25 - simple loci:hasArea property whose value is a structured literal (cdt:ucum)" ;
+  skos:changeNote "2021-04-15 - Update version information to 2.0 alpha" ;
+  sdo:codeRepository <https://github.com/CSIRO-enviro-informatics/loci-ont> ;
+.
 loci:Dataset
   a owl:Class ;
   rdfs:subClassOf void:Dataset ;
@@ -42,7 +66,7 @@ loci:Dataset
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:onClass schema:Organization ;
+      owl:onClass sdo:Organization ;
       owl:onProperty dcterms:publisher ;
       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
     ] ;
@@ -67,8 +91,7 @@ loci:Dataset
   skos:definition "A Loc-I Dataset is a DCAT and VOID Dataset that has been accepted by the Loc-I Registry Manager."@en ;
   skos:editorialNote "Membership of a loci:Dataset is (a) geo:Feature (Loc-I conformant) (b) loci:LinkingStatement (c) related types, such as PlaceNames"@en ;
   skos:prefLabel "Loc-I Dataset"@en ;
-  prof:isProfileOf <http://www.opengis.net/ont/geosparql> ;
-  schema:codeRepository <https://github.com/CSIRO-enviro-informatics/loci-ont> ;
+  sdo:codeRepository <https://github.com/CSIRO-enviro-informatics/loci-ont> ;
 .
 loci:Feature
   a owl:Class ;
@@ -269,7 +292,7 @@ loci:hadGenerationMethod
       prov:qualifiedAssociation
       prov:hadPlan
     ) ;
-  skos:editorialNote "This property is a property chain axiom equivalent to a chain of three properties in the PROV ontology: prov:wasGeneratedBy, prov:qualifiedAssociation and prof:hadPlan linking a prov:Entity (the thing generated) to a prov:Plan (the thin instruction generation - the method) via a prov:Activity (the generating event) and a prov:Association that the prov:Activity has linking it to the prov:Plan."@en ;
+  skos:editorialNote "This property is a property chain axiom equivalent to a chain of three properties in the PROV ontology: prov:wasGeneratedBy, prov:qualifiedAssociation and prov:hadPlan linking a prov:Entity (the thing generated) to a prov:Plan (the thin instruction generation - the method) via a prov:Activity (the generating event) and a prov:Association that the prov:Activity has linking it to the prov:Plan."@en ;
 .
 loci:hasArea
   a owl:DatatypeProperty ;
@@ -387,100 +410,44 @@ geo:sfWithin
   rdfs:subPropertyOf loci:isWithin ;
   rdfs:subPropertyOf loci:sfRelation ;
 .
-<http://linked.data.gov.au/def/loci>
-  a owl:Ontology ;
-  a prof:Profile ;
-  dcterms:contributor <https://orcid.org/0000-0002-9265-6941> ;
-  dcterms:created "2018-10-29"^^xsd:date ;
-  dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
-  dcterms:creator <https://orcid.org/0000-0002-8742-7730> ;
-  dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
-  dcterms:modified "2021-04-15"^^xsd:date ;
-  rdfs:comment """An ontology to govern Linked Data resources published within the [Loc-I](https://confluence.csiro.au/display/DIPAAnalyticHubs/Location+Integration+Capability+Loc-I) project.
-
-The primary focus is on (a) datasets composed of multiple geospatial features (objects); (b) recording relationships between features, with metadata attached to Linking Statements. """ ;
-  rdfs:label "Loc-I Ontology" ;
-  owl:imports <http://purl.org/dc/elements/1.1/> ;
-  owl:imports <http://vocab.deri.ie/void> ;
-  owl:imports <http://www.opengis.net/ont/geosparql> ;
-  owl:imports <http://www.w3.org/2006/time> ;
-  owl:versionIRI <https://linked.data.gov.au/def/loci/2.0> ;
-  owl:versionInfo "2.0 alpha"@en ;
-  skos:changeNote "2021-02-24 - revise relationship predicates - 1. basic relations contains, isWithin, isDisjointWith, isEquivalentTo 2. super-property sfRelation " ;
-  skos:changeNote "2021-03-25 - Temporal tags - entityLifecycle for details of the thing in the world; recordLifecycle for details of the linked-data-representation" ;
-  skos:changeNote "2021-03-25 - simple loci:hasArea property whose value is a structured literal (cdt:ucum)" ;
-  skos:changeNote "2021-04-15 - Update version information to 2.0 alpha" ;
-  prof:hasResource [
-      a prof:ResourceDescriptor ;
-      dcterms:format <https://w3id.org/mediatype/image/svg> ;
-      dcterms:title "Ontology overview diagram"@en ;
-      prof:hasArtifact <http://linked.data.gov.au/def/loci/images/loci.png> ;
-      prof:hasRole <http://www.w3.org/ns/dx/prof/role/guidance> ;
-    ] ;
-  prof:hasResource [
-      a prof:ResourceDescriptor ;
-      dcterms:format <https://w3id.org/mediatype/text/html> ;
-      dcterms:title "Guidance document"@en ;
-      prof:hasArtifact <http://linked.data.gov.au/def/loci/loci.html> ;
-      prof:hasRole <http://www.w3.org/ns/dx/prof/role/guidance> ;
-    ] ;
-  prof:hasResource [
-      a prof:ResourceDescriptor ;
-      dcterms:format <https://w3id.org/mediatype/text/turtle> ;
-      dcterms:title "Profile Specification"@en ;
-      prof:hasArtifact <http://linked.data.gov.au/def/loci/loci.ttl> ;
-      prof:hasRole <http://www.w3.org/ns/dx/prof/role/specification> ;
-    ] ;
-  prof:hasResource [
-      a prof:ResourceDescriptor ;
-      dcterms:format <https://w3id.org/mediatype/text/turtle> ;
-      dcterms:title "Validator Shapes graph"@en ;
-      prof:hasArtifact <http://linked.data.gov.au/def/loci/constraints.ttl> ;
-      prof:hasRole <http://www.w3.org/ns/dx/prof/role/constraints> ;
-    ] ;
-  prof:hasToken "loci"^^xsd:token ;
-  prof:isProfileOf <http://rdfs.org/ns/void> ;
-  prof:isProfileOf <http://www.opengis.net/ont/geosparql> ;
-  schema:codeRepository <https://github.com/CSIRO-enviro-informatics/loci-ont> ;
-.
 <https://orcid.org/0000-0002-3884-3420>
-  a schema:Person ;
-  schema:affiliation [
-      schema:identifier "http://catalogue.linked.data.gov.au/org/csiro"^^xsd:anyURI ;
-      schema:name "CSIRO" ;
+  a sdo:Person ;
+  sdo:affiliation [
+      sdo:identifier "http://catalogue.linked.data.gov.au/org/csiro"^^xsd:anyURI ;
+      sdo:name "CSIRO" ;
     ] ;
-  schema:email <mailto:simon.cox@csiro.au> ;
-  schema:identifier "https://orcid.org/0000-0002-3884-3420"^^xsd:anyURI ;
-  schema:name "Simon J D Cox" ;
-  schema:subjectOf <https://people.csiro.au/C/S/simon-cox> ;
+  sdo:email <mailto:simon.cox@csiro.au> ;
+  sdo:identifier "https://orcid.org/0000-0002-3884-3420"^^xsd:anyURI ;
+  sdo:name "Simon J D Cox" ;
+  sdo:subjectOf <https://people.csiro.au/C/S/simon-cox> ;
 .
 <https://orcid.org/0000-0002-4643-7289>
-  a schema:Person ;
-  schema:affiliation [
-      schema:identifier "http://catalogue.linked.data.gov.au/org/ga"^^xsd:anyURI ;
-      schema:name "Geoscience Australia" ;
+  a sdo:Person ;
+  sdo:affiliation [
+      sdo:identifier "http://catalogue.linked.data.gov.au/org/ga"^^xsd:anyURI ;
+      sdo:name "Geoscience Australia" ;
     ] ;
-  schema:email <mailto:irina.bastrakova@ga.gov.au> ;
-  schema:identifier "https://orcid.org/0000-0002-4643-7289"^^xsd:anyURI ;
-  schema:name "Irina Bastrakova" ;
+  sdo:email <mailto:irina.bastrakova@ga.gov.au> ;
+  sdo:identifier "https://orcid.org/0000-0002-4643-7289"^^xsd:anyURI ;
+  sdo:name "Irina Bastrakova" ;
 .
 <https://orcid.org/0000-0002-8742-7730>
-  a schema:Person ;
-  schema:affiliation [
-      schema:name "Surround Australia" ;
-      schema:uri <https://surroundaustralia.com/> ;
+  a sdo:Person ;
+  sdo:affiliation [
+      sdo:name "Surround Australia" ;
+      sdo:uri <https://surroundaustralia.com/> ;
     ] ;
-  schema:email <mailto:nicholas.car@surroundaustralia.com> ;
-  schema:identifier "https://orcid.org/0000-0002-8742-7730"^^xsd:anyURI ;
-  schema:name "Nicholas J Car" ;
+  sdo:email <mailto:nicholas.car@surroundaustralia.com> ;
+  sdo:identifier "https://orcid.org/0000-0002-8742-7730"^^xsd:anyURI ;
+  sdo:name "Nicholas J Car" ;
 .
 <https://orcid.org/0000-0003-3425-0780>
-  a schema:Person ;
-  schema:affiliation [
-      schema:identifier "http://catalogue.linked.data.gov.au/org/anu"^^xsd:anyURI ;
-      schema:name "Australian National University" ;
+  a sdo:Person ;
+  sdo:affiliation [
+      sdo:identifier "http://catalogue.linked.data.gov.au/org/anu"^^xsd:anyURI ;
+      sdo:name "Australian National University" ;
     ] ;
-  schema:email <mailto:armin.haller@anu.edu.au> ;
-  schema:identifier "https://orcid.org/0000-0003-3425-0780"^^xsd:anyURI ;
-  schema:name "Armin Haller" ;
+  sdo:email <mailto:armin.haller@anu.edu.au> ;
+  sdo:identifier "https://orcid.org/0000-0003-3425-0780"^^xsd:anyURI ;
+  sdo:name "Armin Haller" ;
 .
