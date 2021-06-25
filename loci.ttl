@@ -112,18 +112,16 @@ loci:Feature
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:identifier ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onClass loci:Dataset ;
       owl:onProperty loci:isMemberOf ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onClass geo:Geometry ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:identifier ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty geo:hasGeometry ;
     ] ;
   skos:definition "A Loc-I Feature is a GeoSPARQL Feature that has at least one Geometry, one persistent identifier, and is a member of a loci:Dataset"@en ;
